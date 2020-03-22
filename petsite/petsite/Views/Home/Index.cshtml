@@ -1,0 +1,47 @@
+﻿@using PetSite.ViewModels;
+
+@{
+    ViewData["Title"] = "Home Page";
+    @model PetDetails;
+}
+
+<section class="esh-catalog-hero">
+    <div class="container">
+        <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
+    </div>
+</section>
+
+<section class="esh-catalog-filters">
+    <div class="container">
+        <form method="get">
+            <label class="esh-catalog-label" data-title="Type">
+                <select name="selectedPetType" asp-for="@Model.Varieties.SelectedPetType" asp-items="@Model.Varieties.PetTypes" class="esh-catalog-filter"></select>
+            </label>
+            <label class="esh-catalog-label" data-title="Color">
+                <select name="selectedPetColor" asp-for="@Model.Varieties.SelectedPetColor" asp-items="@Model.Varieties.PetColors" class="esh-catalog-filter"></select>
+            </label>
+            <input class="esh-catalog-send" type="image" src="images/arrow-right.svg" />
+        </form>
+    </div>
+</section>
+
+
+<div class="container">
+    @if (Model.Pets.Any())
+    {
+        <div class="esh-catalog-items row">
+            @foreach (var pet in Model.Pets)
+            {
+                <div class="esh-catalog-item col-md-4">
+                    <partial name="_PetItem" for="@pet" />
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="esh-catalog-items row">
+            NO PETS AVAILABLE WITH THAT SEARCH CONDITION
+        </div>
+    }
+</div>

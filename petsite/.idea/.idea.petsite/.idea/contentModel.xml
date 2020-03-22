@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p=".dockerignore" t="Include" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="petsite" t="IncludeRecursive">
+        <e p="._bundleconfig.json" t="Include" />
+        <e p="._compilerconfig.json" t="Include" />
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="bundleconfig.json" t="Include" />
+        <e p="compilerconfig.json" t="Include" />
+        <e p="compilerconfig.json.defaults" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="AdoptionController.cs" t="Include" />
+          <e p="HealthController.cs" t="Include" />
+          <e p="HomeController.cs" t="Include" />
+          <e p="PaymentController.cs" t="Include" />
+        </e>
+        <e p="Dockerfile" t="Include" />
+        <e p="Models" t="Include">
+          <e p="ErrorViewModel.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.0" t="Include">
+              <e p="PetSite.AssemblyInfo.cs" t="Include" />
+              <e p="PetSite.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PetSite.csproj" t="IncludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="PutParams.cs" t="Include" />
+        <e p="SearchParams.cs" t="Include" />
+        <e p="Startup.cs" t="Include" />
+        <e p="ViewModels" t="Include">
+          <e p="Pets.cs" t="Include" />
+        </e>
+        <e p="Views" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Adoption" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Home" t="Include">
+            <e p="Index.cshtml" t="Include" />
+            <e p="Privacy.cshtml" t="Include" />
+          </e>
+          <e p="Payment" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="_PetItem.cshtml" t="Include" />
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="_variables.css" t="Include" />
+            <e p="_variables.min.css" t="Include" />
+            <e p="_variables.scss" t="Include" />
+            <e p="app.component.css" t="Include" />
+            <e p="app.component.min.css" t="Include" />
+            <e p="app.component.scss" t="Include" />
+            <e p="app.css" t="Include" />
+            <e p="app.min.css" t="Include" />
+            <e p="basket" t="Include">
+              <e p="basket-status" t="Include">
+                <e p="basket-status.component.css" t="Include" />
+                <e p="basket-status.component.min.css" t="Include" />
+                <e p="basket-status.component.scss" t="Include" />
+              </e>
+              <e p="basket.component.css" t="Include" />
+              <e p="basket.component.min.css" t="Include" />
+              <e p="basket.component.scss" t="Include" />
+            </e>
+            <e p="catalog" t="Include">
+              <e p="catalog.component.css" t="Include" />
+              <e p="catalog.component.min.css" t="Include" />
+              <e p="catalog.component.scss" t="Include" />
+              <e p="pager.css" t="Include" />
+            </e>
+            <e p="orders" t="Include">
+              <e p="orders.component.css" t="Include" />
+              <e p="orders.component.min.css" t="Include" />
+              <e p="orders.component.scss" t="Include" />
+            </e>
+            <e p="Shared" t="Include">
+              <e p="components" t="Include">
+                <e p="header" t="Include">
+                  <e p="header.css" t="Include" />
+                  <e p="header.min.css" t="Include" />
+                  <e p="header.scss" t="Include" />
+                </e>
+                <e p="identity" t="Include">
+                  <e p="identity.css" t="Include" />
+                  <e p="identity.min.css" t="Include" />
+                  <e p="identity.scss" t="Include" />
+                </e>
+                <e p="pager" t="Include">
+                  <e p="pager.css" t="Include" />
+                  <e p="pager.min.css" t="Include" />
+                  <e p="pager.scss" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="site.min.css" t="Include" />
+          </e>
+          <e p="css_old" t="Include">
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="fonts" t="Include">
+            <e p="Montserrat-Bold.eot" t="Include" />
+            <e p="Montserrat-Bold.svg" t="Include" />
+            <e p="Montserrat-Bold.ttf" t="Include" />
+            <e p="Montserrat-Bold.woff" t="Include" />
+            <e p="Montserrat-Bold.woff2" t="Include" />
+            <e p="Montserrat-Regular.eot" t="Include" />
+            <e p="Montserrat-Regular.svg" t="Include" />
+            <e p="Montserrat-Regular.ttf" t="Include" />
+            <e p="Montserrat-Regular.woff" t="Include" />
+            <e p="Montserrat-Regular.woff2" t="Include" />
+          </e>
+          <e p="images" t="Include">
+            <e p="arrow-down.png" t="Include" />
+            <e p="arrow-right.svg" t="Include" />
+            <e p="brand.png" t="Include" />
+            <e p="brand_old.png" t="Include" />
+            <e p="cart.png" t="Include" />
+            <e p="logout.png" t="Include" />
+            <e p="main_banner-old.png" t="Include" />
+            <e p="main_banner.png" t="Include" />
+            <e p="main_banner_text.png" t="Include" />
+            <e p="main_banner_text.svg" t="Include" />
+            <e p="main_banner_text_old.png" t="Include" />
+            <e p="my_orders.png" t="Include" />
+            <e p="products" t="Include">
+              <e p="1.png" t="Include" />
+              <e p="10.png" t="Include" />
+              <e p="11.png" t="Include" />
+              <e p="12.png" t="Include" />
+              <e p="2.png" t="Include" />
+              <e p="3.png" t="Include" />
+              <e p="4.png" t="Include" />
+              <e p="5.png" t="Include" />
+              <e p="6.png" t="Include" />
+              <e p="7.png" t="Include" />
+              <e p="8.png" t="Include" />
+              <e p="9.png" t="Include" />
+            </e>
+            <e p="refresh.svg" t="Include" />
+          </e>
+          <e p="js" t="Include">
+            <e p="site.js" t="Include" />
+            <e p="site.min.js" t="Include" />
+          </e>
+          <e p="lib" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="dist" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap-grid.css" t="Include" />
+                  <e p="bootstrap-grid.css.map" t="Include" />
+                  <e p="bootstrap-grid.min.css" t="Include" />
+                  <e p="bootstrap-grid.min.css.map" t="Include" />
+                  <e p="bootstrap-reboot.css" t="Include" />
+                  <e p="bootstrap-reboot.css.map" t="Include" />
+                  <e p="bootstrap-reboot.min.css" t="Include" />
+                  <e p="bootstrap-reboot.min.css.map" t="Include" />
+                  <e p="bootstrap.css" t="Include" />
+                  <e p="bootstrap.css.map" t="Include" />
+                  <e p="bootstrap.min.css" t="Include" />
+                  <e p="bootstrap.min.css.map" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="bootstrap.bundle.js" t="Include" />
+                  <e p="bootstrap.bundle.js.map" t="Include" />
+                  <e p="bootstrap.bundle.min.js" t="Include" />
+                  <e p="bootstrap.bundle.min.js.map" t="Include" />
+                  <e p="bootstrap.js" t="Include" />
+                  <e p="bootstrap.js.map" t="Include" />
+                  <e p="bootstrap.min.js" t="Include" />
+                  <e p="bootstrap.min.js.map" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE" t="Include" />
+            </e>
+            <e p="jquery" t="Include">
+              <e p="dist" t="Include">
+                <e p="jquery.js" t="Include" />
+                <e p="jquery.min.js" t="Include" />
+                <e p="jquery.min.map" t="Include" />
+              </e>
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+            <e p="jquery-validation" t="Include">
+              <e p="dist" t="Include">
+                <e p="additional-methods.js" t="Include" />
+                <e p="additional-methods.min.js" t="Include" />
+                <e p="jquery.validate.js" t="Include" />
+                <e p="jquery.validate.min.js" t="Include" />
+              </e>
+              <e p="LICENSE.md" t="Include" />
+            </e>
+            <e p="jquery-validation-unobtrusive" t="Include">
+              <e p="jquery.validate.unobtrusive.js" t="Include" />
+              <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="petsite.sln" t="IncludeFlat" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_petsite.-1695006737.00" t="ExcludeRecursive" />
+  </component>
+</project>

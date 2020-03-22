@@ -1,0 +1,10 @@
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.deps.json
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.runtimeconfig.json
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.runtimeconfig.dev.json
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.dll
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.pdb
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.csprojAssemblyReference.cache
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.AssemblyInfoInputs.cache
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.AssemblyInfo.cs
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.dll
+Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Release\netcoreapp2.1\rhel.7.2-x64\PetAdoptionNotifier.pdb

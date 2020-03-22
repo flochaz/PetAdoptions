@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{8D61CB32-2D08-4CE3-A595-6C0FE08D6A94}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="petsearch/Controllers/searchController.cs">
+    <Files>
+      <File FileName="petsearch/Dockerfile" Line="18" Column="39" />
+      <File FileName="petsearch/Controllers/HomeController.cs" />
+      <File FileName="petsearch/Controllers/searchController.cs" Line="8" Column="25" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="petsearch" expanded="True" />
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.petsearch PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
