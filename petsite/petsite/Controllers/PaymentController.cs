@@ -36,7 +36,6 @@ namespace PetSite.Controllers
         [HttpGet]
         private ActionResult Index()
         {
-         //   ViewData["txStatus"] = _txStatus;
             return View();
         }
 
@@ -51,24 +50,22 @@ namespace PetSite.Controllers
             {
                 AWSXRayRecorder.Instance.BeginSubsegment("Call Payment API");
                 
-                Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - In CompleteAdoption Action method - PetId : {petId}");
+                Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - In CompleteAdoption Action method - PetId:{petId} - PetType:{pettype}");
                 AWSXRayRecorder.Instance.AddAnnotation("PetId", petId);
+                AWSXRayRecorder.Instance.AddAnnotation("PetType", pettype);
+
                 
-                var result = await PostTransaction(petId);
+                var result = await PostTransaction(petId, pettype);
                 AWSXRayRecorder.Instance.EndSubsegment();
 
                 AWSXRayRecorder.Instance.BeginSubsegment("Post Message to SQS");
-                var messageResponse =  PostMessagetoSQS(petId).Result;
+                var messageResponse =  PostMessageToSQS(petId).Result;
                 AWSXRayRecorder.Instance.EndSubsegment();
                 
                 AWSXRayRecorder.Instance.BeginSubsegment("Send Notification");
                 var snsResponse =  SendNotification(petId).Result;
                 AWSXRayRecorder.Instance.EndSubsegment();
                 
-                AWSXRayRecorder.Instance.BeginSubsegment("Update Adoption Status");
-                var updateResponse =  UpdateAdoptionStatus(petId, pettype).Result;
-                AWSXRayRecorder.Instance.EndSubsegment();
-
                 return View("Index");
             }
             catch (Exception ex)
@@ -80,20 +77,12 @@ namespace PetSite.Controllers
             }
         }
 
-        private async Task<object> UpdateAdoptionStatus(string petId, string petType)
+        private async Task<HttpResponseMessage> PostTransaction(string petId, string pettype)
         {
-            var putParams = new PutParams() {petid = petId, pettype = petType};
-            
-            StringContent putData = new StringContent(JsonSerializer.Serialize(putParams));
-            return await _httpClient.PutAsync("https://3s920x41w3.execute-api.us-east-1.amazonaws.com/prod", putData);
+            return await _httpClient.PostAsync($"http://payforadoptions-542584011.us-east-1.elb.amazonaws.com/api/home/CompleteAdoption?petId={petId}&petType={pettype}", null);
         }
 
-        private async Task<HttpResponseMessage> PostTransaction(string petId)
-        {
-            return await _httpClient.PostAsync($"http://payforadoptions-542584011.us-east-1.elb.amazonaws.com/api/home/CompleteAdoption?petId={petId}", null);
-        }
-
-        private async Task<SendMessageResponse> PostMessagetoSQS(string petId)
+        private async Task<SendMessageResponse> PostMessageToSQS(string petId)
         {
             AWSSDKHandler.RegisterXRay<IAmazonSQS>();
             var sendMessageRequest = new SendMessageRequest()

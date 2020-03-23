@@ -90,7 +90,7 @@ namespace PetSite.Controllers
                 }
             };            
             AWSXRayRecorder.Instance.AddMetadata("results",PetDetails);
-            Console.WriteLine($" TraceId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}] | SegmentId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.Id}]-  {JsonSerializer.Serialize(PetDetails)}");
+            Console.WriteLine($" TraceId: [{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {JsonSerializer.Serialize(PetDetails)}");
 
             return View(PetDetails);
         }

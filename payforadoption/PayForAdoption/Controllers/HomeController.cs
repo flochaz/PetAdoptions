@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Amazon.XRay.Recorder.Handlers.AwsSdk;
 using Amazon.XRay.Recorder.Handlers.SqlServer;
 using System.Data.SqlClient;
+using System.Text.Json;
 using Amazon.XRay.Recorder.Handlers.System.Net;
 using Amazon.XRay.Recorder.Core;
 
@@ -27,12 +28,13 @@ namespace PayForAdoption.Controllers
         }
 
         [HttpPost("/api/home/CompleteAdoption")]
-        public string CompleteAdoption([FromQuery] string petId)
+        public string CompleteAdoption([FromQuery] string petId, string pettype)
         {
             try
             {
-                Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - In CompleteAdoption Action method - PetId : {petId}");
+                Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - In CompleteAdoption Action method - PetId:{petId} - PetType:{pettype}");
                 AWSXRayRecorder.Instance.AddAnnotation("PetId", petId);
+                AWSXRayRecorder.Instance.AddAnnotation("PetType", pettype);
                 
                 _sqlConnection.ConnectionString = "Server=petadoptions.cx0zrn5o9z2t.us-east-1.rds.amazonaws.com;Database=adoptions;User Id=admin;Password=6lvFKO3nTEK4AZD5mMiD;";
 
@@ -52,7 +54,7 @@ namespace PayForAdoption.Controllers
                 return e.Message;
             }
 
-            AWSXRayRecorder.Instance.TraceMethod("UpdateAvailability", () => UpdateAvailability(petId));
+            AWSXRayRecorder.Instance.TraceMethod("UpdateAvailability", () => UpdateAvailability(petId,pettype));
 
             return "Success";
         }
@@ -63,14 +65,24 @@ namespace PayForAdoption.Controllers
             return "Alive";
         }
 
-        private static async Task<string> UpdateAvailability(string petid)
+        private static async Task<string> UpdateAvailability(string petId, string pettype)
         {
+            AWSXRayRecorder.Instance.BeginSubsegment("Update Adoption Status");
+            var updateResponse =  UpdateAdoptionStatus(petId, pettype).Result;
+            AWSXRayRecorder.Instance.EndSubsegment();
+            
             AWSXRayRecorder.Instance.BeginSubsegment("Invoking Availability API");
-            //Do something here
-
             var result = await _httpClient.GetStringAsync("https://amazon.com");
             AWSXRayRecorder.Instance.EndSubsegment();
             return "Complete";
+        }
+        
+        private static async Task<object> UpdateAdoptionStatus(string petId, string petType)
+        {
+            var putParams = new PutParams() {petid = petId, pettype = petType};
+            
+            StringContent putData = new StringContent(JsonSerializer.Serialize(putParams));
+            return await _httpClient.PutAsync("https://3s920x41w3.execute-api.us-east-1.amazonaws.com/prod", putData);
         }
     }
 }

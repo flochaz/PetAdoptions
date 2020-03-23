@@ -36,7 +36,6 @@
         <e p="Properties" t="Include">
           <e p="launchSettings.json" t="Include" />
         </e>
-        <e p="PutParams.cs" t="Include" />
         <e p="SearchParams.cs" t="Include" />
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">

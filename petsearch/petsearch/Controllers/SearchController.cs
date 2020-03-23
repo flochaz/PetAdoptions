@@ -57,7 +57,7 @@ namespace PetSearch.Controllers
 
             try
             {
-                s3Client.EnsureBucketExistsAsync(_bucketName).RunSynchronously();
+                s3Client.EnsureBucketExistsAsync(_bucketName);
 
                 GetPreSignedUrlRequest request1 = new GetPreSignedUrlRequest
                 {
@@ -67,9 +67,6 @@ namespace PetSearch.Controllers
                 };
 
                 _urlString = s3Client.GetPreSignedURL(request1);
-
-               
-                
             }
             catch (AmazonS3Exception e)
             {
@@ -87,27 +84,26 @@ namespace PetSearch.Controllers
         };
 
         private Func<List<Dictionary<string, AttributeValue>>, string> BuildPets = (resultItems) =>
-             {
-                 var Pets = new List<Pet>();
+        {
+            var Pets = new List<Pet>();
 
-                 resultItems.ForEach(item => Pets.Add(new Pet()
-                 {
-                     petid = item["petid"].S,
-                     availability = item["availability"].S,
-                     cuteness_rate = item["cuteness_rate"].S,
-                     petcolor = item["petcolor"].S,
-                     pettype = item["pettype"].S,
-                     price = item["price"].S,
-                     peturl = GetPetURL(item["pettype"].S, item["image"].S)
-                 }));
+            resultItems.ForEach(item => Pets.Add(new Pet()
+            {
+                petid = item["petid"].S,
+                availability = item["availability"].S,
+                cuteness_rate = item["cuteness_rate"].S,
+                petcolor = item["petcolor"].S,
+                pettype = item["pettype"].S,
+                price = item["price"].S,
+                peturl = GetPetURL(item["pettype"].S, item["image"].S)
+            }));
 
-                 AWSXRayRecorder.Instance.AddMetadata("Pets", System.Text.Json.JsonSerializer.Serialize(Pets));
+            AWSXRayRecorder.Instance.AddMetadata("Pets", System.Text.Json.JsonSerializer.Serialize(Pets));
 
-                 Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {System.Text.Json.JsonSerializer.Serialize(Pets)}");
+            Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {JsonConvert.SerializeObject(Pets)}");
 
-                 return JsonConvert.SerializeObject(Pets);
-
-             };
+            return JsonConvert.SerializeObject(Pets);
+        };
 
         // Usage - GET: /api/search?pettype=puppy&petcolor=brown&petid=001
         [HttpGet]
@@ -115,6 +111,7 @@ namespace PetSearch.Controllers
         {
             try
             {
+                AWSXRayRecorder.Instance.BeginSubsegment("Scanning DynamoDB Table");
 
                 ScanFilter scanFilter = new ScanFilter();
 
@@ -132,6 +129,7 @@ namespace PetSearch.Controllers
                 Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {searchParams}");
 
                 var response = await ddbClient.ScanAsync(scanquery);
+                AWSXRayRecorder.Instance.EndSubsegment();
                 return BuildPets(response.Items);
             }
             catch (Exception e)
