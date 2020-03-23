@@ -44,6 +44,9 @@ namespace PetSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> MakePayment(string petId, string pettype)
         {
+            AWSXRayRecorder.Instance.AddMetadata("PetType", pettype);
+            AWSXRayRecorder.Instance.AddMetadata("PetId", petId);
+            
             ViewData["txStatus"] = "success";
         
             try

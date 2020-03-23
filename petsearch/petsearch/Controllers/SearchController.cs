@@ -70,13 +70,13 @@ namespace PetSearch.Controllers
             }
             catch (AmazonS3Exception e)
             {
-                Console.WriteLine("Error encountered on server. Message:'{0}'", e.Message);
+                Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - Error in accessing S3 bucket-{e.Message}");
                 AWSXRayRecorder.Instance.AddException(e);
                 throw e;
             }
             catch (Exception e)
             {
-                Console.WriteLine("Unknown encountered on server. Message:'{0}'", e.Message);
+                Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - Error-{e.Message}");
                 AWSXRayRecorder.Instance.AddException(e);
                 throw e;
             }

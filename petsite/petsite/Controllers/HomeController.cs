@@ -58,6 +58,10 @@ namespace PetSite.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string selectedPetType, string selectedPetColor, string petid)
         {
+            AWSXRayRecorder.Instance.AddMetadata("PetType", selectedPetType);
+            AWSXRayRecorder.Instance.AddMetadata("PetId", petid);
+            AWSXRayRecorder.Instance.AddMetadata("PetColor", selectedPetColor);
+
             AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API"); 
             Console.WriteLine($" TraceId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}] | SegmentId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.Id}]- Search string - PetType:{selectedPetType} PetColor:{selectedPetColor} PetId:{petid}");
             string result;

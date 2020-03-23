@@ -42,6 +42,10 @@ namespace PetSite.Controllers
         [HttpPost]
         public async Task<IActionResult> TakeMeHome([FromForm] SearchParams searchParams)
         {
+            AWSXRayRecorder.Instance.AddMetadata("PetType", searchParams.pettype);
+            AWSXRayRecorder.Instance.AddMetadata("PetId", searchParams.petid);
+            AWSXRayRecorder.Instance.AddMetadata("PetColor", searchParams.petcolor);
+            
             //String traceId = TraceId.NewId(); // This function is present in : Amazon.XRay.Recorder.Core.Internal.Entities
             AWSXRayRecorder.Instance
                 .BeginSubsegment("Calling Search API"); // custom traceId used while creating segment
