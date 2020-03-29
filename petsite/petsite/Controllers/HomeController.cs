@@ -13,6 +13,7 @@ using Amazon.XRay.Recorder.Core;
 using System.Text.Json;
 using PetSite.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Configuration;
 
 namespace PetSite.Controllers
 {
@@ -22,8 +23,11 @@ namespace PetSite.Controllers
         private static HttpClient _httpClient;
         private static Variety _variety = new Variety();
 
-        public HomeController(ILogger<HomeController> logger)
+        private IConfiguration _configuration;
+
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
+            _configuration = configuration;
             AWSSDKHandler.RegisterXRayForAllServices();
 
             _httpClient   = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
@@ -58,11 +62,12 @@ namespace PetSite.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string selectedPetType, string selectedPetColor, string petid)
         {
+            AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API"); 
+            
             AWSXRayRecorder.Instance.AddMetadata("PetType", selectedPetType);
             AWSXRayRecorder.Instance.AddMetadata("PetId", petid);
             AWSXRayRecorder.Instance.AddMetadata("PetColor", selectedPetColor);
-
-            AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API"); 
+            
             Console.WriteLine($" TraceId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}] | SegmentId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.Id}]- Search string - PetType:{selectedPetType} PetColor:{selectedPetColor} PetId:{petid}");
             string result;
 

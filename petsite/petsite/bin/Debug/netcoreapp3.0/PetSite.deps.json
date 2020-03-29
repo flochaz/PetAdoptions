@@ -34,6 +34,7 @@
           "AWSXRayRecorder.Handlers.AspNetCore": "2.6.2",
           "AWSXRayRecorder.Handlers.AwsSdk": "2.7.2",
           "AWSXRayRecorder.Handlers.System.Net": "2.6.2",
+          "Amazon.Extensions.Configuration.SystemsManager": "1.2.0",
           "BuildBundlerMinifier": "3.2.435",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
@@ -328,6 +329,23 @@
         },
         "compile": {
           "PetSite.dll": {}
+        }
+      },
+      "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+        "dependencies": {
+          "AWSSDK.Extensions.NETCore.Setup": "3.3.101",
+          "AWSSDK.SimpleSystemsManagement": "3.3.118.13",
+          "Microsoft.Extensions.Configuration": "3.0.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {}
         }
       },
       "AWSSDK.Core/3.3.104.38": {
@@ -3913,6 +3931,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n0XFdWQu2EQH5+PQ+HCA1CIwuYqYFe1wvzcYTy30uCC4mi0x7obH+mTm5kJguspyqO9owxND0PhP5siuw+CEpg==",
+      "path": "amazon.extensions.configuration.systemsmanager/1.2.0",
+      "hashPath": "amazon.extensions.configuration.systemsmanager.1.2.0.nupkg.sha512"
     },
     "AWSSDK.Core/3.3.104.38": {
       "type": "package",

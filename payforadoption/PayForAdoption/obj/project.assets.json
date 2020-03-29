@@ -2,6 +2,21 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Extensions.NETCore.Setup": "3.3.100.1",
+          "AWSSDK.SimpleSystemsManagement": "3.3.100.8",
+          "Microsoft.Extensions.Configuration": "2.0.2",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {}
+        }
+      },
       "AWSSDK.Core/3.3.104.34": {
         "type": "package",
         "compile": {
@@ -9,6 +24,33 @@
         },
         "runtime": {
           "lib/netstandard2.0/AWSSDK.Core.dll": {}
+        }
+      },
+      "AWSSDK.Extensions.NETCore.Setup/3.3.100.1": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.100, 3.4.0)",
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll": {}
+        }
+      },
+      "AWSSDK.SimpleSystemsManagement/3.3.100.8": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Core": "[3.3.100.7, 3.4.0)"
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.dll": {}
         }
       },
       "AWSSDK.XRay/3.3.101.129": {
@@ -2742,6 +2784,18 @@
     }
   },
   "libraries": {
+    "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+      "sha512": "n0XFdWQu2EQH5+PQ+HCA1CIwuYqYFe1wvzcYTy30uCC4mi0x7obH+mTm5kJguspyqO9owxND0PhP5siuw+CEpg==",
+      "type": "package",
+      "path": "amazon.extensions.configuration.systemsmanager/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "amazon.extensions.configuration.systemsmanager.1.2.0.nupkg.sha512",
+        "amazon.extensions.configuration.systemsmanager.nuspec",
+        "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll"
+      ]
+    },
     "AWSSDK.Core/3.3.104.34": {
       "sha512": "1nOaNHXV6XzOiBHioAwBUezqt5lWuolD0AsEPG+RL4KXub0CZ9OeZLgtwC6u85kOWvuj17VBWrmYm1x1zs3fcA==",
       "type": "package",
@@ -2789,6 +2843,61 @@
         "lib/wpa81/AWSSDK.Core.dll",
         "lib/wpa81/AWSSDK.Core.pdb",
         "tools/account-management.ps1"
+      ]
+    },
+    "AWSSDK.Extensions.NETCore.Setup/3.3.100.1": {
+      "sha512": "KrMhRur0x5X8sSkRSVKt7iEwdsMqu8sa5zqTOhaxEw52r/YaqiiRgw0hNcNCObpm2gQAASewlIVfaBitGjHlUw==",
+      "type": "package",
+      "path": "awssdk.extensions.netcore.setup/3.3.100.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "awssdk.extensions.netcore.setup.3.3.100.1.nupkg.sha512",
+        "awssdk.extensions.netcore.setup.nuspec",
+        "lib/netstandard1.3/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/netstandard1.3/AWSSDK.Extensions.NETCore.Setup.pdb",
+        "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.dll",
+        "lib/netstandard2.0/AWSSDK.Extensions.NETCore.Setup.pdb"
+      ]
+    },
+    "AWSSDK.SimpleSystemsManagement/3.3.100.8": {
+      "sha512": "1CLQt6CGKf0Jg4U1IjIMzrx7mg1aMb121pAwwBagzph65ZKGSANWC221lnP+UOn8bnou86Gy+3owzc8kjlPRaw==",
+      "type": "package",
+      "path": "awssdk.simplesystemsmanagement/3.3.100.8",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "analyzers/dotnet/cs/AWSSDK.SimpleSystemsManagement.CodeAnalysis.dll",
+        "awssdk.simplesystemsmanagement.3.3.100.8.nupkg.sha512",
+        "awssdk.simplesystemsmanagement.nuspec",
+        "lib/MonoAndroid10/AWSSDK.SimpleSystemsManagement.XML",
+        "lib/MonoAndroid10/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/MonoTouch10/AWSSDK.SimpleSystemsManagement.XML",
+        "lib/MonoTouch10/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/MonoTouch10/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/Xamarin.iOS10/AWSSDK.SimpleSystemsManagement.XML",
+        "lib/Xamarin.iOS10/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/net35/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/net35/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/net35/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/net45/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/net45/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/net45/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/netstandard1.3/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/netstandard1.3/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/netstandard1.3/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.xml",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SimpleSystemsManagement.XML",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/portable-net45+win8+wpa81+wp8/AWSSDK.SimpleSystemsManagement.pdb",
+        "lib/uap/AWSSDK.SimpleSystemsManagement.XML",
+        "lib/uap/AWSSDK.SimpleSystemsManagement.dll",
+        "lib/uap/AWSSDK.SimpleSystemsManagement.pdb",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "AWSSDK.XRay/3.3.101.129": {
@@ -8800,6 +8909,7 @@
       "AWSXRayRecorder.Handlers.AwsSdk >= 2.7.2",
       "AWSXRayRecorder.Handlers.SqlServer >= 2.6.2",
       "AWSXRayRecorder.Handlers.System.Net >= 2.6.2",
+      "Amazon.Extensions.Configuration.SystemsManager >= 1.2.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0",
@@ -8866,6 +8976,10 @@
           "AWSXRayRecorder.Handlers.System.Net": {
             "target": "Package",
             "version": "[2.6.2, )"
+          },
+          "Amazon.Extensions.Configuration.SystemsManager": {
+            "target": "Package",
+            "version": "[1.2.0, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",

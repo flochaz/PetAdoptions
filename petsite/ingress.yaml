@@ -1,18 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: "petsite-ingress"
-  namespace: "default"
-  annotations:
-    kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: internet-facing
-  labels:
-    app: petsite-ingress
+  name: petsite-ingress
+  namespace: default
 spec:
-  rules:
-    - http:
-        paths:
-          - path: /*
-            backend:
-              serviceName: "service-petsite"
-              servicePort: 80
+  backend:
+    serviceName: service-petsite
+    servicePort: 80

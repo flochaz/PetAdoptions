@@ -22,5 +22,6 @@
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">/Users/ijaganna/.nuget/packages/microsoft.entityframeworkcore.tools/3.0.0</PkgMicrosoft_EntityFrameworkCore_Tools>
     <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">/Users/ijaganna/.nuget/packages/awssdk.core/3.3.104.34</PkgAWSSDK_Core>
     <PkgAWSSDK_XRay Condition=" '$(PkgAWSSDK_XRay)' == '' ">/Users/ijaganna/.nuget/packages/awssdk.xray/3.3.101.129</PkgAWSSDK_XRay>
+    <PkgAWSSDK_SimpleSystemsManagement Condition=" '$(PkgAWSSDK_SimpleSystemsManagement)' == '' ">/Users/ijaganna/.nuget/packages/awssdk.simplesystemsmanagement/3.3.100.8</PkgAWSSDK_SimpleSystemsManagement>
   </PropertyGroup>
 </Project>

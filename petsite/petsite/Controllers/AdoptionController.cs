@@ -9,17 +9,23 @@ using Amazon.XRay.Recorder.Handlers.AwsSdk;
 using Amazon.XRay.Recorder.Handlers.System.Net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using PetSite.ViewModels;
 
 namespace PetSite.Controllers
 {
     public class AdoptionController : Controller
     {
-        private static readonly HttpClient _httpClient = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
+        private static readonly HttpClient HttpClient = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
         private static Variety _variety = new Variety();
+        private static IConfiguration _configuration;
 
-        public AdoptionController()
+        private static string _searchApiurl;
+
+        public AdoptionController(IConfiguration configuration)
         {
+            _configuration = configuration;
+            _searchApiurl = _configuration["searchapiurl"];
             AWSSDKHandler.RegisterXRayForAllServices();
         }
         // GET: Adoption
@@ -30,13 +36,13 @@ namespace PetSite.Controllers
         }
         private async Task<string> GetPetDetails(SearchParams searchParams)
         {
-            string searchUri = string.Empty;
+            string searchString = string.Empty;
 
-            if (!String.IsNullOrEmpty(searchParams.pettype) && searchParams.pettype != "all") searchUri = $"pettype={searchParams.pettype}";
-            if (!String.IsNullOrEmpty(searchParams.petcolor) && searchParams.petcolor != "all") searchUri = $"&{searchUri}&petcolor={searchParams.petcolor}";
-            if (!String.IsNullOrEmpty(searchParams.petid) && searchParams.petid != "all") searchUri = $"&{searchUri}&petid={searchParams.petid}";
+            if (!String.IsNullOrEmpty(searchParams.pettype) && searchParams.pettype != "all") searchString = $"pettype={searchParams.pettype}";
+            if (!String.IsNullOrEmpty(searchParams.petcolor) && searchParams.petcolor != "all") searchString = $"&{searchString}&petcolor={searchParams.petcolor}";
+            if (!String.IsNullOrEmpty(searchParams.petid) && searchParams.petid != "all") searchString = $"&{searchString}&petid={searchParams.petid}";
 
-            return await _httpClient.GetStringAsync($"http://petsearch-prod.us-east-1.elasticbeanstalk.com/api/search?{searchUri}");
+            return await HttpClient.GetStringAsync($"{_searchApiurl}{searchString}");
         }
 
         [HttpPost]

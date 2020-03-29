@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Text.Json;
 using Amazon.XRay.Recorder.Handlers.System.Net;
 using Amazon.XRay.Recorder.Core;
+using Microsoft.Extensions.Configuration;
 
 namespace PayForAdoption.Controllers
 {
@@ -21,9 +22,10 @@ namespace PayForAdoption.Controllers
     {
         private static SqlConnection _sqlConnection = new SqlConnection();
         private static HttpClient _httpClient = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
-
-        public HomeController()
+        private static IConfiguration _configuration;
+        public HomeController(IConfiguration configuration)
         {
+            _configuration = configuration;
             AWSSDKHandler.RegisterXRayForAllServices();
         }
 
@@ -36,7 +38,7 @@ namespace PayForAdoption.Controllers
                 AWSXRayRecorder.Instance.AddAnnotation("PetId", petId);
                 AWSXRayRecorder.Instance.AddAnnotation("PetType", pettype);
                 
-                _sqlConnection.ConnectionString = "Server=petadoptions.cx0zrn5o9z2t.us-east-1.rds.amazonaws.com;Database=adoptions;User Id=admin;Password=6lvFKO3nTEK4AZD5mMiD;";
+                _sqlConnection.ConnectionString = _configuration["rdsconnectionstring"];
 
                 var sqlCommandText = $"INSERT INTO [dbo].[transactions] ([PetId], [Transaction_Id], [Adoption_Date]) VALUES ('{petId}', '{Guid.NewGuid().ToString()}', '{DateTime.Now.ToString()}')";
 
@@ -59,12 +61,6 @@ namespace PayForAdoption.Controllers
             return "Success";
         }
 
-        [HttpGet("/api/home/healthcheck")]
-        public string HealthCheck()
-        {
-            return "Alive";
-        }
-
         private static async Task<string> UpdateAvailability(string petId, string pettype)
         {
             AWSXRayRecorder.Instance.BeginSubsegment("Update Adoption Status");
@@ -82,7 +78,7 @@ namespace PayForAdoption.Controllers
             var putParams = new PutParams() {petid = petId, pettype = petType};
             
             StringContent putData = new StringContent(JsonSerializer.Serialize(putParams));
-            return await _httpClient.PutAsync("https://3s920x41w3.execute-api.us-east-1.amazonaws.com/prod", putData);
+            return await _httpClient.PutAsync(_configuration["updateadoptionstatusurl"], putData);
         }
     }
 }

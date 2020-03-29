@@ -1,21 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "petsite-deployment"
-  namespace: "default"
+  name: petsite-deployment
+  namespace: default
 spec:
   selector:
     matchLabels:
-      app: "petsite"
+      app: petsite
   replicas: 2
   template:
     metadata:
       labels:
-        app: "petsite"
+        app: petsite
     spec:
       containers:
       - image: 831210339789.dkr.ecr.us-east-1.amazonaws.com/petsite:latest
         imagePullPolicy: Always
-        name: "petsite"
+        name: petsite
         ports:
         - containerPort: 80
+          protocol: TCP
+        env:
+          - name: AWS_XRAY_DAEMON_ADDRESS
+            value: xray-service.default

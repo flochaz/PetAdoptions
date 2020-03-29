@@ -2,6 +2,21 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.0": {
+      "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+        "type": "package",
+        "dependencies": {
+          "AWSSDK.Extensions.NETCore.Setup": "3.3.100.1",
+          "AWSSDK.SimpleSystemsManagement": "3.3.100.8",
+          "Microsoft.Extensions.Configuration": "2.0.2",
+          "Newtonsoft.Json": "10.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {}
+        }
+      },
       "AWSSDK.Core/3.3.104.38": {
         "type": "package",
         "compile": {
@@ -2762,6 +2777,18 @@
     }
   },
   "libraries": {
+    "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+      "sha512": "n0XFdWQu2EQH5+PQ+HCA1CIwuYqYFe1wvzcYTy30uCC4mi0x7obH+mTm5kJguspyqO9owxND0PhP5siuw+CEpg==",
+      "type": "package",
+      "path": "amazon.extensions.configuration.systemsmanager/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "amazon.extensions.configuration.systemsmanager.1.2.0.nupkg.sha512",
+        "amazon.extensions.configuration.systemsmanager.nuspec",
+        "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll"
+      ]
+    },
     "AWSSDK.Core/3.3.104.38": {
       "sha512": "lZWLT9vabI+z1amGdVXhmKsMn4MhRtfU7J9kmn2rA6HHhVk4w9cI9o6uqQ2Rt6IhhQOMnpVeAtMiioFegXSN+g==",
       "type": "package",
@@ -8857,6 +8884,7 @@
       "AWSXRayRecorder.Handlers.AspNetCore >= 2.6.2",
       "AWSXRayRecorder.Handlers.AwsSdk >= 2.7.2",
       "AWSXRayRecorder.Handlers.System.Net >= 2.6.2",
+      "Amazon.Extensions.Configuration.SystemsManager >= 1.2.0",
       "BuildBundlerMinifier >= 3.2.435",
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
@@ -8943,6 +8971,10 @@
           "AWSXRayRecorder.Handlers.System.Net": {
             "target": "Package",
             "version": "[2.6.2, )"
+          },
+          "Amazon.Extensions.Configuration.SystemsManager": {
+            "target": "Package",
+            "version": "[1.2.0, )"
           },
           "BuildBundlerMinifier": {
             "target": "Package",

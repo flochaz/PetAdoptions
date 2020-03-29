@@ -554,3 +554,4 @@ Z:/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.CopyC
 Z:/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.dll
 Z:/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb
 /Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/AWSSDK.SimpleNotificationService.dll
+/Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/Amazon.Extensions.Configuration.SystemsManager.dll
