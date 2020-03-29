@@ -1,53 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../ekscluster.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/petsite.sln.DotSettings.user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/Amazon.Extensions.Configuration.SystemsManager.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../xray-daemon/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../xray-daemon/xray-k8s-daemonset.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/PayForAdoption.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/PayForAdoption.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/project.razor.json" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/project.razor.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/PayForAdoption.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/PayForAdoption.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/PayForAdoption.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/PayForAdoption.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/PayForAdoption.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/PayForAdoption.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/deployment.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ingress.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ingress.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Controllers/AdoptionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/AdoptionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/PetSite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/PetSite.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/service.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xray-k8s-daemonset.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/xray-k8s-daemonset_old.yaml" beforeDir="false" />
-    </list>
+    <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +104,7 @@
       <updated>1584288847782</updated>
       <workItem from="1584288851006" duration="5101000" />
       <workItem from="1584363304748" duration="13000" />
-      <workItem from="1584363326295" duration="34221000" />
+      <workItem from="1584363326295" duration="34976000" />
     </task>
     <servers />
   </component>

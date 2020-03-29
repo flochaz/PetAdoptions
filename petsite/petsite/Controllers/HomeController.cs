@@ -56,7 +56,7 @@ namespace PetSite.Controllers
             if (!String.IsNullOrEmpty(petcolor) && petcolor != "all") searchUri = $"&{searchUri}&petcolor={petcolor}";
             if (!String.IsNullOrEmpty(petid) && petid != "all") searchUri = $"&{searchUri}&petid={petid}";
 
-            return await _httpClient.GetStringAsync($"http://petsearch-prod.us-east-1.elasticbeanstalk.com/api/search?{searchUri}");
+            return await _httpClient.GetStringAsync($"{_configuration["searchapiurl"]}{searchUri}");
         }
 
         [HttpGet]
