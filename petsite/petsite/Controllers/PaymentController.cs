@@ -45,7 +45,7 @@ namespace PetSite.Controllers
 
         // POST: Payment/MakePayment
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public async Task<IActionResult> MakePayment(string petId, string pettype)
         {
             AWSXRayRecorder.Instance.AddMetadata("PetType", pettype);
