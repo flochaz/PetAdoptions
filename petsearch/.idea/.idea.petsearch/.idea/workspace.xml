@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2aa4bbe-6178-4ce7-ad04-f155f49391ea" name="Default Changelist" comment="" />
+    <list default="true" id="d2aa4bbe-6178-4ce7-ad04-f155f49391ea" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../petlistadoptions/petlistadoptions/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../petlistadoptions/petlistadoptions/petlistadoptions/AdoptionItem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../petlistadoptions/petlistadoptions/petlistadoptions/Controllers/AdoptionListController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_PetItem.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_PetItem.cshtml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/petsearch/Controllers/searchController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsearch/Controllers/SearchController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsearch/Pet.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -18,6 +43,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZDAQvzeJQN9gcO9g45XjOGusjK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -26,6 +52,7 @@
   <component name="PropertiesComponent">
     <property name="Rider.SolutionExplorerActivator" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.PetSearch">
@@ -72,10 +99,22 @@
       <updated>1584363279067</updated>
       <workItem from="1584363282433" duration="43000" />
       <workItem from="1584366748977" duration="874000" />
+      <workItem from="1585575609355" duration="1491000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

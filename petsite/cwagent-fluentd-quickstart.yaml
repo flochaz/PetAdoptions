@@ -14,7 +14,7 @@ metadata:
   name: cloudwatch-agent
   namespace: amazon-cloudwatch
 
---- 
+---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -68,7 +68,7 @@ data:
       "logs": {
         "metrics_collected": {
           "kubernetes": {
-            "cluster_name": "PetAdoptionSite",
+            "cluster_name": "petsite",
             "metrics_collection_interval": 60
           }
         },
@@ -99,7 +99,7 @@ spec:
     spec:
       containers:
         - name: cloudwatch-agent
-          image: amazon/cloudwatch-agent:1.230621.0
+          image: amazon/cloudwatch-agent:1.231221.0
           #ports:
           #  - containerPort: 8125
           #    hostPort: 8125
@@ -126,7 +126,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: CI_VERSION
-              value: "k8s/1.0.1"
+              value: "k8s/1.1.0"
           # Please don't change the mountPath
           volumeMounts:
             - name: cwagentconfig
@@ -171,10 +171,10 @@ spec:
 ---
 
 # create configmap for cluster name and aws region for CloudWatch Logs
-# need to replace the placeholders PetAdoptionSite and us-east-1
+# need to replace the placeholders petsite and us-east-1
 apiVersion: v1
 data:
-  cluster.name: PetAdoptionSite
+  cluster.name: petsite
   logs.region: us-east-1
 kind: ConfigMap
 metadata:
@@ -575,7 +575,7 @@ spec:
                   name: cluster-info
                   key: cluster.name
             - name: CI_VERSION
-              value: "k8s/1.0.1"
+              value: "k8s/1.1.0"
           resources:
             limits:
               memory: 400Mi
