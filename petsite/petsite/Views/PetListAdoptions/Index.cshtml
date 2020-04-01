@@ -1,18 +1,33 @@
-@model TModel
+@model List<Pet>
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Pet Adoption List";
 }
 
-<!DOCTYPE html>
+<section class="esh-catalog-hero">
+    <div class="container">
+        <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
+    </div>
+</section>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+
+<div class="container">
+    @if (Model.Any())
+    {
+        <div class="esh-catalog-items row">
+            @foreach (var pet in Model)
+            {
+                <div class="esh-catalog-item col-md-4">
+                    <partial name="_AdoptionItem" for="@pet" />
+                </div>
+                <hr/>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="esh-catalog-items row">
+            No adoption data retreived
+        </div>
+    }
 </div>
-</body>
-</html>

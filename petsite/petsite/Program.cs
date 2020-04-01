@@ -20,10 +20,11 @@ namespace PetSite
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
-                .ConfigureAppConfiguration(config =>
-                {
-                    config.AddSystemsManager("/petstore");
-                });
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+
+        // .ConfigureAppConfiguration(config =>
+        // {
+        //     config.AddSystemsManager("/petstore");
+        //});
     }
 }

@@ -18,6 +18,7 @@
           <e p="HealthController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
           <e p="PaymentController.cs" t="Include" />
+          <e p="PetListAdoptionsController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
         <e p="Models" t="Include">
@@ -54,7 +55,11 @@
           <e p="Payment" t="Include">
             <e p="Index.cshtml" t="Include" />
           </e>
+          <e p="PetListAdoptions" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
           <e p="Shared" t="Include">
+            <e p="_AdoptionItem.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_PetItem.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
