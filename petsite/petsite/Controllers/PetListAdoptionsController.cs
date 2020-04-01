@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PetSite.Models;
-
 using Amazon.XRay.Recorder.Handlers.AwsSdk;
 using System.Net.Http;
 using Amazon.XRay.Recorder.Handlers.System.Net;
@@ -28,13 +27,14 @@ namespace PetSite.Controllers
             _configuration = configuration;
             AWSSDKHandler.RegisterXRayForAllServices();
 
-            _httpClient   = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
+            _httpClient = new HttpClient(new HttpClientXRayTracingHandler(new HttpClientHandler()));
         }
+
         // GET
         public async Task<IActionResult> Index()
         {
-            AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API"); 
-           
+            AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API");
+
             string result;
 
             List<Pet> Pets = new List<Pet>();
@@ -42,11 +42,9 @@ namespace PetSite.Controllers
             try
             {
                 Console.WriteLine("About to call PetListadoptions");
-                // result=  await _httpClient.GetStringAsync($"{_configuration["petlistadoptionsurl"]}");
-                result=  await _httpClient.GetStringAsync($"http://PetListAdoptions-156515356.us-east-1.elb.amazonaws.com/api/adoptionlist");
-                 Pets = JsonSerializer.Deserialize<List<Pet>>(result);
-                 Console.WriteLine("out of PetListadoptions :" + Pets.Count.ToString());
-
+                result = await _httpClient.GetStringAsync($"{_configuration["petlistadoptionsurl"]}");
+                Pets = JsonSerializer.Deserialize<List<Pet>>(result);
+                Console.WriteLine("out of PetListadoptions :" + Pets.Count.ToString());
             }
             catch (Exception e)
             {
