@@ -21,7 +21,6 @@ namespace PetSite.Controllers
         private static HttpClient _httpClient;
         private IConfiguration _configuration;
 
-
         public PetListAdoptionsController(IConfiguration configuration)
         {
             _configuration = configuration;
@@ -33,18 +32,16 @@ namespace PetSite.Controllers
         // GET
         public async Task<IActionResult> Index()
         {
-            AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API");
-
+            AWSXRayRecorder.Instance.BeginSubsegment("Calling PetListAdoptions");
+            
             string result;
 
             List<Pet> Pets = new List<Pet>();
 
             try
             {
-                Console.WriteLine("About to call PetListadoptions");
                 result = await _httpClient.GetStringAsync($"{_configuration["petlistadoptionsurl"]}");
                 Pets = JsonSerializer.Deserialize<List<Pet>>(result);
-                Console.WriteLine("out of PetListadoptions :" + Pets.Count.ToString());
             }
             catch (Exception e)
             {

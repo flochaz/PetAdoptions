@@ -6,6 +6,20 @@
       <change beforePath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/petsite/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/PetListAdoptions/Index.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/PetListAdoptions/Index.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_AdoptionItem.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_AdoptionItem.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,15 +61,15 @@
         <option value="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" />
         <option value="$PROJECT_DIR$/petsite/ViewModels/Pets.cs" />
-        <option value="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Properties/launchSettings.json" />
         <option value="$PROJECT_DIR$/petsite/Startup.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" />
-        <option value="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" />
+        <option value="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" />
+        <option value="$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" />
         <option value="$PROJECT_DIR$/petsite/Program.cs" />
         <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
-        <option value="$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" />
+        <option value="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" />
       </list>
     </option>
   </component>
@@ -124,7 +138,7 @@
       <workItem from="1584363326295" duration="38153000" />
       <workItem from="1585575539800" duration="66000" />
       <workItem from="1585576090326" duration="3394000" />
-      <workItem from="1585750447382" duration="9035000" />
+      <workItem from="1585750447382" duration="9838000" />
     </task>
     <servers />
   </component>
@@ -157,30 +171,30 @@
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state x="143" y="123" width="1197" height="677" key="DiffContextDialog/43.23.1397.877@43.23.1397.877" timestamp="1584306854306" />
-    <state width="1357" height="229" key="GridCell.Tab.0.bottom" timestamp="1585771487999">
+    <state width="1357" height="229" key="GridCell.Tab.0.bottom" timestamp="1585773617943">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state width="1750" height="673" key="GridCell.Tab.0.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585759548728" />
     <state width="1341" height="215" key="GridCell.Tab.0.bottom/42.23.1398.877@42.23.1398.877" timestamp="1585511287760" />
-    <state width="1357" height="229" key="GridCell.Tab.0.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585771487999" />
-    <state width="1357" height="229" key="GridCell.Tab.0.center" timestamp="1585771487998">
+    <state width="1357" height="229" key="GridCell.Tab.0.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585773617943" />
+    <state width="1357" height="229" key="GridCell.Tab.0.center" timestamp="1585773617942">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state width="1750" height="673" key="GridCell.Tab.0.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585759548728" />
     <state width="1341" height="215" key="GridCell.Tab.0.center/42.23.1398.877@42.23.1398.877" timestamp="1585511287759" />
-    <state width="1357" height="229" key="GridCell.Tab.0.center/43.23.1397.877@43.23.1397.877" timestamp="1585771487998" />
-    <state width="1357" height="229" key="GridCell.Tab.0.left" timestamp="1585771487997">
+    <state width="1357" height="229" key="GridCell.Tab.0.center/43.23.1397.877@43.23.1397.877" timestamp="1585773617942" />
+    <state width="1357" height="229" key="GridCell.Tab.0.left" timestamp="1585773617941">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state width="1750" height="673" key="GridCell.Tab.0.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585759548727" />
     <state width="1341" height="215" key="GridCell.Tab.0.left/42.23.1398.877@42.23.1398.877" timestamp="1585511287758" />
-    <state width="1357" height="229" key="GridCell.Tab.0.left/43.23.1397.877@43.23.1397.877" timestamp="1585771487997" />
-    <state width="1357" height="229" key="GridCell.Tab.0.right" timestamp="1585771487998">
+    <state width="1357" height="229" key="GridCell.Tab.0.left/43.23.1397.877@43.23.1397.877" timestamp="1585773617941" />
+    <state width="1357" height="229" key="GridCell.Tab.0.right" timestamp="1585773617942">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state width="1750" height="673" key="GridCell.Tab.0.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585759548728" />
     <state width="1341" height="215" key="GridCell.Tab.0.right/42.23.1398.877@42.23.1398.877" timestamp="1585511287759" />
-    <state width="1357" height="229" key="GridCell.Tab.0.right/43.23.1397.877@43.23.1397.877" timestamp="1585771487998" />
+    <state width="1357" height="229" key="GridCell.Tab.0.right/43.23.1397.877@43.23.1397.877" timestamp="1585773617942" />
     <state width="1357" height="323" key="GridCell.Tab.1.bottom" timestamp="1585770624549">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
@@ -280,24 +294,5 @@
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
     <state x="1170" y="297" width="1532" height="876" key="find.popup/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585756994645" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs</url>
-          <line>50</line>
-          <properties documentPath="$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" initialLine="52">
-            <startOffsets>
-              <option value="1625" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1666" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
