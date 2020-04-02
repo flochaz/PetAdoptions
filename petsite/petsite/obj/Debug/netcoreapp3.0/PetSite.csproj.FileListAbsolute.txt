@@ -557,3 +557,4 @@ Z:/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb
 /Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/Amazon.Extensions.Configuration.SystemsManager.dll
 /Users/ijaganna/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/PetListAdoptions/Index.cshtml.g.cs
 /Users/ijaganna/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_AdoptionItem.cshtml.g.cs
+/Users/ijaganna/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Home/HouseKeeping.cshtml.g.cs

@@ -5,6 +5,11 @@ var AWS = AWSXRay.captureAWS(require('aws-sdk'));
 var documentClient = new AWS.DynamoDB.DocumentClient();
 
 exports.handler = function (event, context, callback) {
+    var availability="yes";
+    if(event.petavailability === undefined)
+    {
+        availability="no";
+    }
     var params = {
         TableName: process.env.TABLE_NAME,
         Key: {
@@ -13,7 +18,7 @@ exports.handler = function (event, context, callback) {
         },
         UpdateExpression: "set availability = :r",
         ExpressionAttributeValues: {
-            ":r": "no"
+            ":r": availability
         }, ReturnValues: "UPDATED_NEW"
     };
 

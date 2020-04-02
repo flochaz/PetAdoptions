@@ -2,24 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a24367d1-445e-4408-a456-8d2574a08a4a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Home/HouseKeeping.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PayForAdoption/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PayForAdoption/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PayForAdoption/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PayForAdoption/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_PetItem.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_PetItem.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../xray-daemon/xray-k8s-daemonset.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../xray-daemon/xray-k8s-daemonset.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/SearchParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/SearchParams.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/PayForAdoption/Startup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PayForAdoption/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../petsite/petsite/Controllers/HomeController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PayForAdoption/Controllers/HealthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PayForAdoption/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/PayForAdoption/PutParams.cs" root0="FORCE_HIGHLIGHTING" />
@@ -113,6 +115,7 @@
       <workItem from="1584623688711" duration="6793000" />
       <workItem from="1584971614482" duration="6477000" />
       <workItem from="1585745966510" duration="755000" />
+      <workItem from="1585785686188" duration="3355000" />
     </task>
     <servers />
   </component>

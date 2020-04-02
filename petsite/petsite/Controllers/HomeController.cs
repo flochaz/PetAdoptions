@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -57,6 +58,29 @@ namespace PetSite.Controllers
             if (!String.IsNullOrEmpty(petcolor) && petcolor != "all") searchUri = $"&{searchUri}&petcolor={petcolor}";
             if (!String.IsNullOrEmpty(petid) && petid != "all") searchUri = $"&{searchUri}&petid={petid}";
             return await _httpClient.GetStringAsync($"{_configuration["searchapiurl"]}{searchUri}");
+        }
+
+        [HttpGet("housekeeping")]
+        public async Task<IActionResult> HouseKeeping()
+        {
+            var result = await GetPetDetails(null, null, null);
+            var Pets = JsonSerializer.Deserialize<List<Pet>>(result);
+
+            var searchParams = new SearchParams();
+
+            foreach (var pet in Pets.Where(item => item.availability == "no"))
+            {
+                searchParams.pettype = pet.pettype;
+                searchParams.petid = pet.petid;
+                searchParams.petavailability = "yes";
+
+                StringContent putData = new StringContent(JsonSerializer.Serialize(searchParams));
+                await _httpClient.PutAsync(_configuration["updateadoptionstatusurl"], putData);
+            }
+
+            await _httpClient.PostAsync($"{_configuration["cleanupadoptionsurl"]}", null);
+
+            return View();
         }
 
         [HttpGet]

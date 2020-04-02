@@ -28,7 +28,7 @@ namespace PayForAdoption.Controllers
             AWSSDKHandler.RegisterXRayForAllServices();
         }
 
-        [HttpPost("/api/home/CompleteAdoption")]
+        [HttpPost("CompleteAdoption")]
         public string CompleteAdoption([FromQuery] string petId, string pettype)
         {
             try
@@ -58,6 +58,23 @@ namespace PayForAdoption.Controllers
             AWSXRayRecorder.Instance.TraceMethod("UpdateAvailability", () => UpdateAvailability(petId,pettype));
 
             return "Success";
+        }
+        
+        [HttpPost("CleanUpAdoptions")]
+        public void CleanupAdoptions()
+        {
+            _sqlConnection.ConnectionString = _configuration["rdsconnectionstring"];
+
+            var sqlCommandText = $"DELETE FROM [dbo].[transactions]";
+
+            AWSXRayRecorder.Instance.AddMetadata("Query",sqlCommandText);
+    
+            using (_sqlConnection)
+            {
+                using var command = new TraceableSqlCommand(sqlCommandText, _sqlConnection);
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
         }
 
         private static async Task<string> UpdateAvailability(string petId, string pettype)
