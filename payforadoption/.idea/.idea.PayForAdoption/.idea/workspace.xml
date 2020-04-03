@@ -2,25 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a24367d1-445e-4408-a456-8d2574a08a4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Home/HouseKeeping.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PayForAdoption/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PayForAdoption/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PayForAdoption/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PayForAdoption/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/SearchParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/SearchParams.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
