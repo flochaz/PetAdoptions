@@ -11,6 +11,7 @@ using System.Net.Http;
 using Amazon.XRay.Recorder.Handlers.System.Net;
 using Amazon.XRay.Recorder.Core;
 using System.Text.Json;
+using Amazon;
 using PetSite.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,7 @@ namespace PetSite.Controllers
 
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
+            AWSXRayRecorder.RegisterLogger(LoggingOptions.Console);
             _configuration = configuration;
             AWSSDKHandler.RegisterXRayForAllServices();
 
@@ -86,6 +88,8 @@ namespace PetSite.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string selectedPetType, string selectedPetColor, string petid)
         {
+            Console.WriteLine($"AWS_XRAY_DAEMON_ADDRESS:- {Environment.GetEnvironmentVariable("AWS_XRAY_DAEMON_ADDRESS")}");
+            
             AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API");
 
             AWSXRayRecorder.Instance.AddMetadata("PetType", selectedPetType);

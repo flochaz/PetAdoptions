@@ -2,25 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kubernetes/xray-daemon/xray-k8s-daemonset.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/SearchParams.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/SearchParams.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +42,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/petsite/appsettings.json" />
         <option value="$PROJECT_DIR$/petsite/Controllers/Health.cs" />
         <option value="$PROJECT_DIR$/petsite/Controllers/HealthController.cs" />
         <option value="$PROJECT_DIR$/petsite/PutParams.cs" />
@@ -64,7 +51,6 @@
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" />
         <option value="$PROJECT_DIR$/petsite/ViewModels/Pets.cs" />
         <option value="$PROJECT_DIR$/petsite/Properties/launchSettings.json" />
-        <option value="$PROJECT_DIR$/petsite/Startup.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" />
@@ -73,8 +59,11 @@
         <option value="$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" />
         <option value="$PROJECT_DIR$/petsite/SearchParams.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/petsite/Program.cs" />
+        <option value="$PROJECT_DIR$/petsite/appsettings.json" />
+        <option value="$PROJECT_DIR$/petsite/Startup.cs" />
+        <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
+        <option value="$PROJECT_DIR$/petsite/Dockerfile" />
       </list>
     </option>
   </component>
@@ -144,6 +133,7 @@
       <workItem from="1585575539800" duration="66000" />
       <workItem from="1585576090326" duration="3394000" />
       <workItem from="1585750447382" duration="16393000" />
+      <workItem from="1586265179613" duration="2354000" />
     </task>
     <servers />
   </component>

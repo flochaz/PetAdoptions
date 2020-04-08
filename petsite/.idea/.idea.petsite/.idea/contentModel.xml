@@ -21,6 +21,19 @@
           <e p="PetListAdoptionsController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
+        <e p="kubernetes" t="Include">
+          <e p="alb-ingress-controller.yaml" t="Include" />
+          <e p="cwagent-fluentd-quickstart.yaml" t="Include" />
+          <e p="deployment.yaml" t="Include" />
+          <e p="ekscluster.yaml" t="Include" />
+          <e p="ingress.yaml" t="Include" />
+          <e p="rbac-role.yaml" t="Include" />
+          <e p="service.yaml" t="Include" />
+          <e p="xray-daemon" t="Include">
+            <e p="Dockerfile" t="Include" />
+            <e p="xray-daemon-config.yaml" t="Include" />
+          </e>
+        </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
         </e>
