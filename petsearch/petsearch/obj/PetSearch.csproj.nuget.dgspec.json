@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj": {}
+    "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj": {}
   },
   "projects": {
-    "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj": {
+    "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj",
+        "projectUniqueName": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj",
         "projectName": "PetSearch",
-        "projectPath": "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj",
-        "packagesPath": "/Users/ijaganna/.nuget/packages/",
-        "outputPath": "/Users/ijaganna/code/petadoption/petsearch/petsearch/obj/",
+        "projectPath": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj",
+        "packagesPath": "C:\\Users\\ijaganna\\.nuget\\packages\\",
+        "outputPath": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/ijaganna/.config/NuGet/NuGet.Config"
+          "C:\\Users\\ijaganna\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -100,12 +102,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.0.1, 3.0.1]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -114,7 +110,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -15,6 +15,7 @@ using Amazon.S3;
 using Amazon.S3.Model;
 using Amazon.XRay.Recorder.Handlers.AwsSdk;
 using Amazon.XRay.Recorder.Core;
+using System.Threading;
 
 namespace PetSearch.Controllers
 {
@@ -98,7 +99,7 @@ namespace PetSearch.Controllers
                 peturl = GetPetURL(item["pettype"].S, item["image"].S)
             }));
 
-            AWSXRayRecorder.Instance.AddMetadata("Pets", System.Text.Json.JsonSerializer.Serialize(Pets));
+            AWSXRayRecorder.Instance.AddMetadata("Pets", Pets);
 
             Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {JsonConvert.SerializeObject(Pets)}");
 
@@ -124,6 +125,10 @@ namespace PetSearch.Controllers
                     TableName = S3TableName,
                     ScanFilter = scanFilter.ToConditions()
                 };
+
+                // This is an intentional delay introduced for demo purposes. Helps showcase XRay anayltics
+                // and Group Alarms feature
+                if (!String.IsNullOrEmpty(searchParams.pettype) && searchParams.pettype == "bunny") Thread.Sleep(3000);
 
                 AWSXRayRecorder.Instance.AddAnnotation("Query", $"petcolor:{searchParams.petcolor}-pettype:{searchParams.pettype}-petid:{searchParams.petid}");
                 Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {searchParams}");

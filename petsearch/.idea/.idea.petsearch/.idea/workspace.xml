@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2aa4bbe-6178-4ce7-ad04-f155f49391ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../petlistadoptions/petlistadoptions/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../petlistadoptions/petlistadoptions/petlistadoptions/AdoptionItem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../petlistadoptions/petlistadoptions/petlistadoptions/Controllers/AdoptionListController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/.idea/.idea.PayForAdoption/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/Controllers/HomeController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsearch/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/Controllers/SearchController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/PetSearch.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsearch/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_PetItem.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsite/petsite/Views/Shared/_PetItem.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +24,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/petsearch/Controllers/searchController.cs" />
+        <option value="$PROJECT_DIR$/petsearch/Controllers/SearchController.cs" />
       </list>
     </option>
   </component>
@@ -100,6 +86,7 @@
       <workItem from="1584363282433" duration="43000" />
       <workItem from="1584366748977" duration="874000" />
       <workItem from="1585575609355" duration="1491000" />
+      <workItem from="1586448207021" duration="1519000" />
     </task>
     <servers />
   </component>
@@ -111,7 +98,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
