@@ -41,6 +41,9 @@
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.9.5",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
+          "prometheus-net": "3.5.0",
+          "prometheus-net.AspNetCore": "3.5.0",
+          "prometheus-net.DotNetRuntime": "3.3.1",
           "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
@@ -1224,6 +1227,50 @@
         },
         "compile": {
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
+        }
+      },
+      "prometheus-net/3.5.0": {
+        "runtime": {
+          "lib/netcoreapp2.1/Prometheus.NetCore.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.5.0.0"
+          },
+          "lib/netcoreapp2.1/Prometheus.NetStandard.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.5.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp2.1/Prometheus.NetCore.dll": {},
+          "lib/netcoreapp2.1/Prometheus.NetStandard.dll": {}
+        }
+      },
+      "prometheus-net.AspNetCore/3.5.0": {
+        "dependencies": {
+          "prometheus-net": "3.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Prometheus.AspNetCore.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.5.0.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Prometheus.AspNetCore.dll": {}
+        }
+      },
+      "prometheus-net.DotNetRuntime/3.3.1": {
+        "dependencies": {
+          "prometheus-net": "3.5.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.dll": {
+            "assemblyVersion": "3.3.1.0",
+            "fileVersion": "3.3.1.0"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -4421,6 +4468,27 @@
       "sha512": "sha512-qbXaB76XYUVLocLBs8Z9TS/ERGK2wm797feO+0JEPFvT7o7MRadOR77mqaSD4J1k8G+DlZQyq+MlkCuxrkr3ag==",
       "path": "nuget.frameworks/4.7.0",
       "hashPath": "nuget.frameworks.4.7.0.nupkg.sha512"
+    },
+    "prometheus-net/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8f9TyVpT8jy4Yp5GoHwj45t17l4fuJq3/sXXsuaX/iB5HmX9mZoVn2Bb6pGyCzImL+Z15KgBcJmRHlYEF5f98g==",
+      "path": "prometheus-net/3.5.0",
+      "hashPath": "prometheus-net.3.5.0.nupkg.sha512"
+    },
+    "prometheus-net.AspNetCore/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OyNpmFHzENOqYbqZiaxlcGc17PFdCSr06S9eqm5HRUokNrL/51dty6qi+l7eb9uFismUPGw28aRivrA49Do+gA==",
+      "path": "prometheus-net.aspnetcore/3.5.0",
+      "hashPath": "prometheus-net.aspnetcore.3.5.0.nupkg.sha512"
+    },
+    "prometheus-net.DotNetRuntime/3.3.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GwpWmg54LTxi2Y0OpGvgkgpEhA1mXTdJ3XR0IRjMVOlY2wgtTCjJk6J9OjCzpB0qk4EvzH+lrPTtr47TD5C1Ww==",
+      "path": "prometheus-net.dotnetruntime/3.3.1",
+      "hashPath": "prometheus-net.dotnetruntime.3.3.1.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

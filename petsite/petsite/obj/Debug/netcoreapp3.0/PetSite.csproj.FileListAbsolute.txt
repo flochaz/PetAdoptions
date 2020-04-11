@@ -558,3 +558,7 @@ Z:/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb
 /Users/ijaganna/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/PetListAdoptions/Index.cshtml.g.cs
 /Users/ijaganna/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_AdoptionItem.cshtml.g.cs
 /Users/ijaganna/code/petadoption/petsite/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Home/HouseKeeping.cshtml.g.cs
+/Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/Prometheus.NetCore.dll
+/Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/Prometheus.NetStandard.dll
+/Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/Prometheus.AspNetCore.dll
+/Users/ijaganna/code/petadoption/petsite/petsite/bin/Debug/netcoreapp3.0/prometheus-net.DotNetRuntime.dll

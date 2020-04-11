@@ -1084,6 +1084,41 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "prometheus-net/3.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.1/Prometheus.NetCore.dll": {},
+          "lib/netcoreapp2.1/Prometheus.NetStandard.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/Prometheus.NetCore.dll": {},
+          "lib/netcoreapp2.1/Prometheus.NetStandard.dll": {}
+        }
+      },
+      "prometheus-net.AspNetCore/3.5.0": {
+        "type": "package",
+        "dependencies": {
+          "prometheus-net": "3.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/Prometheus.AspNetCore.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Prometheus.AspNetCore.dll": {}
+        }
+      },
+      "prometheus-net.DotNetRuntime/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "prometheus-net": "3.1.2"
+        },
+        "compile": {
+          "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
         "type": "package",
         "runtimeTargets": {
@@ -4506,6 +4541,73 @@
         "lib/netstandard1.6/NuGet.Frameworks.xml",
         "nuget.frameworks.4.7.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
+      ]
+    },
+    "prometheus-net/3.5.0": {
+      "sha512": "8f9TyVpT8jy4Yp5GoHwj45t17l4fuJq3/sXXsuaX/iB5HmX9mZoVn2Bb6pGyCzImL+Z15KgBcJmRHlYEF5f98g==",
+      "type": "package",
+      "path": "prometheus-net/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/prometheus-net-logo.png",
+        "lib/net461/Prometheus.NetStandard.dll",
+        "lib/net461/Prometheus.NetStandard.pdb",
+        "lib/net461/Prometheus.NetStandard.xml",
+        "lib/netcoreapp2.1/Prometheus.NetCore.deps.json",
+        "lib/netcoreapp2.1/Prometheus.NetCore.dll",
+        "lib/netcoreapp2.1/Prometheus.NetCore.pdb",
+        "lib/netcoreapp2.1/Prometheus.NetCore.xml",
+        "lib/netcoreapp2.1/Prometheus.NetStandard.deps.json",
+        "lib/netcoreapp2.1/Prometheus.NetStandard.dll",
+        "lib/netcoreapp2.1/Prometheus.NetStandard.pdb",
+        "lib/netcoreapp2.1/Prometheus.NetStandard.xml",
+        "lib/netstandard2.0/Prometheus.NetStandard.deps.json",
+        "lib/netstandard2.0/Prometheus.NetStandard.dll",
+        "lib/netstandard2.0/Prometheus.NetStandard.pdb",
+        "lib/netstandard2.0/Prometheus.NetStandard.xml",
+        "prometheus-net.3.5.0.nupkg.sha512",
+        "prometheus-net.nuspec"
+      ]
+    },
+    "prometheus-net.AspNetCore/3.5.0": {
+      "sha512": "OyNpmFHzENOqYbqZiaxlcGc17PFdCSr06S9eqm5HRUokNrL/51dty6qi+l7eb9uFismUPGw28aRivrA49Do+gA==",
+      "type": "package",
+      "path": "prometheus-net.aspnetcore/3.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/prometheus-net-logo.png",
+        "lib/netcoreapp3.0/Prometheus.AspNetCore.deps.json",
+        "lib/netcoreapp3.0/Prometheus.AspNetCore.dll",
+        "lib/netcoreapp3.0/Prometheus.AspNetCore.pdb",
+        "lib/netcoreapp3.0/Prometheus.AspNetCore.xml",
+        "lib/netstandard2.0/Prometheus.AspNetCore.deps.json",
+        "lib/netstandard2.0/Prometheus.AspNetCore.dll",
+        "lib/netstandard2.0/Prometheus.AspNetCore.pdb",
+        "lib/netstandard2.0/Prometheus.AspNetCore.xml",
+        "prometheus-net.aspnetcore.3.5.0.nupkg.sha512",
+        "prometheus-net.aspnetcore.nuspec"
+      ]
+    },
+    "prometheus-net.DotNetRuntime/3.3.1": {
+      "sha512": "GwpWmg54LTxi2Y0OpGvgkgpEhA1mXTdJ3XR0IRjMVOlY2wgtTCjJk6J9OjCzpB0qk4EvzH+lrPTtr47TD5C1Ww==",
+      "type": "package",
+      "path": "prometheus-net.dotnetruntime/3.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.2/prometheus-net.DotNetRuntime.dll",
+        "lib/netcoreapp2.2/prometheus-net.DotNetRuntime.pdb",
+        "lib/netcoreapp2.2/prometheus-net.DotNetRuntime.xml",
+        "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.dll",
+        "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.pdb",
+        "lib/netcoreapp3.0/prometheus-net.DotNetRuntime.xml",
+        "lib/netstandard2.1/prometheus-net.DotNetRuntime.dll",
+        "lib/netstandard2.1/prometheus-net.DotNetRuntime.pdb",
+        "lib/netstandard2.1/prometheus-net.DotNetRuntime.xml",
+        "prometheus-net.dotnetruntime.3.3.1.nupkg.sha512",
+        "prometheus-net.dotnetruntime.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
@@ -8890,7 +8992,10 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0",
       "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.9.5",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0",
+      "prometheus-net >= 3.5.0",
+      "prometheus-net.AspNetCore >= 3.5.0",
+      "prometheus-net.DotNetRuntime >= 3.3.1"
     ]
   },
   "packageFolders": {
@@ -9001,6 +9106,18 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "prometheus-net": {
+            "target": "Package",
+            "version": "[3.5.0, )"
+          },
+          "prometheus-net.AspNetCore": {
+            "target": "Package",
+            "version": "[3.5.0, )"
+          },
+          "prometheus-net.DotNetRuntime": {
+            "target": "Package",
+            "version": "[3.3.1, )"
           }
         },
         "imports": [

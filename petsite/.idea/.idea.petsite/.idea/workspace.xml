@@ -3,23 +3,40 @@
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide-wal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.0/PetSearch.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.0/PetSearch.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.0/PetSearch.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.0/PetSearch.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.0/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.0/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/PetSite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/PetSite.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/Razor/Views/Shared/_Layout.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/project.packagespec.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +75,6 @@
         <option value="$PROJECT_DIR$/petsite/PutParams.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Controllers/AdoptionController.cs" />
-        <option value="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" />
         <option value="$PROJECT_DIR$/petsite/ViewModels/Pets.cs" />
         <option value="$PROJECT_DIR$/petsite/Properties/launchSettings.json" />
@@ -70,11 +86,12 @@
         <option value="$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" />
         <option value="$PROJECT_DIR$/petsite/SearchParams.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" />
-        <option value="$PROJECT_DIR$/petsite/Program.cs" />
         <option value="$PROJECT_DIR$/petsite/appsettings.json" />
-        <option value="$PROJECT_DIR$/petsite/Startup.cs" />
-        <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/petsite/Dockerfile" />
+        <option value="$PROJECT_DIR$/petsite/Startup.cs" />
+        <option value="$PROJECT_DIR$/petsite/Program.cs" />
+        <option value="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" />
+        <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
       </list>
     </option>
   </component>
@@ -94,7 +111,7 @@
     <property name="TWShift.3" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.PetSite">
     <configuration name="PetSite" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -146,7 +163,10 @@
       <workItem from="1585750447382" duration="16393000" />
       <workItem from="1586265179613" duration="2354000" />
       <workItem from="1586376051898" duration="70000" />
-      <workItem from="1586448860891" duration="1110000" />
+      <workItem from="1586448860891" duration="1863000" />
+      <workItem from="1586539661380" duration="4213000" />
+      <workItem from="1586603505682" duration="485000" />
+      <workItem from="1586605697546" duration="4396000" />
     </task>
     <servers />
   </component>
@@ -283,15 +303,15 @@
     </state>
     <state width="1357" height="323" key="GridCell.Tab.4.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585834811694" />
     <state width="1357" height="323" key="GridCell.Tab.4.right/43.23.1397.877@43.23.1397.877" timestamp="1585770624552" />
-    <state x="421" y="242" key="Rider.ProjectTemplateDialog.Size" timestamp="1585664135727">
+    <state x="421" y="242" key="Rider.ProjectTemplateDialog.Size" timestamp="1586544056653">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state x="1362" y="369" key="Rider.ProjectTemplateDialog.Size/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1584391464933" />
-    <state x="421" y="242" key="Rider.ProjectTemplateDialog.Size/43.23.1397.877@43.23.1397.877" timestamp="1585664135727" />
-    <state x="69" y="23" width="1139" height="877" key="SettingsEditor" timestamp="1585513258885">
-      <screen x="42" y="23" width="1398" height="877" />
+    <state x="421" y="242" key="Rider.ProjectTemplateDialog.Size/43.23.1397.877@43.23.1397.877" timestamp="1586544056653" />
+    <state x="1071" y="213" width="1139" height="877" key="SettingsEditor" timestamp="1586606019073">
+      <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state x="1071" y="213" key="SettingsEditor/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585236460111" />
+    <state x="1071" y="213" key="SettingsEditor/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1586606019073" />
     <state x="69" y="23" key="SettingsEditor/42.23.1398.877@42.23.1398.877" timestamp="1585513258885" />
     <state x="70" y="23" width="1139" height="877" key="SettingsEditor/43.23.1397.877@43.23.1397.877" timestamp="1585503243858" />
     <state width="895" height="708" key="XDebugger.FullValuePopup" timestamp="1585759200206">

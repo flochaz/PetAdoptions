@@ -15,6 +15,7 @@ using Amazon;
 using PetSite.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
+using Prometheus;
 
 namespace PetSite.Controllers
 {
@@ -25,6 +26,25 @@ namespace PetSite.Controllers
         private static Variety _variety = new Variety();
 
         private IConfiguration _configuration;
+
+        //Prometheus metric to count the number of searches performed
+        private static readonly Counter PetSearchCount =
+            Metrics.CreateCounter("petsite_petsearches_total", "Count the number of searches performed");
+
+        //Prometheus metric to count the number of puppy searches performed
+        private static readonly Counter PuppySearchCount =
+            Metrics.CreateCounter("petsite_pet_puppy_searches_total", "Count the number of puppy searches performed");
+
+        //Prometheus metric to count the number of kitten searches performed
+        private static readonly Counter KittenSearchCount =
+            Metrics.CreateCounter("petsite_pet_kitten_searches_total", "Count the number of kitten searches performed");
+
+        //Prometheus metric to count the number of bunny searches performed
+        private static readonly Counter BunnySearchCount =
+            Metrics.CreateCounter("petsite_pet_bunny_searches_total", "Count the number of bunny searches performed");
+
+        private static readonly Gauge PetsWaitingForAdoption = Metrics
+            .CreateGauge("petsite_pets_waiting_for_adoption", "Number of pets waiting for adoption.");
 
         public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
@@ -59,6 +79,23 @@ namespace PetSite.Controllers
             if (!String.IsNullOrEmpty(pettype) && pettype != "all") searchUri = $"pettype={pettype}";
             if (!String.IsNullOrEmpty(petcolor) && petcolor != "all") searchUri = $"&{searchUri}&petcolor={petcolor}";
             if (!String.IsNullOrEmpty(petid) && petid != "all") searchUri = $"&{searchUri}&petid={petid}";
+
+            switch (pettype)
+            {
+                case "puppy":
+                    PuppySearchCount.Inc();
+                    PetSearchCount.Inc();
+                    break;
+                case "kitten":
+                    KittenSearchCount.Inc();
+                    PetSearchCount.Inc();
+                    break;
+                case "bunny":
+                    BunnySearchCount.Inc();
+                    PetSearchCount.Inc();
+                    break;
+            }
+
             return await _httpClient.GetStringAsync($"{_configuration["searchapiurl"]}{searchUri}");
         }
 
@@ -88,8 +125,9 @@ namespace PetSite.Controllers
         [HttpGet]
         public async Task<IActionResult> Index(string selectedPetType, string selectedPetColor, string petid)
         {
-            Console.WriteLine($"AWS_XRAY_DAEMON_ADDRESS:- {Environment.GetEnvironmentVariable("AWS_XRAY_DAEMON_ADDRESS")}");
-            
+            Console.WriteLine(
+                $"AWS_XRAY_DAEMON_ADDRESS:- {Environment.GetEnvironmentVariable("AWS_XRAY_DAEMON_ADDRESS")}");
+
             AWSXRayRecorder.Instance.BeginSubsegment("Calling Search API");
 
             AWSXRayRecorder.Instance.AddMetadata("PetType", selectedPetType);
@@ -127,9 +165,12 @@ namespace PetSite.Controllers
                     SelectedPetType = selectedPetType
                 }
             };
-            AWSXRayRecorder.Instance.AddMetadata("results", PetDetails);
+            AWSXRayRecorder.Instance.AddMetadata("results", System.Text.Json.JsonSerializer.Serialize(PetDetails));
             Console.WriteLine(
                 $" TraceId: [{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {JsonSerializer.Serialize(PetDetails)}");
+
+            // Sets the metric value to the number of pets available for adoption at the moment
+            PetsWaitingForAdoption.IncTo(Pets.Where(pet => pet.availability == "yes").Count());
 
             return View(PetDetails);
         }
