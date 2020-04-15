@@ -1,8 +1,8 @@
 {
-  "name": "petsite",
+  "name": "pet_stack",
   "version": "0.1.0",
   "bin": {
-    "petsite": "bin/petsite.js"
+    "pet_stack": "bin/pet_stack.js"
   },
   "scripts": {
     "build": "tsc",
@@ -21,7 +21,14 @@
     "typescript": "~3.7.2"
   },
   "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.32.2",
+    "@aws-cdk/aws-dynamodb": "^1.32.2",
+    "@aws-cdk/aws-lambda": "^1.32.2",
+    "@aws-cdk/aws-sns": "^1.32.2",
+    "@aws-cdk/aws-sns-subscriptions": "^1.32.2",
+    "@aws-cdk/aws-sqs": "^1.32.2",
     "@aws-cdk/core": "1.32.2",
+    "aws-cdk-dynamodb-seeder": "^1.30.0",
     "source-map-support": "^0.5.16"
   }
 }
