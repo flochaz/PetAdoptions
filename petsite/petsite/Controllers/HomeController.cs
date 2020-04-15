@@ -170,7 +170,7 @@ namespace PetSite.Controllers
                 $" TraceId: [{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {JsonSerializer.Serialize(PetDetails)}");
 
             // Sets the metric value to the number of pets available for adoption at the moment
-            PetsWaitingForAdoption.IncTo(Pets.Where(pet => pet.availability == "yes").Count());
+            PetsWaitingForAdoption.Set(Pets.Where(pet => pet.availability == "yes").Count());
 
             return View(PetDetails);
         }
