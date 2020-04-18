@@ -3,6 +3,7 @@ import * as lambda from '@aws-cdk/aws-lambda';
 import * as apigw from '@aws-cdk/aws-apigateway';
 import * as iam from '@aws-cdk/aws-iam';
 import { removeListener } from 'cluster';
+import { Method } from '@aws-cdk/aws-apigateway';
 
 
 export class PetStatusUpdater extends cdk.Stack {
@@ -22,24 +23,36 @@ export class PetStatusUpdater extends cdk.Stack {
       handler: 'index.handler',
       tracing: lambda.Tracing.ACTIVE,
       role: iamrole,
+      description: 'Update Pet availability status',
       environment:
       {
         "TABLE_NAME": "petadoptions"
       }
     });
+    
 
 
     // const plain = new apigw.RestApi(this, 'sdfsd', {
     //   restApiName: 'PetAdoptionStatusUpdater',
-    //   defaultIntegration: new apigw.LambdaIntegration(petstatusupdater, { proxy: false })
+    //   defaultIntegration: new apigw.LambdaIntegration(petstatusupdater, { proxy: true }),
+    //   endpointConfiguration: { types: [apigw.EndpointType.REGIONAL] },
 
     // });
 
-    // defines an API Gateway REST API resource backed by our "petstatusupdater" function.
+
+    //defines an API Gateway REST API resource backed by our "petstatusupdater" function.
     const apigateway = new apigw.LambdaRestApi(this, 'PetAdoptionStatusUpdater', {
-      handler: petstatusupdater
+      handler: petstatusupdater,
+      proxy: true, 
+      endpointConfiguration: {
+        types: [apigw.EndpointType.REGIONAL]
+      }, deployOptions: {
+        tracingEnabled: true,
+        stageName: 'prod'
+      },options:{defaultMethodOptions:{methodResponses:[]}}
+      //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
     });
-   
+
 
 
     //apigateway.methods= [new apigw.Method(this,'sd',{httpMethod:'PUT'})]
