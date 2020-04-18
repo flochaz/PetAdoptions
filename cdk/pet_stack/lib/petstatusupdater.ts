@@ -29,17 +29,7 @@ export class PetStatusUpdater extends cdk.Stack {
         "TABLE_NAME": "petadoptions"
       }
     });
-    
-
-
-    // const plain = new apigw.RestApi(this, 'sdfsd', {
-    //   restApiName: 'PetAdoptionStatusUpdater',
-    //   defaultIntegration: new apigw.LambdaIntegration(petstatusupdater, { proxy: true }),
-    //   endpointConfiguration: { types: [apigw.EndpointType.REGIONAL] },
-
-    // });
-
-
+  
     //defines an API Gateway REST API resource backed by our "petstatusupdater" function.
     const apigateway = new apigw.LambdaRestApi(this, 'PetAdoptionStatusUpdater', {
       handler: petstatusupdater,
@@ -53,8 +43,5 @@ export class PetStatusUpdater extends cdk.Stack {
       //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
     });
 
-
-
-    //apigateway.methods= [new apigw.Method(this,'sd',{httpMethod:'PUT'})]
   }
 }
