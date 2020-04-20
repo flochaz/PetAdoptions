@@ -9,23 +9,23 @@ export class PetVPC extends cdk.Stack {
       cidr: '10.0.0.0/16',
       natGateways: 1,
       maxAzs: 2,
-      subnetConfiguration: [
-        {
-          cidrMask: 24,
-          name: 'ingress',
-          subnetType: ec2.SubnetType.PUBLIC,
-        },
-        {
-          cidrMask: 24,
-          name: 'application',
-          subnetType: ec2.SubnetType.PRIVATE,
-        },
-        {
-          cidrMask: 28,
-          name: 'rds',
-          subnetType: ec2.SubnetType.ISOLATED,
-        }
-      ]
+      // subnetConfiguration: [
+      //   {
+      //     cidrMask: 24,
+      //     name: 'ingress',
+      //     subnetType: ec2.SubnetType.PUBLIC,
+      //   },
+      //   {
+      //     cidrMask: 24,
+      //     name: 'application',
+      //     subnetType: ec2.SubnetType.PRIVATE,
+      //   },
+      //   {
+      //     cidrMask: 28,
+      //     name: 'rds',
+      //     subnetType: ec2.SubnetType.ISOLATED,
+      //   }
+      // ]
     });
   }
 }

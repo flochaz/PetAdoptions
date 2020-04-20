@@ -60,14 +60,12 @@ namespace PetSearch.Controllers
             {
                 s3Client.EnsureBucketExistsAsync(_bucketName);
 
-                GetPreSignedUrlRequest request1 = new GetPreSignedUrlRequest
+                _urlString = s3Client.GetPreSignedURL(new GetPreSignedUrlRequest
                 {
                     BucketName = _bucketName,
                     Key = $"{GetFolderName(pettype)}/{petid}.jpg",
                     Expires = DateTime.Now.AddMinutes(5)
-                };
-
-                _urlString = s3Client.GetPreSignedURL(request1);
+                });
             }
             catch (AmazonS3Exception e)
             {
@@ -126,9 +124,9 @@ namespace PetSearch.Controllers
                     ScanFilter = scanFilter.ToConditions()
                 };
 
-               // This line is intentional. Delays searches 
+                // This line is intentional. Delays searches 
                 if (!String.IsNullOrEmpty(searchParams.pettype) && searchParams.pettype == "bunny") Thread.Sleep(3000);
-                
+
 
                 AWSXRayRecorder.Instance.AddAnnotation("Query", $"petcolor:{searchParams.petcolor}-pettype:{searchParams.pettype}-petid:{searchParams.petid}");
                 Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - {searchParams}");
