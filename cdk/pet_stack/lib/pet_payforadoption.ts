@@ -14,16 +14,17 @@ export class PayForAdoptions extends cdk.Stack {
             assumedBy: new iam.AccountRootPrincipal()
         });
 
-        const vpc = new ec2.Vpc(this, 'pet_microservices_vpc', {
-            cidr: '10.0.0.0/16',
-            natGateways: 1,
-            maxAzs: 2
-        });
+        // const vpc = new ec2.Vpc(this, 'pet_microservices_vpc', {
+        //     cidr: '10.0.0.0/16',
+        //     natGateways: 1,
+        //     maxAzs: 2
+        // });
 
         const cluster = new ecs.Cluster(this, "pet-payforadoptions-cluster", {
             vpc: ec2.Vpc.fromVpcAttributes(this, 'petvpc', {
                 vpcId: 'vpc-0129e52a9a8ccfbfa', availabilityZones: ['us-east-2a', 'us-east-2b'],
-                publicSubnetIds: ['subnet-06432d897480d9154', 'subnet-0854709330a0834b1']
+                publicSubnetIds: ['subnet-06432d897480d9154', 'subnet-0854709330a0834b1'],
+                privateSubnetIds:['subnet-04cd24ae468133970','subnet-0fa73a4e266c8f166']
             }),
         });
 
@@ -64,11 +65,16 @@ export class PayForAdoptions extends cdk.Stack {
         });
 
         taskDef.addToExecutionRolePolicy(executionRolePolicy);
-        taskDef.addToTaskRolePolicy(executionRolePolicy);
+       // taskDef.addToTaskRolePolicy(executionRolePolicy);
 
-        taskDef.executionRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSQSFullAccess', 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'));
-        taskDef.executionRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSNSFullAccess', 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'));
-        taskDef.executionRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
+        // taskDef.executionRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSQSFullAccess', 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'));
+        // taskDef.executionRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSNSFullAccess', 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'));
+        // taskDef.executionRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
+
+        taskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSQSFullAccess', 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'));
+        taskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSNSFullAccess', 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'));
+        taskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
+
 
         const payforadoptioncontainer = taskDef.addContainer('payforadoption', {
             image: ecs.ContainerImage.fromRegistry("831210339789.dkr.ecr.us-east-2.amazonaws.com/payforadoption:latest"),
