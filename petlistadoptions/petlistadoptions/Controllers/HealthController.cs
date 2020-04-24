@@ -7,11 +7,9 @@ using Microsoft.Extensions.Logging;
 
 namespace PetListAdoptions.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
     public class HealthController : ControllerBase
     {
-        [HttpGet("status")]
+       [HttpGet("/health/status")]
         public string Status()
         {
             return "Alive";

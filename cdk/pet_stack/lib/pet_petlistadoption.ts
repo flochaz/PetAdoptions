@@ -6,7 +6,7 @@ import * as ecs_patterns from '@aws-cdk/aws-ecs-patterns';
 
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
-export class PayForAdoption extends cdk.Stack {
+export class PetListAdoptions extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
@@ -52,25 +52,25 @@ export class PayForAdoption extends cdk.Stack {
             resources: ['*']
         });
 
-        // PayForAdoption service definitions-----------------------------------------------------------------------
+        // PetListAdoptions service definitions-----------------------------------------------------------------------
 
-        const payForAdoptionTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef", {
+        const petListAdoptionsTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef", {
             taskRole: taskRole,
             cpu: 1024,
             memoryLimitMiB: 2048
         });
 
-        payForAdoptionTaskDef.addToExecutionRolePolicy(executionRolePolicy);
+        petListAdoptionsTaskDef.addToExecutionRolePolicy(executionRolePolicy);
 
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSQSFullAccess', 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'));
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSNSFullAccess', 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'));
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess'));
-        payForAdoptionTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
+        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSQSFullAccess', 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'));
+        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonSNSFullAccess', 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'));
+        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
+        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
+        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess'));
+        petListAdoptionsTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
         
-        payForAdoptionTaskDef.addContainer('payforadoption', {
-            image: ecs.ContainerImage.fromRegistry("awsimaya/payforadoption:latest"),
+        petListAdoptionsTaskDef.addContainer('petlistadoption', {
+            image: ecs.ContainerImage.fromRegistry("awsimaya/petlistadoptions:latest"),
             memoryLimitMiB: 256,
             cpu: 256,
             logging
@@ -79,7 +79,7 @@ export class PayForAdoption extends cdk.Stack {
             protocol: ecs.Protocol.TCP
         });
 
-        payForAdoptionTaskDef.addContainer('xraydaemon', {
+        petListAdoptionsTaskDef.addContainer('xraydaemon', {
             image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
             memoryLimitMiB: 256,
             cpu: 256,
@@ -89,12 +89,12 @@ export class PayForAdoption extends cdk.Stack {
             protocol: ecs.Protocol.UDP
         });
 
-        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PayForAdoption-service", {
-            cluster: new ecs.Cluster(this, "PayForAdoption-cluster", {
+        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetListAdoption-service", {
+            cluster: new ecs.Cluster(this, "PetListAdoption-cluster", {
                 vpc: theVPC,
                 containerInsights: true
             }),
-            taskDefinition: payForAdoptionTaskDef,
+            taskDefinition: petListAdoptionsTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
             listenerPort: 80
