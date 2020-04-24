@@ -48,9 +48,14 @@ export class PetSearch extends cdk.Stack {
 
         const petsearch = new eb.CfnEnvironment(this, 'petsearch-eb',{
             applicationName:'petsearch-api',
-            environmentName:'petsearch-api',
+            environmentName:'petsearch-api-prod',
             solutionStackName:'64bit Windows Server 2019 v2.5.2 running IIS 10.0'
         });
 
+
+        const petsearchConfigTemplate = new eb.CfnConfigurationTemplate(this,'petsearch-configtemplate',{
+            applicationName:'petsearch-api',
+           // sourceConfiguration:
+        });
     }
 }
