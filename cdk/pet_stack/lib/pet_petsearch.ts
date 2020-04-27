@@ -46,16 +46,24 @@ export class PetSearch extends cdk.Stack {
             resources: ['*']
         });
 
-        const petsearch = new eb.CfnEnvironment(this, 'petsearch-eb',{
-            applicationName:'petsearch-api',
-            environmentName:'petsearch-api-prod',
-            solutionStackName:'64bit Windows Server 2019 v2.5.2 running IIS 10.0'
+        const petsearchapp = new eb.CfnApplication(this, 'petsearch-app', {
+            applicationName: 'petsearch-api',
+            description: 'App description goes here--'
         });
 
+        const petsearchenv = new eb.CfnEnvironment(this, 'petsearch-env', {
+            applicationName: 'petsearch-api',
+            environmentName: 'petsearch-api-3',
+          //  solutionStackName: '64bit Windows Server 2019 v2.5.2 running IIS 10.0',
+            platformArn: 'arn:aws:elasticbeanstalk:us-east-2::platform/Tomcat 8 with Java 8 running on 64bit Amazon Linux'
+        }).addDependsOn(petsearchapp);
 
-        const petsearchConfigTemplate = new eb.CfnConfigurationTemplate(this,'petsearch-configtemplate',{
-            applicationName:'petsearch-api',
-           // sourceConfiguration:
-        });
+        // const petsearchappversion = new eb.CfnApplicationVersion(this, 'petsearch-eb-appversion', {
+        //     applicationName: 'petsearch-api',
+        //     sourceBundle: {
+        //         s3Bucket: 'observabilitypetsearch',
+        //         s3Key: 'petsearch.zip'
+        //     },
+        // }).addDependsOn(petsearchapp);
     }
 }

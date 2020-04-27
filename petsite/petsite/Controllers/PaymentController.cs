@@ -33,13 +33,13 @@ namespace PetSite.Controllers
         //Prometheus metric to count the number of Pets adopted
         private static readonly Counter PetAdoptionCount =
             Metrics.CreateCounter("petsite_petadoptions_total", "Count the number of Pets adopted");
-        
+
         public PaymentController(IConfiguration configuration)
         {
+            AWSSDKHandler.RegisterXRayForAllServices();
             _configuration = configuration;
 
-            AWSSDKHandler.RegisterXRayForAllServices();
-            _sqsClient = new AmazonSQSClient(Amazon.RegionEndpoint.USEast1);
+            _sqsClient = new AmazonSQSClient(Amazon.Util.EC2InstanceMetadata.Region);
         }
 
         // GET: Payment
@@ -94,8 +94,7 @@ namespace PetSite.Controllers
 
         private async Task<HttpResponseMessage> PostTransaction(string petId, string pettype)
         {
-            return await _httpClient.PostAsync($"{_configuration["paymentapiurl"]}petId={petId}&petType={pettype}",
-                null);
+            return await _httpClient.PostAsync($"{_configuration["paymentapiurl"]}?petId={petId}&petType={pettype}", null);
         }
 
         private async Task<SendMessageResponse> PostMessageToSqs(string petId)
