@@ -21,6 +21,6 @@ namespace PetSearch
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                }) .ConfigureAppConfiguration(config => { config.AddSystemsManager("/petstore"); });
     }
 }

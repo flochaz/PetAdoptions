@@ -31,6 +31,7 @@
           "AWSXRayRecorder.Core": "2.6.2",
           "AWSXRayRecorder.Handlers.AspNetCore": "2.6.2",
           "AWSXRayRecorder.Handlers.AwsSdk": "2.7.2",
+          "Amazon.Extensions.Configuration.SystemsManager": "1.2.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
@@ -326,6 +327,23 @@
           "PetSearch.dll": {}
         }
       },
+      "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+        "dependencies": {
+          "AWSSDK.Extensions.NETCore.Setup": "3.3.101",
+          "AWSSDK.SimpleSystemsManagement": "3.3.100.8",
+          "Microsoft.Extensions.Configuration": "3.0.0",
+          "Newtonsoft.Json": "11.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Amazon.Extensions.Configuration.SystemsManager.dll": {}
+        }
+      },
       "AWSSDK.Core/3.3.104.32": {
         "runtime": {
           "lib/netstandard2.0/AWSSDK.Core.dll": {
@@ -380,6 +398,20 @@
         },
         "compile": {
           "lib/netstandard2.0/AWSSDK.S3.dll": {}
+        }
+      },
+      "AWSSDK.SimpleSystemsManagement/3.3.100.8": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.104.32"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.100.8"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/AWSSDK.SimpleSystemsManagement.dll": {}
         }
       },
       "AWSSDK.XRay/3.3.101.127": {
@@ -1234,7 +1266,7 @@
           "runtimes/win-arm64/native/sni.dll": {
             "rid": "win-arm64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.6.25512.1"
           }
         }
       },
@@ -1243,7 +1275,7 @@
           "runtimes/win-x64/native/sni.dll": {
             "rid": "win-x64",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.6.25512.1"
           }
         }
       },
@@ -1252,7 +1284,7 @@
           "runtimes/win-x86/native/sni.dll": {
             "rid": "win-x86",
             "assetType": "native",
-            "fileVersion": "0.0.0.0"
+            "fileVersion": "4.6.25512.1"
           }
         }
       },
@@ -3880,6 +3912,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n0XFdWQu2EQH5+PQ+HCA1CIwuYqYFe1wvzcYTy30uCC4mi0x7obH+mTm5kJguspyqO9owxND0PhP5siuw+CEpg==",
+      "path": "amazon.extensions.configuration.systemsmanager/1.2.0",
+      "hashPath": "amazon.extensions.configuration.systemsmanager.1.2.0.nupkg.sha512"
+    },
     "AWSSDK.Core/3.3.104.32": {
       "type": "package",
       "serviceable": true,
@@ -3907,6 +3946,13 @@
       "sha512": "sha512-LfXkvWQKDgIbjYgLI8uJOETK0y/fV9tdsurfRQhxWHG084BJ/5yeLi71yycvFDHTmSrEWYkadw9s3zOALml39w==",
       "path": "awssdk.s3/3.3.110.30",
       "hashPath": "awssdk.s3.3.3.110.30.nupkg.sha512"
+    },
+    "AWSSDK.SimpleSystemsManagement/3.3.100.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1CLQt6CGKf0Jg4U1IjIMzrx7mg1aMb121pAwwBagzph65ZKGSANWC221lnP+UOn8bnou86Gy+3owzc8kjlPRaw==",
+      "path": "awssdk.simplesystemsmanagement/3.3.100.8",
+      "hashPath": "awssdk.simplesystemsmanagement.3.3.100.8.nupkg.sha512"
     },
     "AWSSDK.XRay/3.3.101.127": {
       "type": "package",

@@ -234,7 +234,6 @@ Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.RazorT
 Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.csproj.CopyComplete
 Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.dll
 Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.pdb
-Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.csprojAssemblyReference.cache
 \\Mac\Home\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\appsettings.Development.json
 \\Mac\Home\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\appsettings.json
 \\Mac\Home\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\aws-beanstalk-tools-defaults.json
@@ -354,3 +353,8 @@ Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.csproj
 \\Mac\Home\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.dll
 \\Mac\Home\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.pdb
 \\Mac\Home\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.csprojAssemblyReference.cache
+Z:\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\Amazon.Extensions.Configuration.SystemsManager.dll
+Z:\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\AWSSDK.SimpleSystemsManagement.dll
+Z:\code\petadoption\petsearch\petsearch\obj\Debug\netcoreapp3.0\PetSearch.csprojAssemblyReference.cache
+\\Mac\Home\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\Amazon.Extensions.Configuration.SystemsManager.dll
+\\Mac\Home\code\petadoption\petsearch\petsearch\bin\Debug\netcoreapp3.0\AWSSDK.SimpleSystemsManagement.dll

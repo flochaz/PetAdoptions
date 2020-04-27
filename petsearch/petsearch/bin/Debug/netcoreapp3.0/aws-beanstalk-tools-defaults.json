@@ -4,16 +4,16 @@
     "profile" : "default",
     "region"  : "us-east-1",
     "application" : "PetSearch",
-    "environment" : "PetSearch-prod",
-    "cname"       : "petsearch-prod",
-    "solution-stack" : "64bit Windows Server 2016 v2.5.1 running IIS 10.0",
+    "environment" : "PetSearch-live",
+    "cname"       : "petsearch-live",
+    "solution-stack" : "64bit Windows Server 2016 v2.5.2 running IIS 10.0",
     "environment-type" : "SingleInstance",
     "service-role"     : "aws-elasticbeanstalk-service-role",
     "health-check-url" : "/",
     "instance-type"    : "c1.medium",
-    "key-pair"         : "aws-cloud9-k8s-workshop-615966e3c7ae4ae397c8eeddb6fe2df8",
+    "key-pair"         : "Windows-MySQL",
     "iis-website"      : "Default Web Site",
     "app-path"         : "/",
     "enable-xray"      : true,
-    "instance-profile" : "aws-elasticbeanstalk-ec2-role"
+    "instance-profile" : "petsearch-live"
 }

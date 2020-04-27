@@ -26,14 +26,11 @@ namespace PetSearch.Controllers
         private static IAmazonDynamoDB ddbClient;
         private static IAmazonS3 s3Client;
 
-        private static string S3TableName = "petadoptions";
-        private static readonly string _bucketName = "observabilitypetadoptions";
+        private static IConfiguration _configuration;
 
-        private static string _urlString;
-
-        public SearchController(IConfiguration config)
+        public SearchController(IConfiguration configuration)
         {
-            _urlString = config["defaultimage"];
+            _configuration = configuration;
             AWSSDKHandler.RegisterXRayForAllServices();
             ddbClient = new AmazonDynamoDBClient();
             s3Client = new AmazonS3Client();
@@ -42,6 +39,8 @@ namespace PetSearch.Controllers
         private static Func<string, string, string> GetPetURL = (pettype, petid) =>
         {
             AWSSDKHandler.RegisterXRay<IAmazonS3>();
+
+            string _urlString;
 
             string GetFolderName(string pettype)
             {
@@ -58,11 +57,11 @@ namespace PetSearch.Controllers
 
             try
             {
-                s3Client.EnsureBucketExistsAsync(_bucketName);
+                s3Client.EnsureBucketExistsAsync(_configuration["s3bucketname"]);
 
                 _urlString = s3Client.GetPreSignedURL(new GetPreSignedUrlRequest
                 {
-                    BucketName = _bucketName,
+                    BucketName = _configuration["s3bucketname"],
                     Key = $"{GetFolderName(pettype)}/{petid}.jpg",
                     Expires = DateTime.Now.AddMinutes(5)
                 });
@@ -120,7 +119,7 @@ namespace PetSearch.Controllers
 
                 var scanquery = new ScanRequest
                 {
-                    TableName = S3TableName,
+                    TableName = _configuration["dynamodbtablename"],
                     ScanFilter = scanFilter.ToConditions()
                 };
 
