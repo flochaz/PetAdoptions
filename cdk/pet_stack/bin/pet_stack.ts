@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
-import { PetGenericresourcesStack } from '../lib/pet_genericresources-stack'
+import { PetGenericresourcesStack } from '../lib/pet_genericresources'
 import { PetStatusUpdater } from '../lib/petstatusupdater'
 import { PetVPC } from '../lib/pet_vpc';
 import { PayForAdoption } from '../lib/pet_payforadoption'

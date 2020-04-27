@@ -21,7 +21,7 @@ export class PetGenericresourcesStack extends cdk.Stack {
     topic_petadoption.addSubscription(new subs.EmailSubscription("ijaganna@amazon.com"));
 
     // Creates an S3 bucket to store pet images
-    const observabilitypetadoptions = new s3.Bucket(this, 's3bucket_petadoption', {
+    const s3_observabilitypetadoptions = new s3.Bucket(this, 's3bucket_petadoption', {
       bucketName: 'observabilitypetadoptions2',
       publicReadAccess: false
     });
@@ -49,7 +49,7 @@ export class PetGenericresourcesStack extends cdk.Stack {
 
     // Seeds the S3 bucket with pet images
     new s3seeder.BucketDeployment(this, "s3seeder_petadoption", {
-      destinationBucket: observabilitypetadoptions,
+      destinationBucket: s3_observabilitypetadoptions,
       sources: [s3seeder.Source.asset('./resources/kitten.zip'), s3seeder.Source.asset('./resources/puppies.zip'), s3seeder.Source.asset('./resources/bunnies.zip')]
     });
 
