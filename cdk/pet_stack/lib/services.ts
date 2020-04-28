@@ -3,6 +3,8 @@ import * as iam from '@aws-cdk/aws-iam';
 import * as ec2 from '@aws-cdk/aws-ec2';
 import * as ecs from '@aws-cdk/aws-ecs';
 import * as ecs_patterns from '@aws-cdk/aws-ecs-patterns';
+import * as lambda from '@aws-cdk/aws-lambda';
+import * as apigw from '@aws-cdk/aws-apigateway';
 
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
@@ -204,5 +206,41 @@ export class Services extends cdk.Stack {
         }).targetGroup.configureHealthCheck({
             path: '/health/status'
         });
+
+
+        //PetStatusUpdater Lambda Function and APIGW--------------------------------------
+
+        var iamrole_PetStatusUpdater = new iam.Role(this, 'lambdaexecutionrole', {
+            assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
+            managedPolicies: [iam.ManagedPolicy.fromManagedPolicyArn(this, 'first', 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'),
+            iam.ManagedPolicy.fromManagedPolicyArn(this, 'second', 'arn:aws:iam::aws:policy/AWSLambdaFullAccess')],
+            roleName: 'PetStatusUpdaterRole'
+          });
+      
+          var lambda_petstatusupdater = new lambda.Function(this, 'lambdafn', {
+            runtime: lambda.Runtime.NODEJS_12_X,    // execution environment
+            code: lambda.Code.fromAsset('../../petstatusupdater/function.zip'),  // code loaded from "lambda" directory
+            handler: 'index.handler',
+            tracing: lambda.Tracing.ACTIVE,
+            role: iamrole_PetStatusUpdater,
+            description: 'Update Pet availability status',
+            environment:
+            {
+              "TABLE_NAME": "petadoptions"
+            }
+          });
+      
+          //defines an API Gateway REST API resource backed by our "petstatusupdater" function.
+          const apigateway = new apigw.LambdaRestApi(this, 'PetAdoptionStatusUpdater', {
+            handler: lambda_petstatusupdater,
+            proxy: true,
+            endpointConfiguration: {
+              types: [apigw.EndpointType.REGIONAL]
+            }, deployOptions: {
+              tracingEnabled: true,
+              stageName: 'prod'
+            }, options: { defaultMethodOptions: { methodResponses: [] } }
+            //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
+          });
     }
 }
