@@ -2,3 +2,11 @@
 ./petsite/.vs
 ./petstatusupdater/function.zip
 ./petlistadoptions/node_modules/*
+./bin*
+###################
+# compiled source #
+###################
+*.dll
+*.exe
+cscdk
+petsearch/petsearch/bin/Debug/netcoreapp3.0/PetSearch.dll

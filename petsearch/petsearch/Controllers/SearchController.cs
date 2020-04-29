@@ -57,7 +57,7 @@ namespace PetSearch.Controllers
 
             try
             {
-                s3Client.EnsureBucketExistsAsync(_configuration["s3bucketname"]);
+                s3Client.EnsureBucketExistsAsync($"test-{_configuration["s3bucketname"]}");
 
                 _urlString = s3Client.GetPreSignedURL(new GetPreSignedUrlRequest
                 {
