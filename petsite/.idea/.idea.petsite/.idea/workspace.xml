@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/PetSearch.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/PetSearch.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.0/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.packagespec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,6 +151,8 @@
       <workItem from="1588006896426" duration="723000" />
       <workItem from="1588021017530" duration="29000" />
       <workItem from="1588021154423" duration="649000" />
+      <workItem from="1588169438262" duration="1250000" />
+      <workItem from="1588171690412" duration="2785000" />
     </task>
     <servers />
   </component>

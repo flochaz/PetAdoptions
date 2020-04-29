@@ -58,12 +58,12 @@ export class PetSearch extends cdk.Stack {
             platformArn: 'arn:aws:elasticbeanstalk:us-east-2::platform/Tomcat 8 with Java 8 running on 64bit Amazon Linux'
         }).addDependsOn(petsearchapp);
 
-        // const petsearchappversion = new eb.CfnApplicationVersion(this, 'petsearch-eb-appversion', {
-        //     applicationName: 'petsearch-api',
-        //     sourceBundle: {
-        //         s3Bucket: 'observabilitypetsearch',
-        //         s3Key: 'petsearch.zip'
-        //     },
-        // }).addDependsOn(petsearchapp);
+        const petsearchappversion = new eb.CfnApplicationVersion(this, 'petsearch-eb-appversion', {
+            applicationName: 'petsearch-api',
+            sourceBundle: {
+                s3Bucket: 'observabilitypetsearch',
+                s3Key: 'petsearch.zip'
+            },
+        })
     }
 }
