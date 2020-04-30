@@ -17,7 +17,7 @@ namespace PetSite
         {
             // Sets default settings to collect dotnet runtime specific metrics
             DotNetRuntimeStatsBuilder.Default().StartCollecting();
-            
+
             //You can also set the specifics on what metrics you want to collect as below
             // DotNetRuntimeStatsBuilder.Customize()
             //     .WithThreadPoolSchedulingStats()
@@ -28,13 +28,23 @@ namespace PetSite
             //     .WithErrorHandler(ex => Console.WriteLine("ERROR: " + ex.ToString()))
             //     //.WithDebuggingMetrics(true);
             //     .StartCollecting();
-            
+
             CreateHostBuilder(args).Build().Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
-                .ConfigureAppConfiguration(config => { config.AddSystemsManager("/petstore"); });
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var env = hostingContext.HostingEnvironment;
+                    Console.WriteLine($"ENVIRONMENT NAME IS: {env.EnvironmentName}");
+                    if (env.EnvironmentName.ToLower() == "development")
+                        config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
+                                optional: true, reloadOnChange: true);
+                    else
+                        config.AddSystemsManager("/petstore");
+                })
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }
 }
