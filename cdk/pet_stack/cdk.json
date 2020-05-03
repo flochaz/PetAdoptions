@@ -4,6 +4,9 @@
     "vpc_cidr":"11.0.0.0/16",
     "snstopic_email":"someone@example.com",
     "s3bucket_name":"obervabilitypetadoptions3",
-    "ddbtable_name":"petadoptions"
+    "ddbtable_name":"petadoptions",
+    "rdsusername":"petadoptionsapp",
+    "rdspassword":"P37ad0pt10n$S3cr3T",
+    "rdssecuritygroup":"petadoptionsrdsSG"
   }
 }
