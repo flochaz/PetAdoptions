@@ -38,3 +38,8 @@
 /Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/obj/Debug/netcoreapp3.1/trafficgenerator.csproj.CopyComplete
 /Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/obj/Debug/netcoreapp3.1/trafficgenerator.dll
 /Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/obj/Debug/netcoreapp3.1/trafficgenerator.pdb
+/Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/bin/Debug/netcoreapp3.1/Amazon.Extensions.Configuration.SystemsManager.dll
+/Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/bin/Debug/netcoreapp3.1/AWSSDK.Core.dll
+/Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/bin/Debug/netcoreapp3.1/AWSSDK.Extensions.NETCore.Setup.dll
+/Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/bin/Debug/netcoreapp3.1/AWSSDK.SimpleSystemsManagement.dll
+/Users/ijaganna/code/petadoption/trafficgenerator/trafficgenerator/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll

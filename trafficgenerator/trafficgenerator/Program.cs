@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -16,6 +17,17 @@ namespace trafficgenerator
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) => { services.AddHostedService<Worker>(); });
+                .ConfigureServices((hostContext, services) => { services.AddHostedService<Worker>(); })
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var env = hostingContext.HostingEnvironment;
+                    Console.WriteLine($"ENVIRONMENT NAME IS: {env.EnvironmentName}");
+                    if (env.EnvironmentName.ToLower() == "development")
+                        config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
+                                optional: true, reloadOnChange: true);
+                    else
+                        config.AddSystemsManager("/petstore");
+                });
     }
 }

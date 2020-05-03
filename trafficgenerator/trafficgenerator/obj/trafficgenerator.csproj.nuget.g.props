@@ -12,4 +12,9 @@
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">/Users/ijaganna/.nuget/packages/newtonsoft.json/10.0.3</PkgNewtonsoft_Json>
+    <PkgAWSSDK_Core Condition=" '$(PkgAWSSDK_Core)' == '' ">/Users/ijaganna/.nuget/packages/awssdk.core/3.3.100.7</PkgAWSSDK_Core>
+    <PkgAWSSDK_SimpleSystemsManagement Condition=" '$(PkgAWSSDK_SimpleSystemsManagement)' == '' ">/Users/ijaganna/.nuget/packages/awssdk.simplesystemsmanagement/3.3.100.8</PkgAWSSDK_SimpleSystemsManagement>
+  </PropertyGroup>
 </Project>

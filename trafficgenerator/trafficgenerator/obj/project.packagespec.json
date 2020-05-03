@@ -29,6 +29,10 @@
   "frameworks": {
     "netcoreapp3.1": {
       "dependencies": {
+        "Amazon.Extensions.Configuration.SystemsManager": {
+          "target": "Package",
+          "version": "[1.2.0, )"
+        },
         "Microsoft.Extensions.Hosting": {
           "target": "Package",
           "version": "[3.1.2, )"
