@@ -9,3 +9,6 @@ aws rds modify-db-instance --db-instance-identifier ```DBInstanceID``` --publicl
 aws rds describe-db-instances --db-instance-identifier ```DBInstanceID``` | grep DBInstanceStatus
 ```
 
+## How to create an ElasticBeanstalk deployment package
+
+[Instructions here](petsearch/README.md)
