@@ -45,7 +45,7 @@ export class TransactionsDb extends cdk.Stack {
                 vpc: theVPC, securityGroupName: this.node.tryGetContext('rdssecuritygroup')
             });
 
-        rdssecuritygroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(1433), 'allow ssh access from the world');
+        rdssecuritygroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(1433), 'allow MSSQL access from the world');
 
         const rdsPasswordSecret = new cdk.SecretValue(this.node.tryGetContext('rdspassword'));
 
