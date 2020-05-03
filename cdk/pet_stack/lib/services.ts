@@ -5,6 +5,13 @@ import * as ecs from '@aws-cdk/aws-ecs';
 import * as ecs_patterns from '@aws-cdk/aws-ecs-patterns';
 import * as lambda from '@aws-cdk/aws-lambda';
 import * as apigw from '@aws-cdk/aws-apigateway';
+import * as sns from '@aws-cdk/aws-sns'
+import * as sqs from '@aws-cdk/aws-sqs'
+import * as subs from '@aws-cdk/aws-sns-subscriptions'
+import * as ddb from '@aws-cdk/aws-dynamodb'
+import * as s3 from '@aws-cdk/aws-s3'
+import * as ddbseeder from 'aws-cdk-dynamodb-seeder'
+import * as s3seeder from '@aws-cdk/aws-s3-deployment'
 
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
@@ -12,10 +19,55 @@ export class Services extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
-        const theVPC = ec2.Vpc.fromVpcAttributes(this, 'petvpc', {
-            vpcId: 'vpc-0129e52a9a8ccfbfa', availabilityZones: ['us-east-2a', 'us-east-2b'],
-            publicSubnetIds: ['subnet-06432d897480d9154', 'subnet-0854709330a0834b1'],
-            privateSubnetIds: ['subnet-04cd24ae468133970', 'subnet-0fa73a4e266c8f166']
+
+        // Create SQS resource to send Pet adoption messages to
+        new sqs.Queue(this, 'sqs_petadoption', {
+            visibilityTimeout: cdk.Duration.seconds(300)
+        });
+
+        // Create SNS and an email topic to send notifications to
+        const topic_petadoption = new sns.Topic(this, 'topic_petadoption');
+        topic_petadoption.addSubscription(new subs.EmailSubscription(this.node.tryGetContext('snstopic_email')));
+
+        // Creates an S3 bucket to store pet images
+        const s3_observabilitypetadoptions = new s3.Bucket(this, 's3bucket_petadoption', {
+            bucketName: this.node.tryGetContext('s3bucket_name'),
+            publicReadAccess: false
+        });
+
+        // Creates the DynamoDB table for Petadoption data
+        const dynamodb_petadoption = new ddb.Table(this, 'ddb_petadoption', {
+            partitionKey: {
+                name: 'pettype',
+                type: ddb.AttributeType.STRING
+            },
+            sortKey: {
+                name: 'petid',
+                type: ddb.AttributeType.STRING
+            },
+            tableName: this.node.tryGetContext('ddbtable_name')
+        });
+
+        // Seeds the petadoptions dynamodb table with all data required
+        new ddbseeder.Seeder(this, "ddb_seeder_petadoption", {
+            table: dynamodb_petadoption,
+            setup: require("../resources/seed-data.json"),
+            teardown: require("../resources/delete-seed-data.json"),
+            refreshOnUpdate: true  // runs setup and teardown on every update, default false
+        });
+
+        // Seeds the S3 bucket with pet images
+        new s3seeder.BucketDeployment(this, "s3seeder_petadoption", {
+            destinationBucket: s3_observabilitypetadoptions,
+            sources: [s3seeder.Source.asset('./resources/kitten.zip'), s3seeder.Source.asset('./resources/puppies.zip'), s3seeder.Source.asset('./resources/bunnies.zip')]
+        });
+
+
+        // The VPC where all the microservices will be deployed into
+        const theVPC = new ec2.Vpc(this, 'Microservices', {
+            cidr: this.node.tryGetContext('vpc_cidr'),
+            natGateways: 1,
+            maxAzs: 2
         });
 
         const logging = new ecs.AwsLogDriver({
@@ -51,7 +103,7 @@ export class Services extends cdk.Stack {
             roleName: `ecs-taskRole-PayForAdoption-${this.stackName}`,
             assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
         });
-        
+
         const payForAdoptionTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-payforadoption", {
             taskRole: taskRole_PayForAdoption,
             cpu: 1024,
@@ -105,7 +157,7 @@ export class Services extends cdk.Stack {
             roleName: `ecs-taskRole-PayListAdoptions-${this.stackName}`,
             assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
         });
-        
+
         const petListAdoptionsTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-petlist", {
             cpu: 1024,
             taskRole: taskRole_PetListAdoptions,
@@ -159,7 +211,7 @@ export class Services extends cdk.Stack {
             roleName: `ecs-taskRole-PetSite-${this.stackName}`,
             assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
         });
-       
+
         const PetSiteTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-petsite", {
             taskRole: taskRole_PetSite,
             cpu: 1024,
@@ -215,9 +267,9 @@ export class Services extends cdk.Stack {
             managedPolicies: [iam.ManagedPolicy.fromManagedPolicyArn(this, 'first', 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'),
             iam.ManagedPolicy.fromManagedPolicyArn(this, 'second', 'arn:aws:iam::aws:policy/AWSLambdaFullAccess')],
             roleName: 'PetStatusUpdaterRole'
-          });
-      
-          var lambda_petstatusupdater = new lambda.Function(this, 'lambdafn', {
+        });
+
+        var lambda_petstatusupdater = new lambda.Function(this, 'lambdafn', {
             runtime: lambda.Runtime.NODEJS_12_X,    // execution environment
             code: lambda.Code.fromAsset('../../petstatusupdater/function.zip'),  // code loaded from "lambda" directory
             handler: 'index.handler',
@@ -226,21 +278,21 @@ export class Services extends cdk.Stack {
             description: 'Update Pet availability status',
             environment:
             {
-              "TABLE_NAME": "petadoptions"
+                "TABLE_NAME": "petadoptions"
             }
-          });
-      
-          //defines an API Gateway REST API resource backed by our "petstatusupdater" function.
-          const apigateway = new apigw.LambdaRestApi(this, 'PetAdoptionStatusUpdater', {
+        });
+
+        //defines an API Gateway REST API resource backed by our "petstatusupdater" function.
+        const apigateway = new apigw.LambdaRestApi(this, 'PetAdoptionStatusUpdater', {
             handler: lambda_petstatusupdater,
             proxy: true,
             endpointConfiguration: {
-              types: [apigw.EndpointType.REGIONAL]
+                types: [apigw.EndpointType.REGIONAL]
             }, deployOptions: {
-              tracingEnabled: true,
-              stageName: 'prod'
+                tracingEnabled: true,
+                stageName: 'prod'
             }, options: { defaultMethodOptions: { methodResponses: [] } }
             //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
-          });
+        });
     }
 }

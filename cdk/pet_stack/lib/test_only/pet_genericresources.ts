@@ -18,11 +18,11 @@ export class PetGenericresourcesStack extends cdk.Stack {
 
     // Create SNS and an email topic to send notifications to
     const topic_petadoption = new sns.Topic(this, 'topic_petadoption');
-    topic_petadoption.addSubscription(new subs.EmailSubscription("ijaganna@amazon.com"));
+    topic_petadoption.addSubscription(new subs.EmailSubscription(this.node.tryGetContext('snstopic_email')));
 
     // Creates an S3 bucket to store pet images
     const s3_observabilitypetadoptions = new s3.Bucket(this, 's3bucket_petadoption', {
-      bucketName: 'observabilitypetadoptions2',
+      bucketName: this.node.tryGetContext('s3bucket_name'),
       publicReadAccess: false
     });
 
@@ -36,7 +36,7 @@ export class PetGenericresourcesStack extends cdk.Stack {
         name: 'petid',
         type: ddb.AttributeType.STRING
       },
-      tableName: 'petadoptions'
+      tableName: this.node.tryGetContext('ddbtable_name')
     });
 
     // Seeds the petadoptions dynamodb table with all data required

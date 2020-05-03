@@ -5,10 +5,10 @@ export class PetVPC extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const vpc = new ec2.Vpc(this, 'pet_microservices_vpc', {
-      cidr: '10.0.0.0/16',
+    const vpc = new ec2.Vpc(this, 'Microservices', {
+      cidr: this.node.tryGetContext('vpc_cidr'),
       natGateways: 1,
-      maxAzs: 2,
+      maxAzs: 2
       // subnetConfiguration: [
       //   {
       //     cidrMask: 24,

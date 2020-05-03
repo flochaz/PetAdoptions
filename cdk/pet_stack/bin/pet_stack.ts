@@ -2,13 +2,13 @@
 import 'source-map-support/register';
 import * as cdk from '@aws-cdk/core';
 import { PetGenericresourcesStack } from '../lib/pet_genericresources'
-import { PetStatusUpdater } from '../lib/test_only_petstatusupdater'
+import { PetStatusUpdater } from '../lib/test_only/test_only_petstatusupdater'
 import { PetVPC } from '../lib/pet_vpc';
-import { PayForAdoption } from '../lib/test_only_pet_payforadoption'
+import { PayForAdoption } from '../lib/test_only/test_only_pet_payforadoption'
 import { TransactionsDb } from '../lib/pet_transactions_sqldb';
-import { PetListAdoptions } from '../lib/test_only_pet_petlistadoption';
-import { PetSearch } from '../lib/test_only_pet_petsearch';
-import { PetSite } from '../lib/test_only_pet_petsite';
+import { PetListAdoptions } from '../lib/test_only/test_only_pet_petlistadoption';
+import { PetSearch } from '../lib/pet_petsearch';
+import { PetSite } from '../lib/test_only/test_only_pet_petsite';
 import { Services } from '../lib/services';
 
 const app = new cdk.App();
