@@ -43,7 +43,7 @@ namespace PetSite
                             .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
                                 optional: true, reloadOnChange: true);
                     else
-                        config.AddSystemsManager("/petstore");
+                        config.AddSystemsManager( "/petstore");
                 })
                 .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }

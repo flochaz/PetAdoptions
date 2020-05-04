@@ -259,6 +259,57 @@ export class Services extends cdk.Stack {
             path: '/health/status'
         });
 
+        // PetSearch service definitions-----------------------------------------------------------------------
+
+        const taskRole_PetSearch = new iam.Role(this, `ecs-taskRole-PetSearch-${this.stackName}`, {
+            roleName: `ecs-taskRole-PetSearch-${this.stackName}`,
+            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
+        });
+
+        const PetSearchTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-PetSearch", {
+            taskRole: taskRole_PetSearch,
+            cpu: 1024,
+            memoryLimitMiB: 2048
+        });
+
+        PetSearchTaskDef.addToExecutionRolePolicy(executionRolePolicy);
+
+        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
+        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
+        PetSearchTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
+
+        PetSearchTaskDef.addContainer('PetSearch', {
+            image: ecs.ContainerImage.fromRegistry("awsimaya/petsearch:latest"),
+            memoryLimitMiB: 256,
+            cpu: 256,
+            logging
+        }).addPortMappings({
+            containerPort: 80,
+            protocol: ecs.Protocol.TCP
+        });
+
+        PetSearchTaskDef.addContainer('xraydaemon', {
+            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
+            memoryLimitMiB: 256,
+            cpu: 256,
+            logging
+        }).addPortMappings({
+            containerPort: 2000,
+            protocol: ecs.Protocol.UDP
+        });
+
+        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSearch-service", {
+            cluster: new ecs.Cluster(this, "PetSearch-cluster", {
+                vpc: theVPC,
+                containerInsights: true
+            }),
+            taskDefinition: PetSearchTaskDef,
+            publicLoadBalancer: true,
+            desiredCount: 2,
+            listenerPort: 80
+        }).targetGroup.configureHealthCheck({
+            path: '/health/status'
+        });
 
         //PetStatusUpdater Lambda Function and APIGW--------------------------------------
 
