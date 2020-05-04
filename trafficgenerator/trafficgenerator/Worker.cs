@@ -18,7 +18,6 @@ namespace trafficgenerator
     {
         private readonly ILogger<Worker> _logger;
         
-        private IConfiguration _configuration;
         private HttpClient _httpClient;
         private List<Pet> _allPets;
         private string _petSiteUrl;
@@ -27,10 +26,10 @@ namespace trafficgenerator
         public Worker(ILogger<Worker> logger, IConfiguration configuration)
         {
             _logger = logger;
-            _configuration = configuration;
+
             _httpClient = new HttpClient();
-            _petSiteUrl = $"http://{_configuration["petsiteurl"]}";
-            _petSearchUrl = $"http://{_configuration["searchapiurl"]}";
+            _petSiteUrl = $"http://{configuration["petsiteurl"]}";
+            _petSearchUrl = configuration["searchapiurl"];
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -54,8 +53,9 @@ namespace trafficgenerator
 
         private async Task LoadPetData()
         {
+          //  Console.WriteLine($"Search URL: {_petSearchUrl}");
             _allPets = JsonSerializer.Deserialize<List<Pet>>(
-                await _httpClient.GetStringAsync($"{_petSearchUrl}"));
+                await _httpClient.GetStringAsync(_petSearchUrl));
         }
 
         private async Task ThrowSomeTrafficIn()
@@ -64,10 +64,15 @@ namespace trafficgenerator
             Random random = new Random();
             var loadSize = random.Next(5, _allPets.Count);
 
+         //   Console.WriteLine($"PetSite URL: {_petSiteUrl}");
+
+            
             for (int i = 0; i < loadSize; i++)
             {
                 var currentPet = _allPets[random.Next(0, _allPets.Count - 1)];
 
+             //   Console.WriteLine($"Searching: {_petSiteUrl}/?selectedPetType={currentPet.pettype}&selectedPetColor={currentPet.petcolor}");
+                
                 await _httpClient.GetAsync(
                     $"{_petSiteUrl}/?selectedPetType={currentPet.pettype}&selectedPetColor={currentPet.petcolor}");
 
