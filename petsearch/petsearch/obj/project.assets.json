@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {
+    ".NETCoreApp,Version=v3.1": {
       "Amazon.Extensions.Configuration.SystemsManager/1.2.0": {
         "type": "package",
         "dependencies": {
@@ -8814,7 +8814,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": [
+    ".NETCoreApp,Version=v3.1": [
       "AWSSDK.DynamoDBv2 >= 3.3.105.6",
       "AWSSDK.Extensions.NETCore.Setup >= 3.3.101",
       "AWSSDK.S3 >= 3.3.110.30",
@@ -8831,34 +8831,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ijaganna\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/ijaganna/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj",
+      "projectUniqueName": "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj",
       "projectName": "PetSearch",
-      "projectPath": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj",
-      "packagesPath": "C:\\Users\\ijaganna\\.nuget\\packages\\",
-      "outputPath": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\obj\\",
+      "projectPath": "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj",
+      "packagesPath": "/Users/ijaganna/.nuget/packages/",
+      "outputPath": "/Users/ijaganna/code/petadoption/petsearch/petsearch/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ijaganna\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/ijaganna/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.0"
+        "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.0": {
+        "netcoreapp3.1": {
           "projectReferences": {}
         }
       },
@@ -8869,7 +8867,7 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.0": {
+      "netcoreapp3.1": {
         "dependencies": {
           "AWSSDK.DynamoDBv2": {
             "target": "Package",
@@ -8944,7 +8942,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
       }
     }
   }
