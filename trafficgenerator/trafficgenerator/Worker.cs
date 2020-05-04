@@ -42,8 +42,8 @@ namespace trafficgenerator
                 try
                 {
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                    LoadPetData();
-                    await ThrowSomeSearchTraffic();
+                    
+                    await ThrowSomeTrafficIn();
                     await Task.Delay(20000, stoppingToken);
                 }
                 catch (Exception e)
@@ -54,14 +54,15 @@ namespace trafficgenerator
             }
         }
 
-        private void LoadPetData()
+        private async Task LoadPetData()
         {
             var petData = _httpClient.GetStringAsync($"{_petSearchUrl}").Result;
             _allPets = JsonSerializer.Deserialize<List<Pet>>(petData);
         }
 
-        private async Task ThrowSomeSearchTraffic()
+        private async Task ThrowSomeTrafficIn()
         {
+            await LoadPetData();
             Random random = new Random();
             var loadSize = random.Next(5, _allPets.Count);
 
@@ -91,11 +92,6 @@ namespace trafficgenerator
 
             var res2 = _httpClient.GetAsync(
                 $"{_petSiteUrl}/housekeeping/").Result;
-        }
-
-        private void GenerateTraffic()
-        {
-            // var petData = _httpClient.GetAsync("http://petsearch-prod.us-east-1.elasticbeanstalk.com/api/search?")
         }
     }
 }
