@@ -17,9 +17,7 @@ namespace trafficgenerator
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
-
-        private readonly string[] PetType = {"all", "puppy", "kitten", "bunny"};
-        private readonly string[] PetColor = {"all", "brown", "black", "white"};
+        
         private IConfiguration _configuration;
         private HttpClient _httpClient;
         private List<Pet> _allPets;
@@ -42,7 +40,7 @@ namespace trafficgenerator
                 try
                 {
                     _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                    
+
                     await ThrowSomeTrafficIn();
                     await Task.Delay(20000, stoppingToken);
                 }
@@ -56,8 +54,8 @@ namespace trafficgenerator
 
         private async Task LoadPetData()
         {
-            var petData = _httpClient.GetStringAsync($"{_petSearchUrl}").Result;
-            _allPets = JsonSerializer.Deserialize<List<Pet>>(petData);
+            _allPets = JsonSerializer.Deserialize<List<Pet>>(
+                await _httpClient.GetStringAsync($"{_petSearchUrl}"));
         }
 
         private async Task ThrowSomeTrafficIn()
@@ -86,12 +84,12 @@ namespace trafficgenerator
                         $"petid={currentPet.petid}",
                         Encoding.Default, "application/x-www-form-urlencoded"));
 
-                var res = _httpClient.GetAsync(
-                    $"{_petSiteUrl}/PetListAdoptions").Result;
+                await _httpClient.GetAsync(
+                    $"{_petSiteUrl}/PetListAdoptions");
             }
 
-            var res2 = _httpClient.GetAsync(
-                $"{_petSiteUrl}/housekeeping/").Result;
+            await _httpClient.GetAsync(
+                $"{_petSiteUrl}/housekeeping/");
         }
     }
 }

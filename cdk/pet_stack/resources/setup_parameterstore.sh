@@ -1,5 +1,12 @@
 #!/bin/bash
 
+echo ENTER value for /petstore/petsiteurl
+echo Leave out the 'http://' part. Just enter the domain name. For example, if the ALB URL is http://alb_name.us-east-2.elb.amazonaws.com/, only enter alb_name.us-east-2.elb.amazonaws.com
+
+read userinput
+aws ssm put-parameter --name "/petstore/petsiteurl" --value $userinput --type "SecureString"
+echo -------------
+
 echo ENTER value for /petstore/cleanupadoptionsurl
 echo Leave out the 'http://' part. Just enter the domain name. For example, if the ALB URL is http://alb_name.us-east-2.elb.amazonaws.com/, only enter alb_name.us-east-2.elb.amazonaws.com
 
