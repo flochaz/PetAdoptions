@@ -28,7 +28,7 @@ namespace trafficgenerator
             _logger = logger;
 
             _httpClient = new HttpClient();
-            _petSiteUrl = $"http://{configuration["petsiteurl"]}";
+            _petSiteUrl = configuration["petsiteurl"];
             _petSearchUrl = configuration["searchapiurl"];
         }
 
