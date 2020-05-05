@@ -21,7 +21,7 @@ export class Services extends cdk.Stack {
 
 
         // Create SQS resource to send Pet adoption messages to
-        new sqs.Queue(this, 'sqs_petadoption', {
+        const sqsQueue = new sqs.Queue(this, 'sqs_petadoption', {
             visibilityTimeout: cdk.Duration.seconds(300)
         });
 
@@ -137,7 +137,7 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.UDP
         });
 
-        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PayForAdoption-service", {
+        const payforadoptionservice = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PayForAdoption-service", {
             cluster: new ecs.Cluster(this, "PayForAdoption-cluster", {
                 vpc: theVPC,
                 containerInsights: true
@@ -276,6 +276,9 @@ export class Services extends cdk.Stack {
 
         PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
         PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
+        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonDynamoDBReadOnlyAccess', 'arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess'));
+        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonS3ReadOnlyAccess', 'arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess'));
+
         PetSearchTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         PetSearchTaskDef.addContainer('PetSearch', {
@@ -309,6 +312,33 @@ export class Services extends cdk.Stack {
             listenerPort: 80
         }).targetGroup.configureHealthCheck({
             path: '/health/status'
+        });
+
+        // Traffic Generator task definition. Only creates a task definition. Doesn't deploy a service or start a task. That's left to the user.
+        const taskRole_trafficGenerator = new iam.Role(this, `ecs-taskRole_trafficGenerator-${this.stackName}`, {
+            roleName: `ecs-taskRole_trafficGenerator-${this.stackName}`,
+            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
+        });
+
+        const trafficGeneratorTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef", {
+            taskRole: taskRole_trafficGenerator,
+            cpu: 256,
+            memoryLimitMiB: 512
+        });
+
+        trafficGeneratorTaskDef.addToExecutionRolePolicy(executionRolePolicy);
+
+        trafficGeneratorTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
+        trafficGeneratorTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
+
+        trafficGeneratorTaskDef.addContainer('trafficGenerator', {
+            image: ecs.ContainerImage.fromRegistry("awsimaya/pet-trafficgenerator:latest"),
+            memoryLimitMiB: 512,
+            cpu: 256,
+            logging
+        }).addPortMappings({
+            containerPort: 80,
+            protocol: ecs.Protocol.TCP
         });
 
         //PetStatusUpdater Lambda Function and APIGW--------------------------------------
@@ -345,5 +375,9 @@ export class Services extends cdk.Stack {
             }, options: { defaultMethodOptions: { methodResponses: [] } }
             //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
         });
+
+        new cdk.CfnOutput(this, 'UpdateAdoptionStatusurl', { value: `${apigateway.url}` })
+        new cdk.CfnOutput(this, 'QueueURL', { value: `${sqsQueue.queueUrl}` })
+        new cdk.CfnOutput(this, 'SNSTopicARN', { value: `${topic_petadoption.topicArn}` })
     }
 }

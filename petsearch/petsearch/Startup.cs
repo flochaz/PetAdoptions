@@ -11,7 +11,6 @@ namespace PetSearch
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            Configuration.GetAWSOptions();
         }
 
         public IConfiguration Configuration { get; }
@@ -38,11 +37,7 @@ namespace PetSearch
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
 }

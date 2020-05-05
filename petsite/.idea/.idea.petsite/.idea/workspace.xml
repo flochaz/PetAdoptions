@@ -2,11 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/DesignTimeBuild/.dtbcache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/DesignTimeBuild/.dtbcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide-shm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/Server/sqlite3/storage.ide-wal" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cdk/pet_stack/cdk.json" beforeDir="false" afterPath="$PROJECT_DIR$/../cdk/pet_stack/cdk.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cdk/pet_stack/lib/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../cdk/pet_stack/lib/services.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cdk/pet_stack/resources/seed-data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../cdk/pet_stack/resources/seed-data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cdk/pet_stack/resources/setup_parameterstore.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../cdk/pet_stack/resources/setup_parameterstore.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/aws-beanstalk-tools-defaults.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/aws-beanstalk-tools-defaults.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/PetSearch.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/PetSearch.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/aws-beanstalk-tools-defaults.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/bin/Debug/netcoreapp3.1/aws-beanstalk-tools-defaults.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,10 +87,10 @@
         <option value="$PROJECT_DIR$/petsite/appsettings.json" />
         <option value="$PROJECT_DIR$/petsite/Dockerfile" />
         <option value="$PROJECT_DIR$/petsite/Startup.cs" />
-        <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" />
-        <option value="$PROJECT_DIR$/petsite/appsettings.Development.json" />
         <option value="$PROJECT_DIR$/petsite/Program.cs" />
+        <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
+        <option value="$PROJECT_DIR$/petsite/appsettings.Development.json" />
       </list>
     </option>
   </component>
@@ -162,6 +189,7 @@
       <workItem from="1588270053666" duration="992000" />
       <workItem from="1588627656736" duration="478000" />
       <workItem from="1588637189180" duration="683000" />
+      <workItem from="1588697193340" duration="2961000" />
     </task>
     <servers />
   </component>
@@ -190,117 +218,117 @@
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state x="448" y="105" key="#xdebugger.evaluate/43.23.1397.877@43.23.1397.877" timestamp="1585503156670" />
-    <state width="548" height="582" key="DebuggerActiveHint" timestamp="1584973265743">
+    <state width="548" height="582" key="DebuggerActiveHint" timestamp="1588704735668">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="548" height="582" key="DebuggerActiveHint/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1584973265743" />
+    <state width="548" height="582" key="DebuggerActiveHint/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588704735668" />
     <state x="143" y="123" width="1197" height="677" key="DiffContextDialog" timestamp="1584306854306">
       <screen x="43" y="23" width="1397" height="877" />
     </state>
     <state x="143" y="123" width="1197" height="677" key="DiffContextDialog/43.23.1397.877@43.23.1397.877" timestamp="1584306854306" />
-    <state width="1766" height="229" key="GridCell.Tab.0.bottom" timestamp="1588271074843">
+    <state width="2141" height="229" key="GridCell.Tab.0.bottom" timestamp="1588707861906">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="229" key="GridCell.Tab.0.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588271074843" />
+    <state width="2141" height="229" key="GridCell.Tab.0.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707861906" />
     <state width="1341" height="215" key="GridCell.Tab.0.bottom/42.23.1398.877@42.23.1398.877" timestamp="1585511287760" />
     <state width="1357" height="229" key="GridCell.Tab.0.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585794285799" />
-    <state width="1766" height="229" key="GridCell.Tab.0.center" timestamp="1588271074843">
+    <state width="2141" height="229" key="GridCell.Tab.0.center" timestamp="1588707861905">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="229" key="GridCell.Tab.0.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588271074843" />
+    <state width="2141" height="229" key="GridCell.Tab.0.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707861905" />
     <state width="1341" height="215" key="GridCell.Tab.0.center/42.23.1398.877@42.23.1398.877" timestamp="1585511287759" />
     <state width="1357" height="229" key="GridCell.Tab.0.center/43.23.1397.877@43.23.1397.877" timestamp="1585794285798" />
-    <state width="1766" height="229" key="GridCell.Tab.0.left" timestamp="1588271074843">
+    <state width="2141" height="229" key="GridCell.Tab.0.left" timestamp="1588707861905">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="229" key="GridCell.Tab.0.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588271074843" />
+    <state width="2141" height="229" key="GridCell.Tab.0.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707861905" />
     <state width="1341" height="215" key="GridCell.Tab.0.left/42.23.1398.877@42.23.1398.877" timestamp="1585511287758" />
     <state width="1357" height="229" key="GridCell.Tab.0.left/43.23.1397.877@43.23.1397.877" timestamp="1585794285798" />
-    <state width="1766" height="229" key="GridCell.Tab.0.right" timestamp="1588271074843">
+    <state width="2141" height="229" key="GridCell.Tab.0.right" timestamp="1588707861906">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="229" key="GridCell.Tab.0.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588271074843" />
+    <state width="2141" height="229" key="GridCell.Tab.0.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707861906" />
     <state width="1341" height="215" key="GridCell.Tab.0.right/42.23.1398.877@42.23.1398.877" timestamp="1585511287759" />
     <state width="1357" height="229" key="GridCell.Tab.0.right/43.23.1397.877@43.23.1397.877" timestamp="1585794285798" />
-    <state width="1766" height="564" key="GridCell.Tab.1.bottom" timestamp="1588257090223">
+    <state width="2141" height="564" key="GridCell.Tab.1.bottom" timestamp="1588707827103">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.1.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090223" />
+    <state width="2141" height="564" key="GridCell.Tab.1.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827103" />
     <state width="1357" height="323" key="GridCell.Tab.1.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585770624549" />
-    <state width="1766" height="564" key="GridCell.Tab.1.center" timestamp="1588257090222">
+    <state width="2141" height="564" key="GridCell.Tab.1.center" timestamp="1588707827102">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.1.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090222" />
+    <state width="2141" height="564" key="GridCell.Tab.1.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827102" />
     <state width="1357" height="323" key="GridCell.Tab.1.center/43.23.1397.877@43.23.1397.877" timestamp="1585770624549" />
-    <state width="1766" height="564" key="GridCell.Tab.1.left" timestamp="1588257090222">
+    <state width="2141" height="564" key="GridCell.Tab.1.left" timestamp="1588707827102">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.1.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090222" />
+    <state width="2141" height="564" key="GridCell.Tab.1.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827102" />
     <state width="1357" height="323" key="GridCell.Tab.1.left/43.23.1397.877@43.23.1397.877" timestamp="1585770624548" />
-    <state width="1766" height="564" key="GridCell.Tab.1.right" timestamp="1588257090223">
+    <state width="2141" height="564" key="GridCell.Tab.1.right" timestamp="1588707827103">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.1.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090223" />
+    <state width="2141" height="564" key="GridCell.Tab.1.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827103" />
     <state width="1357" height="323" key="GridCell.Tab.1.right/43.23.1397.877@43.23.1397.877" timestamp="1585770624549" />
-    <state width="1766" height="564" key="GridCell.Tab.2.bottom" timestamp="1588257090225">
+    <state width="2141" height="564" key="GridCell.Tab.2.bottom" timestamp="1588707827104">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.2.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090225" />
+    <state width="2141" height="564" key="GridCell.Tab.2.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827104" />
     <state width="1357" height="323" key="GridCell.Tab.2.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585770624551" />
-    <state width="1766" height="564" key="GridCell.Tab.2.center" timestamp="1588257090224">
+    <state width="2141" height="564" key="GridCell.Tab.2.center" timestamp="1588707827103">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.2.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090224" />
+    <state width="2141" height="564" key="GridCell.Tab.2.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827103" />
     <state width="1357" height="323" key="GridCell.Tab.2.center/43.23.1397.877@43.23.1397.877" timestamp="1585770624550" />
-    <state width="1766" height="564" key="GridCell.Tab.2.left" timestamp="1588257090223">
+    <state width="2141" height="564" key="GridCell.Tab.2.left" timestamp="1588707827103">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.2.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090223" />
+    <state width="2141" height="564" key="GridCell.Tab.2.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827103" />
     <state width="1357" height="323" key="GridCell.Tab.2.left/43.23.1397.877@43.23.1397.877" timestamp="1585770624550" />
-    <state width="1766" height="564" key="GridCell.Tab.2.right" timestamp="1588257090224">
+    <state width="2141" height="564" key="GridCell.Tab.2.right" timestamp="1588707827103">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.2.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090224" />
+    <state width="2141" height="564" key="GridCell.Tab.2.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827103" />
     <state width="1357" height="323" key="GridCell.Tab.2.right/43.23.1397.877@43.23.1397.877" timestamp="1585770624550" />
-    <state width="1766" height="564" key="GridCell.Tab.3.bottom" timestamp="1588257090226">
+    <state width="2141" height="564" key="GridCell.Tab.3.bottom" timestamp="1588707827105">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.3.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090226" />
+    <state width="2141" height="564" key="GridCell.Tab.3.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827105" />
     <state width="1357" height="323" key="GridCell.Tab.3.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585770624552" />
-    <state width="1766" height="564" key="GridCell.Tab.3.center" timestamp="1588257090225">
+    <state width="2141" height="564" key="GridCell.Tab.3.center" timestamp="1588707827104">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.3.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090225" />
+    <state width="2141" height="564" key="GridCell.Tab.3.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827104" />
     <state width="1357" height="323" key="GridCell.Tab.3.center/43.23.1397.877@43.23.1397.877" timestamp="1585770624551" />
-    <state width="1766" height="564" key="GridCell.Tab.3.left" timestamp="1588257090225">
+    <state width="2141" height="564" key="GridCell.Tab.3.left" timestamp="1588707827104">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.3.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090225" />
+    <state width="2141" height="564" key="GridCell.Tab.3.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827104" />
     <state width="1357" height="323" key="GridCell.Tab.3.left/43.23.1397.877@43.23.1397.877" timestamp="1585770624551" />
-    <state width="1766" height="564" key="GridCell.Tab.3.right" timestamp="1588257090226">
+    <state width="2141" height="564" key="GridCell.Tab.3.right" timestamp="1588707827104">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.3.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090226" />
+    <state width="2141" height="564" key="GridCell.Tab.3.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827104" />
     <state width="1357" height="323" key="GridCell.Tab.3.right/43.23.1397.877@43.23.1397.877" timestamp="1585770624551" />
-    <state width="1766" height="564" key="GridCell.Tab.4.bottom" timestamp="1588257090227">
+    <state width="2141" height="564" key="GridCell.Tab.4.bottom" timestamp="1588707827106">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.4.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090227" />
+    <state width="2141" height="564" key="GridCell.Tab.4.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827106" />
     <state width="1357" height="323" key="GridCell.Tab.4.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585770624552" />
-    <state width="1766" height="564" key="GridCell.Tab.4.center" timestamp="1588257090227">
+    <state width="2141" height="564" key="GridCell.Tab.4.center" timestamp="1588707827105">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.4.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090227" />
+    <state width="2141" height="564" key="GridCell.Tab.4.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827105" />
     <state width="1357" height="323" key="GridCell.Tab.4.center/43.23.1397.877@43.23.1397.877" timestamp="1585770624552" />
-    <state width="1766" height="564" key="GridCell.Tab.4.left" timestamp="1588257090227">
+    <state width="2141" height="564" key="GridCell.Tab.4.left" timestamp="1588707827105">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.4.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090227" />
+    <state width="2141" height="564" key="GridCell.Tab.4.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827105" />
     <state width="1357" height="323" key="GridCell.Tab.4.left/43.23.1397.877@43.23.1397.877" timestamp="1585770624552" />
-    <state width="1766" height="564" key="GridCell.Tab.4.right" timestamp="1588257090227">
+    <state width="2141" height="564" key="GridCell.Tab.4.right" timestamp="1588707827105">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
-    <state width="1766" height="564" key="GridCell.Tab.4.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588257090227" />
+    <state width="2141" height="564" key="GridCell.Tab.4.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588707827105" />
     <state width="1357" height="323" key="GridCell.Tab.4.right/43.23.1397.877@43.23.1397.877" timestamp="1585770624552" />
     <state x="1362" y="369" key="Rider.ProjectTemplateDialog.Size" timestamp="1586872905971">
       <screen x="43" y="23" width="3397" height="1417" />
@@ -322,5 +350,38 @@
     </state>
     <state x="1801" y="257" width="1532" height="876" key="find.popup/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588256372287" />
     <state x="506" y="193" width="631" height="543" key="find.popup/42.23.1398.877@42.23.1398.877" timestamp="1586633411949" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/petsite/Views/Home/Index.cshtml</url>
+          <line>32</line>
+          <properties documentPath="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" initialLine="32" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/petsite/Controllers/HomeController.cs</url>
+          <line>142</line>
+          <properties documentPath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" initialLine="142">
+            <startOffsets>
+              <option value="6077" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6148" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -31,8 +31,9 @@ namespace PetSearch.Controllers
         public SearchController(IConfiguration configuration)
         {
             _configuration = configuration;
+            
             AWSSDKHandler.RegisterXRayForAllServices();
-            ddbClient = new AmazonDynamoDBClient();
+            ddbClient = new  AmazonDynamoDBClient();
             s3Client = new AmazonS3Client();
         }
 

@@ -1,30 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj": {}
+    "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj": {}
   },
   "projects": {
-    "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj": {
+    "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj",
+        "projectUniqueName": "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj",
         "projectName": "PetSearch",
-        "projectPath": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\PetSearch.csproj",
-        "packagesPath": "C:\\Users\\ijaganna\\.nuget\\packages\\",
-        "outputPath": "\\\\Mac\\Home\\code\\petadoption\\petsearch\\petsearch\\obj\\",
+        "projectPath": "/Users/ijaganna/code/petadoption/petsearch/petsearch/PetSearch.csproj",
+        "packagesPath": "/Users/ijaganna/.nuget/packages/",
+        "outputPath": "/Users/ijaganna/code/petadoption/petsearch/petsearch/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\ijaganna\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/ijaganna/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,6 +38,62 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.3.105.6, )"
+            },
+            "AWSSDK.Extensions.NETCore.Setup": {
+              "target": "Package",
+              "version": "[3.3.101, )"
+            },
+            "AWSSDK.S3": {
+              "target": "Package",
+              "version": "[3.3.110.30, )"
+            },
+            "AWSSDK.XRay": {
+              "target": "Package",
+              "version": "[3.3.101.127, )"
+            },
+            "AWSXRayRecorder.Core": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
+            "AWSXRayRecorder.Handlers.AspNetCore": {
+              "target": "Package",
+              "version": "[2.6.2, )"
+            },
+            "AWSXRayRecorder.Handlers.AwsSdk": {
+              "target": "Package",
+              "version": "[2.7.2, )"
+            },
+            "Amazon.Extensions.Configuration.SystemsManager": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.Extensions.Logging.Debug": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.9.5, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,7 +104,15 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
         }
       }
     }

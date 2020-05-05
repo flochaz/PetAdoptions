@@ -32,7 +32,7 @@
     "PetSearch": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/health/status",
+      "launchUrl": "api/search",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
