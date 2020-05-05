@@ -21,14 +21,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -39,63 +39,7 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
-          "dependencies": {
-            "AWSSDK.DynamoDBv2": {
-              "target": "Package",
-              "version": "[3.3.105.6, )"
-            },
-            "AWSSDK.Extensions.NETCore.Setup": {
-              "target": "Package",
-              "version": "[3.3.101, )"
-            },
-            "AWSSDK.S3": {
-              "target": "Package",
-              "version": "[3.3.110.30, )"
-            },
-            "AWSSDK.XRay": {
-              "target": "Package",
-              "version": "[3.3.101.127, )"
-            },
-            "AWSXRayRecorder.Core": {
-              "target": "Package",
-              "version": "[2.6.2, )"
-            },
-            "AWSXRayRecorder.Handlers.AspNetCore": {
-              "target": "Package",
-              "version": "[2.6.2, )"
-            },
-            "AWSXRayRecorder.Handlers.AwsSdk": {
-              "target": "Package",
-              "version": "[2.7.2, )"
-            },
-            "Amazon.Extensions.Configuration.SystemsManager": {
-              "target": "Package",
-              "version": "[1.2.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Microsoft.Extensions.Logging.Debug": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
-            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
-              "target": "Package",
-              "version": "[1.9.5, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            }
-          },
+        "netcoreapp3.1": {
           "imports": [
             "net461",
             "net462",
@@ -106,14 +50,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }

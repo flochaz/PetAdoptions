@@ -5,7 +5,7 @@
         {
             "name": "petsearch",
             "parameters": {
-                "appBundle": "petsearch.zip",
+                "appBundle": "site.zip",
                 "iisPath": "/",
                 "iisWebSite": "Default Web Site"
             }

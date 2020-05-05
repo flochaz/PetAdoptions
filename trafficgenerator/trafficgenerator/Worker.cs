@@ -54,6 +54,8 @@ namespace trafficgenerator
         private async Task LoadPetData()
         {
           //  Console.WriteLine($"Search URL: {_petSearchUrl}");
+          
+          // Loads the Petdata from DynamoDB into memory
             _allPets = JsonSerializer.Deserialize<List<Pet>>(
                 await _httpClient.GetStringAsync(_petSearchUrl));
         }
@@ -73,26 +75,31 @@ namespace trafficgenerator
 
              //   Console.WriteLine($"Searching: {_petSiteUrl}/?selectedPetType={currentPet.pettype}&selectedPetColor={currentPet.petcolor}");
                 
-                await _httpClient.GetAsync(
+             //Performs a search query   
+             await _httpClient.GetAsync(
                     $"{_petSiteUrl}/?selectedPetType={currentPet.pettype}&selectedPetColor={currentPet.petcolor}");
 
-                await _httpClient.PostAsync($"{_petSiteUrl}/Adoption/TakeMeHome",
+             // Performs the "TakeMeHome" action on the current Pet in context  
+             await _httpClient.PostAsync($"{_petSiteUrl}/Adoption/TakeMeHome",
                     new StringContent(
                         $"pettype={currentPet.pettype}&" +
                         $"petcolor={currentPet.petcolor}&" +
                         $"petid={currentPet.petid}",
                         Encoding.Default, "application/x-www-form-urlencoded"));
 
+             // Completes adoption by making the payment
                 await _httpClient.PostAsync($"{_petSiteUrl}/Payment/MakePayment",
                     new StringContent(
                         $"pettype={currentPet.pettype}&" +
                         $"petid={currentPet.petid}",
                         Encoding.Default, "application/x-www-form-urlencoded"));
 
+                // Lists all adopted pets
                 await _httpClient.GetAsync(
                     $"{_petSiteUrl}/PetListAdoptions");
             }
 
+            // Performs housekeeping. Basically, reset the application data and gets ready for next execution cycle
             await _httpClient.GetAsync(
                 $"{_petSiteUrl}/housekeeping/");
         }

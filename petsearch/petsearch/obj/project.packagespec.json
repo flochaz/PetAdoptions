@@ -10,13 +10,13 @@
       "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
     ],
     "originalTargetFrameworks": [
-      "netcoreapp3.0"
+      "netcoreapp3.1"
     ],
     "sources": {
       "https://api.nuget.org/v3/index.json": {}
     },
     "frameworks": {
-      "netcoreapp3.0": {
+      "netcoreapp3.1": {
         "projectReferences": {}
       }
     },
@@ -27,7 +27,7 @@
     }
   },
   "frameworks": {
-    "netcoreapp3.0": {
+    "netcoreapp3.1": {
       "dependencies": {
         "AWSSDK.DynamoDBv2": {
           "target": "Package",
@@ -94,12 +94,6 @@
       ],
       "assetTargetFallback": true,
       "warn": true,
-      "downloadDependencies": [
-        {
-          "name": "Microsoft.AspNetCore.App.Ref",
-          "version": "[3.0.1, 3.0.1]"
-        }
-      ],
       "frameworkReferences": {
         "Microsoft.AspNetCore.App": {
           "privateAssets": "none"

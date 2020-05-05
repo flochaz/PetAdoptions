@@ -7,12 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PetSearch.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class HealthController : ControllerBase
     {
-        // GET
-        [HttpGet("status")]
+       [HttpGet("/health/status")]
         public string Status()
         {
             return "Alive";
