@@ -27,7 +27,12 @@ namespace trafficgenerator
                             .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
                                 optional: true, reloadOnChange: true);
                     else
-                        config.AddSystemsManager("/petstore");
+                        config.AddSystemsManager(configureSource =>
+                        {
+                            configureSource.Path = "/petstore";
+                            configureSource.Optional = true;
+                            configureSource.ReloadAfter = TimeSpan.FromMinutes(5);
+                        });
                 });
     }
 }

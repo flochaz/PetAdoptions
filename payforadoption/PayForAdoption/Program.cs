@@ -18,15 +18,24 @@ namespace PayForAdoption
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args)
-        {
-            return Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); })
-                .ConfigureAppConfiguration(config =>
+       public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
                 {
-                    config.AddSystemsManager("/petstore");
-                });
-            
-        }
+                    var env = hostingContext.HostingEnvironment;
+                    Console.WriteLine($"ENVIRONMENT NAME IS: {env.EnvironmentName}");
+                    if (env.EnvironmentName.ToLower() == "development")
+                        config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                            .AddJsonFile($"appsettings.{env.EnvironmentName}.json",
+                                optional: true, reloadOnChange: true);
+                    else
+                        config.AddSystemsManager(configureSource =>
+                        {
+                            configureSource.Path = "/petstore";
+                            configureSource.Optional = true;
+                            configureSource.ReloadAfter = TimeSpan.FromMinutes(5);
+                        });
+                })
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
     }
 }

@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../cdk/pet_stack/lib/services.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../cdk/pet_stack/lib/services.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/aws-windows-deployment-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/aws-windows-deployment-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/HealthController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/HealthController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/Debug/netcoreapp3.1/PetSearch.assets.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.dgspec.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/PetSearch.csproj.nuget.g.targets" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/petsite/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/bin/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.pdb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +168,7 @@
       <workItem from="1588254353547" duration="2466000" />
       <workItem from="1588270053666" duration="992000" />
       <workItem from="1588627656736" duration="478000" />
+      <workItem from="1588637189180" duration="243000" />
     </task>
     <servers />
   </component>
