@@ -1,31 +1,31 @@
 #!/bin/bash
 
 echo ENTER value for /petstore/petsiteurl
-echo This is the value of **** Services.PetSiteserviceServiceURL **** from Outputs
+echo This is the value of  Services.PetSiteserviceServiceURL  from Outputs
 read userinput
 aws ssm put-parameter --name "/petstore/petsiteurl" --value $userinput --type "SecureString"
 echo -----DONE--------
 
 echo ENTER value for /petstore/cleanupadoptionsurl
-echo This is the value of **** Services.PayForAdoptionserviceServiceURL **** from Outputs
+echo This is the value of Services.PayForAdoptionserviceServiceURL from Outputs
 read userinput
 aws ssm put-parameter --name "/petstore/cleanupadoptionsurl" --value $userinput"/api/home/cleanupadoptions" --type "SecureString"
 echo -----DONE--------
 
 echo ENTER value for /petstore/paymentapiurl
-echo This is the value of **** Services.PayForAdoptionserviceServiceURL **** from Outputs
+echo This is the value of Services.PayForAdoptionserviceServiceURL from Outputs
 read userinput
 aws ssm put-parameter --name "/petstore/paymentapiurl" --value $userinput"api/home/completeadoption" --type "SecureString"
 echo -----DONE--------
 
 echo ENTER value for /petstore/petlistadoptionsurl
-echo This is the value of **** Services.PetListAdoptionserviceServiceURL **** from Outputs
+echo This is the value of Services.PetListAdoptionserviceServiceURL from Outputs
 read userinput
 aws ssm put-parameter --name "/petstore/petlistadoptionsurl" --value $userinput"/api/adoptionlist/" --type "SecureString"
 echo -----DONE--------
 
 echo ENTER value for /petstore/searchapiurl
-echo This is the value of **** Services.PetSearchserviceServiceURL **** from Outputs
+echo This is the value of Services.PetSearchserviceServiceURL from Outputs
 read userinput
 aws ssm put-parameter --name "/petstore/searchapiurl" --value $userinput"/api/search?" --type "SecureString"
 echo -----DONE--------

@@ -1,4 +1,4 @@
-## How to create an ElasticBeanstalk deployment package
+## [INCOMPLETE] How to create an ElasticBeanstalk deployment package
 
 ### Install EB CLI
 

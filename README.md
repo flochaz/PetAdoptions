@@ -1,6 +1,7 @@
 
-## Setup Cloud9 environment for our project
+# Install Instructions
 
+## Setup Cloud9 environment for our project
 
 ### Install/Upgrade AWS CLI v2
 > https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-linux.html
@@ -31,7 +32,7 @@ npm install -g typescript
 ```
 ---------------------------
 
-## Clone the repo
+### Clone the repo and prepare
 ```
 git clone https://github.com/awsimaya/PetAdoptions.git
 ```
@@ -57,27 +58,30 @@ vi cdk.json
 
 ### Install Petadoption app resources
 
-Synthesize CDK app
+#### Synthesize CDK app
 
 ```
 cdk synth
 ```
-Bootstrap CDK 
+#### Bootstrap CDK 
 
 ```
 cdk bootstrap
 ```
 
-Deploy the stack
+#### Deploy the stack
 
 > It will take a few minutes for the stack to be deployed, so just go get a ☕️
 
 ```
 cdk deploy Services
 ```
-Once complete, copy paste the values of Outputs somewhere. Or if you're working on Cloud9, just open a new Terminal by simply clicking the **+** sign 
+Once complete, copy paste the values of Outputs somewhere. Or just open a new Terminal window
 
 Execute the following command while at the pet_stack folder
+
+> This is critical and is necessary for the services to function properly
+
 ```
 ./resources/setup_parameterstore.sh 
 ```
