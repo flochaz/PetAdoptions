@@ -1,7 +1,0 @@
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Debug\netcoreapp2.1\PetAdoptionNotifier.deps.json
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Debug\netcoreapp2.1\PetAdoptionNotifier.runtimeconfig.json
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Debug\netcoreapp2.1\PetAdoptionNotifier.runtimeconfig.dev.json
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\bin\Debug\netcoreapp2.1\PetAdoptionNotifier.dll
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Debug\netcoreapp2.1\PetAdoptionNotifier.csprojAssemblyReference.cache
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Debug\netcoreapp2.1\PetAdoptionNotifier.AssemblyInfoInputs.cache
-Z:\code\petadoption\petadoptionnotifier\PetAdoptionNotifier\PetAdoptionNotifier\obj\Debug\netcoreapp2.1\PetAdoptionNotifier.AssemblyInfo.cs
