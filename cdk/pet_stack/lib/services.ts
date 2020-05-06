@@ -12,6 +12,7 @@ import * as ddb from '@aws-cdk/aws-dynamodb'
 import * as s3 from '@aws-cdk/aws-s3'
 import * as ddbseeder from 'aws-cdk-dynamodb-seeder'
 import * as s3seeder from '@aws-cdk/aws-s3-deployment'
+import * as rds from '@aws-cdk/aws-rds';
 
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
@@ -69,6 +70,30 @@ export class Services extends cdk.Stack {
             natGateways: 1,
             maxAzs: 2
         });
+
+        // Create RDS SQL Server DB instance
+
+        const rdssecuritygroup = new ec2.SecurityGroup(this, 'petadoptionsrdsSG',
+            {
+                vpc: theVPC, securityGroupName: this.node.tryGetContext('rdssecuritygroup')
+            });
+
+        rdssecuritygroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(1433), 'allow MSSQL access from the world');
+
+        const rdsPasswordSecret = new cdk.SecretValue(this.node.tryGetContext('rdspassword'));
+
+        const instance = new rds.DatabaseInstance(this, 'Instance', {
+            engine: rds.DatabaseInstanceEngine.SQL_SERVER_WEB,
+            instanceClass: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.SMALL),
+            masterUsername: this.node.tryGetContext('rdsusername'),
+            masterUserPassword: rdsPasswordSecret,
+            deletionProtection: false,
+            vpc: theVPC,
+            licenseModel: rds.LicenseModel.LICENSE_INCLUDED,
+            securityGroups: [rdssecuritygroup]
+        });
+
+
 
         const logging = new ecs.AwsLogDriver({
             streamPrefix: "ecs-logs"
@@ -380,5 +405,7 @@ export class Services extends cdk.Stack {
         new cdk.CfnOutput(this, 'UpdateAdoptionStatusurl', { value: `${apigateway.url}` })
         new cdk.CfnOutput(this, 'QueueURL', { value: `${sqsQueue.queueUrl}` })
         new cdk.CfnOutput(this, 'SNSTopicARN', { value: `${topic_petadoption.topicArn}` })
+        new cdk.CfnOutput(this, 'RDSServerName', { value: `${instance.dbInstanceEndpointAddress}` })
+
     }
 }
