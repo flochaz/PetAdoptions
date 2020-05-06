@@ -5,6 +5,8 @@
     "snstopic_email": "someone@example.com",
     "s3bucket_name": "observabilitypetadoptions3",
     "ddbtable_name": "petadoptions",
-    "rdssecuritygroup": "petadoptionsrdsSG"
+    "rdssecuritygroup": "petadoptionsrdsSG",
+    "rdsusername":"",
+    "rdspassword":""
   }
 }

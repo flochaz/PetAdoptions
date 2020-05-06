@@ -345,8 +345,9 @@ export class Services extends cdk.Stack {
 
         var iamrole_PetStatusUpdater = new iam.Role(this, 'lambdaexecutionrole', {
             assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
-            managedPolicies: [iam.ManagedPolicy.fromManagedPolicyArn(this, 'first', 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'),
-            iam.ManagedPolicy.fromManagedPolicyArn(this, 'second', 'arn:aws:iam::aws:policy/AWSLambdaFullAccess')],
+            managedPolicies: [
+                iam.ManagedPolicy.fromManagedPolicyArn(this, 'first', 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'),
+                iam.ManagedPolicy.fromManagedPolicyArn(this, 'second', 'arn:aws:iam::aws:policy/AWSLambdaFullAccess')],
             roleName: 'PetStatusUpdaterRole'
         });
 

@@ -34,11 +34,18 @@ export class TransactionsDb extends cdk.Stack {
         //     ]
         // });
 
-        const theVPC = new ec2.Vpc(this, 'Microservices', {
-            cidr: this.node.tryGetContext('vpc_cidr'),
-            natGateways: 1,
-            maxAzs: 2
+        const theVPC = ec2.Vpc.fromVpcAttributes(this, 'petvpc', {
+            vpcId: 'vpc-046c14fc9455dabf3', availabilityZones: ['us-east-2a', 'us-east-2b'],
+            publicSubnetIds: ['subnet-0eb5481861b7d26d5', 'subnet-0040bd62c34886ced'],
+            privateSubnetIds: ['subnet-005021cbb7eec7c31', 'subnet-0724e030bad135e11']
         });
+
+
+        // const theVPC = new ec2.Vpc(this, 'Microservices', {
+        //     cidr: this.node.tryGetContext('vpc_cidr'),
+        //     natGateways: 1,
+        //     maxAzs: 2
+        // });
 
         const rdssecuritygroup = new ec2.SecurityGroup(this, 'petadoptionsrdsSG',
             {
@@ -59,5 +66,7 @@ export class TransactionsDb extends cdk.Stack {
             licenseModel: rds.LicenseModel.LICENSE_INCLUDED,
             securityGroups: [rdssecuritygroup]
         });
+
+        new cdk.CfnOutput(this, 'RDSServerName', { value: `${instance.dbInstanceEndpointAddress}` })
     }
 }
