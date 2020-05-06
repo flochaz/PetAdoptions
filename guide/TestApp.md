@@ -28,10 +28,11 @@ You should be able to see a service map as shown below.
 ![](images/xray-home.png)
 
 
-[Go back to main](../README.md)
-
 ### Service map on CloudWatch Service Lens
 Go to [CloudWatch Service Lens](https://us-east-2.console.aws.amazon.com/cloudwatch/home#servicelens:map?~(query~()~context~(timeRange~(delta~300000))))
 
 You should be able to see a service map as shown below. 
 ![](images/sl-map.png)
+
+--------------------------------------
+[Go back to main](../README.md)
