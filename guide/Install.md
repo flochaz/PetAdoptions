@@ -64,6 +64,5 @@ This will create the database for our application as shown below
 ## Test the application
 [Test Instructions](TestApp.md)
 
-## Go back to main
-[Instructions here](../README.md)
+[Go back to main](../README.md)
 

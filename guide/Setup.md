@@ -56,5 +56,4 @@ Execute the following command to open the file and make changes if needed. Ideal
 vi cdk.json
 ```
 
-## Go back to main
-[Instructions here](../README.md)
+[Go back to main](../README.md)

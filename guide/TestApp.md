@@ -17,7 +17,7 @@ Follow the instructions below to start the task which will generate the traffic 
 ![Petsite Cluster](images/traffic-cluster.png)
 * Go to Tasks tab  and click on **Run new task**
 ![Petsite Cluster](images/traffic-newtask.png)
-* In the Run Task screen select options as shown below using the Task definition that has the **pet-trafficgenerator** container in it. Ensure you select the VPC that was created as part of the VPC.
+* In the Run Task screen select options as shown below using the Task definition that has the **pet-trafficgenerator** container in it. Ensure you select the VPC that was created as part of the CDK deployment.
 ![Petsite Cluster](images/traffic-runtask.png)
 * Click **Run Task** and wait for 30 seconds until the task shows **RUNNING** in GREEN
 ![Petsite Cluster](images/traffic-running.png)
@@ -28,5 +28,4 @@ You should be able to see a service map as shown below.
 ![](images/xray-home.png)
 
 
-## Go back to main
-[Instructions here](../README.md)
+[Go back to main](../README.md)
