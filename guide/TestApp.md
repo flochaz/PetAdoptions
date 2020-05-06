@@ -15,7 +15,7 @@ Follow the instructions below to start the task which will generate the traffic 
 * Go to [ECS Clusters](https://us-east-2.console.aws.amazon.com/ecs/home#/clusters)
 * Select the PetSite cluster as shown below
 ![Petsite Cluster](images/traffic-cluster.png)
-* Go to Tasks tab  and click on **Run new task**
+* Go to **Tasks** tab  and click on **Run new task**
 ![Petsite Cluster](images/traffic-newtask.png)
 * In the Run Task screen select options as shown below using the Task definition that has the **pet-trafficgenerator** container in it. Ensure you select the VPC that was created as part of the CDK deployment.
 ![Petsite Cluster](images/traffic-runtask.png)
@@ -23,9 +23,15 @@ Follow the instructions below to start the task which will generate the traffic 
 ![Petsite Cluster](images/traffic-running.png)
 
 ### Service map on X-Ray
-Go to [AWS X-Ray Service map screen](https://us-east-2.console.aws.amazon.com/xray/home#/service-map)
+Go to [AWS X-Ray Service map page](https://us-east-2.console.aws.amazon.com/xray/home#/service-map)
 You should be able to see a service map as shown below. 
 ![](images/xray-home.png)
 
 
 [Go back to main](../README.md)
+
+### Service map on CloudWatch Service Lens
+Go to [CloudWatch Service Lens](https://us-east-2.console.aws.amazon.com/cloudwatch/home#servicelens:map?~(query~()~context~(timeRange~(delta~300000))))
+
+You should be able to see a service map as shown below. 
+![](images/sl-map.png)
