@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "******************************************************************************************"
-echo "The microservices use Systems Manager Parameter store to store resource URLs and other"
+echo "The microservices use AWS Systems Manager Parameter Store to store resource URLs and other"
 echo "configurations such as DynamoDB table name, S3 Bucket Name etc. You would want to execute"
 echo "this command in a separate shell from the one you used to execute the CDK app because it"
 echo "will be easier to copy paste CDK Outputs easily."
@@ -21,7 +21,7 @@ echo 2 of 8 - TYPE in value for /petstore/paymentapiurl or Press ENTER key to sk
 echo This is the value of Services.PayForAdoptionserviceServiceURL from Outputs
 read userinput
 if [ ! "$userinput" == "" ]; then
-    aws ssm put-parameter --name "/petstore/paymentapiurl" --value $userinput"api/home/completeadoption" --type "SecureString"
+    aws ssm put-parameter --name "/petstore/paymentapiurl" --value $userinput"/api/home/completeadoption" --type "SecureString"
     echo ----- ✅DONE--------
     aws ssm put-parameter --name "/petstore/cleanupadoptionsurl" --value $userinput"/api/home/cleanupadoptions" --type "SecureString"
     echo -----Also created /petstore/cleanupadoptionsurl--------
