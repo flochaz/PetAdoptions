@@ -60,6 +60,9 @@ This will create the database for our application as shown below
 
 ![DB Created](images/dbcreated.png)
 
-## Go back to main
-[Instructions here](../README.md)
+
+## Test the application
+[Test Instructions](TestApp.md)
+
+[Go back to main](../README.md)
 

@@ -1,3 +1,4 @@
+![](guide/images/xrayservicemap.png)
 # Environment Setup
 [Instructions](guide/Setup.md)
 
