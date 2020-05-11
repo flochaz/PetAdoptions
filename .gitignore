@@ -2,7 +2,8 @@
 ./petsite/.vs
 ./petstatusupdater/function.zip
 ./petlistadoptions/node_modules/*
-./bin*
+bin/
+obj/
 ###################
 # compiled source #
 ###################
