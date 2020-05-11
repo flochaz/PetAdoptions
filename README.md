@@ -1,6 +1,1 @@
-![](guide/images/xrayservicemap.png)
-# Environment Setup
-[Instructions](guide/Setup.md)
-
-# Install instructions
-[Instructions](guide/Install.md)
+Go to https://github.com/awsimaya/PetAdoptionsCDK for install instructions.
