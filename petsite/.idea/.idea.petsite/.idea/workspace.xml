@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../cdk/pet_stack/resources/setup_parameterstore.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../cdk/pet_stack/resources/setup_parameterstore.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../guide/images/rdssg.png" beforeDir="false" afterPath="$PROJECT_DIR$/../guide/images/rdssg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/Debug/netcoreapp3.0/PetSite.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/PetSite.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/obj/project.assets.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +165,7 @@
       <workItem from="1588627656736" duration="478000" />
       <workItem from="1588637189180" duration="683000" />
       <workItem from="1588697193340" duration="3298000" />
+      <workItem from="1589375713465" duration="334000" />
     </task>
     <servers />
   </component>
