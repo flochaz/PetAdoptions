@@ -162,11 +162,13 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.UDP
         });
 
+        const ecsCluster = new ecs.Cluster(this, "PayForAdoption-cluster", {
+            vpc: theVPC,
+            containerInsights: true
+        });
+
         const payforadoptionservice = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PayForAdoption-service", {
-            cluster: new ecs.Cluster(this, "PayForAdoption-cluster", {
-                vpc: theVPC,
-                containerInsights: true
-            }),
+            cluster: ecsCluster,
             taskDefinition: payForAdoptionTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
@@ -217,10 +219,7 @@ export class Services extends cdk.Stack {
         });
 
         new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetListAdoption-service", {
-            cluster: new ecs.Cluster(this, "PetListAdoption-cluster", {
-                vpc: theVPC,
-                containerInsights: true
-            }),
+            cluster: ecsCluster,
             taskDefinition: petListAdoptionsTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
@@ -272,10 +271,7 @@ export class Services extends cdk.Stack {
         });
 
         new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSite-service", {
-            cluster: new ecs.Cluster(this, "PetSite-cluster", {
-                vpc: theVPC,
-                containerInsights: true
-            }),
+            cluster: ecsCluster,
             taskDefinition: PetSiteTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
@@ -327,10 +323,7 @@ export class Services extends cdk.Stack {
         });
 
         new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSearch-service", {
-            cluster: new ecs.Cluster(this, "PetSearch-cluster", {
-                vpc: theVPC,
-                containerInsights: true
-            }),
+            cluster: ecsCluster,
             taskDefinition: PetSearchTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
