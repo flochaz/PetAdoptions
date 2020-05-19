@@ -389,6 +389,7 @@ export class Services extends cdk.Stack {
                 types: [apigw.EndpointType.REGIONAL]
             }, deployOptions: {
                 tracingEnabled: true,
+                loggingLevel:apigw.MethodLoggingLevel.INFO,
                 stageName: 'prod'
             }, options: { defaultMethodOptions: { methodResponses: [] } }
             //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
