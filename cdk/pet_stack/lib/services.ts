@@ -377,7 +377,7 @@ export class Services extends cdk.Stack {
             description: 'Update Pet availability status',
             environment:
             {
-                "TABLE_NAME": "petadoptions"
+                "TABLE_NAME": dynamodb_petadoption.tableName
             }
         });
 
