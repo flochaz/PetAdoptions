@@ -14,7 +14,7 @@ spec:
         app: petsite
     spec:
       containers:
-      - image: 831210339789.dkr.ecr.us-east-1.amazonaws.com/petsite:latest
+      - image: awsimaya/petsite:latest
         imagePullPolicy: Always
         name: petsite
         ports:
@@ -22,4 +22,4 @@ spec:
           protocol: TCP
         env:
           - name: AWS_XRAY_DAEMON_ADDRESS
-            value: xray-service.default
+            value: xray-service.default:2000
