@@ -51,7 +51,8 @@ const apiCanaryBlueprint = async function () {
     const position = Math.floor(Math.random() * Math.floor(4));
    
     const requestOptions = {
-        hostname: 'petsearch-live.us-east-1.elasticbeanstalk.com',
+        hostname: '<ALB_HOST_NAME>',
+        // Example- hostname: 'petsearch-live.us-east-1.elasticbeanstalk.com',
         port: 80,
         path: '/api/search?pettype='+pettypes[position],
         method: 'GET'

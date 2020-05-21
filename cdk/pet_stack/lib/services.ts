@@ -20,7 +20,6 @@ export class Services extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
-
         // Create SQS resource to send Pet adoption messages to
         const sqsQueue = new sqs.Queue(this, 'sqs_petadoption', {
             visibilityTimeout: cdk.Duration.seconds(300)
@@ -354,7 +353,7 @@ export class Services extends cdk.Stack {
             role: iamrole_PetStatusUpdater,
             description: 'Update Pet availability status',
             environment: {
-                "TABLE_NAME": "petadoptions"
+                "TABLE_NAME": dynamodb_petadoption.tableName
             }
         });
 
@@ -366,6 +365,7 @@ export class Services extends cdk.Stack {
                 types: [apigw.EndpointType.REGIONAL]
             }, deployOptions: {
                 tracingEnabled: true,
+                loggingLevel:apigw.MethodLoggingLevel.INFO,
                 stageName: 'prod'
             }, options: { defaultMethodOptions: { methodResponses: [] } }
             //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
