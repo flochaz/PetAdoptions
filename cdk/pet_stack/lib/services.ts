@@ -79,12 +79,14 @@ export class Services extends cdk.Stack {
 
         rdssecuritygroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(1433), 'allow MSSQL access from the world');
 
-        const rdsPasswordSecret = new cdk.SecretValue(this.node.tryGetContext('rdspassword'));
+        const rdsUsername = this.node.tryGetContext('rdsusername');
+        const rdsPassword = this.node.tryGetContext('rdspassword');
+        const rdsPasswordSecret = new cdk.SecretValue(rdsPassword);
 
         const instance = new rds.DatabaseInstance(this, 'Instance', {
             engine: rds.DatabaseInstanceEngine.SQL_SERVER_WEB,
             instanceClass: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.SMALL),
-            masterUsername: this.node.tryGetContext('rdsusername'),
+            masterUsername: rdsUsername,
             masterUserPassword: rdsPasswordSecret,
             deletionProtection: false,
             vpc: theVPC,
@@ -172,7 +174,9 @@ export class Services extends cdk.Stack {
             publicLoadBalancer: true,
             desiredCount: 2,
             listenerPort: 80
-        }).targetGroup.configureHealthCheck({
+        });
+        
+        payforadoptionservice.targetGroup.configureHealthCheck({
             path: '/health/status'
         });
 
@@ -217,13 +221,15 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.UDP
         });
 
-        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetListAdoption-service", {
+        const listAdoptionService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetListAdoption-service", {
             cluster: ecsCluster,
             taskDefinition: petListAdoptionsTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
             listenerPort: 80
-        }).targetGroup.configureHealthCheck({
+        })
+        
+        listAdoptionService.targetGroup.configureHealthCheck({
             path: '/health/status'
         });
 
@@ -269,13 +275,15 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.UDP
         });
 
-        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSite-service", {
+        const siteService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSite-service", {
             cluster: ecsCluster,
             taskDefinition: PetSiteTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
             listenerPort: 80
-        }).targetGroup.configureHealthCheck({
+        });
+        
+        siteService.targetGroup.configureHealthCheck({
             path: '/health/status'
         });
 
@@ -321,13 +329,15 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.UDP
         });
 
-        new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSearch-service", {
+        const searchService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSearch-service", {
             cluster: ecsCluster,
             taskDefinition: PetSearchTaskDef,
             publicLoadBalancer: true,
             desiredCount: 2,
             listenerPort: 80
-        }).targetGroup.configureHealthCheck({
+        });
+        
+        searchService.targetGroup.configureHealthCheck({
             path: '/health/status'
         });
 
@@ -393,6 +403,53 @@ export class Services extends cdk.Stack {
                 stageName: 'prod'
             }, options: { defaultMethodOptions: { methodResponses: [] } }
             //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
+        });
+
+        // SSM paramers
+
+        new ssm.StringParameter(this, 'SiteUrlParamter', {
+            parameterName: '/petstore/petsiteurl',
+            stringValue: `http://${siteService.loadBalancer.loadBalancerDnsName}`,
+        });
+        new ssm.StringParameter(this, 'UpdateAdoptionsUrlParamter', {
+            parameterName: '/petstore/updateadoptionstatusurl',
+            stringValue: apigateway.url,
+        });
+        new ssm.StringParameter(this, 'SearchUrlParamter', {
+            parameterName: '/petstore/searchapiurl',
+            stringValue: `http://${searchService.loadBalancer.loadBalancerDnsName}/api/search?`,
+        });
+        new ssm.StringParameter(this, 'ListAdaptionsUrlParamter', {
+            parameterName: '/petstore/petlistadoptionsurl',
+            stringValue: `http://${listAdoptionService.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
+        });
+        new ssm.StringParameter(this, 'PaymentUrlParamter', {
+            parameterName: '/petstore/paymentapiurl',
+            stringValue: `http://${payforadoptionservice.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
+        });
+        new ssm.StringParameter(this, 'CleanupAdoptionUrlParamter', {
+            parameterName: '/petstore/cleanupadoptionsurl',
+            stringValue: `http://${payforadoptionservice.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
+        });
+        new ssm.StringParameter(this, 'DynamoTableParameter', {
+            parameterName: '/petstore/dynamodbtablename',
+            stringValue: dynamodb_petadoption.tableName,
+        });
+        new ssm.StringParameter(this, 'S3BucketNameParameter', {
+            parameterName: '/petstore/s3bucketname',
+            stringValue: s3_observabilitypetadoptions.bucketName,
+        });
+        new ssm.StringParameter(this, 'SnsArnParameter', {
+            parameterName: '/petstore/snsarn',
+            stringValue: topic_petadoption.topicArn,
+        });
+        new ssm.StringParameter(this, 'QueueUrlParameter', {
+            parameterName: '/petstore/queueurl',
+            stringValue: sqsQueue.queueUrl,
+        });
+        new ssm.StringParameter(this, 'RDSConnectionString', {
+            parameterName: '/petstore/rdsconnectionstring',
+            stringValue: `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
         });
 
         new cdk.CfnOutput(this, 'UpdateAdoptionStatusurl', { value: `${apigateway.url}` })
