@@ -136,14 +136,15 @@ export class Services extends cdk.Stack {
         });
 
         payForAdoptionTaskDef.addToExecutionRolePolicy(executionRolePolicy);
-
         payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayForAdoption-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
         payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayForAdoption-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
         payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayForAdoption-AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess'));
         payForAdoptionTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         payForAdoptionTaskDef.addContainer('payforadoption', {
-            image: ecs.ContainerImage.fromRegistry("awsimaya/payforadoption:latest"),
+            image: ecs.ContainerImage.fromAsset("../../payforadoption/PayForAdoption", {
+                repositoryName: "pet-pay-for-adoption"
+            }),
             memoryLimitMiB: 256,
             cpu: 256,
             logging
@@ -152,15 +153,7 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.TCP
         });
 
-        payForAdoptionTaskDef.addContainer('xraydaemon', {
-            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 2000,
-            protocol: ecs.Protocol.UDP
-        });
+        this.addXRayContainer(payForAdoptionTaskDef, logging);
 
         const ecsCluster = new ecs.Cluster(this, "PayForAdoption-cluster", {
             vpc: theVPC,
@@ -199,7 +192,9 @@ export class Services extends cdk.Stack {
         petListAdoptionsTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         petListAdoptionsTaskDef.addContainer('petlistadoption', {
-            image: ecs.ContainerImage.fromRegistry("awsimaya/petlistadoptions:latest"),
+            image: ecs.ContainerImage.fromAsset("../../petlistadoptions/petlistadoptions", {
+                repositoryName: "pet-list-adoption"
+            }),
             memoryLimitMiB: 256,
             cpu: 256,
             logging
@@ -208,15 +203,7 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.TCP
         });
 
-        petListAdoptionsTaskDef.addContainer('xraydaemon', {
-            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 2000,
-            protocol: ecs.Protocol.UDP
-        });
+        this.addXRayContainer(petListAdoptionsTaskDef, logging);
 
         new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetListAdoption-service", {
             cluster: ecsCluster,
@@ -251,7 +238,9 @@ export class Services extends cdk.Stack {
         PetSiteTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         PetSiteTaskDef.addContainer('PetSite', {
-            image: ecs.ContainerImage.fromRegistry("awsimaya/petsite:latest"),
+            image: ecs.ContainerImage.fromAsset("../../petsite/petsite", {
+                repositoryName: "pet-site"
+            }),
             memoryLimitMiB: 256,
             cpu: 256,
             logging
@@ -260,15 +249,7 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.TCP
         });
 
-        PetSiteTaskDef.addContainer('xraydaemon', {
-            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 2000,
-            protocol: ecs.Protocol.UDP
-        });
+        this.addXRayContainer(PetSiteTaskDef, logging);
 
         new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSite-service", {
             cluster: ecsCluster,
@@ -303,7 +284,9 @@ export class Services extends cdk.Stack {
         PetSearchTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         PetSearchTaskDef.addContainer('PetSearch', {
-            image: ecs.ContainerImage.fromRegistry("awsimaya/petsearch:latest"),
+            image: ecs.ContainerImage.fromAsset("../../petsearch/petsearch", {
+                repositoryName: "pet-search"
+            }),
             memoryLimitMiB: 256,
             cpu: 256,
             logging
@@ -312,15 +295,7 @@ export class Services extends cdk.Stack {
             protocol: ecs.Protocol.TCP
         });
 
-        PetSearchTaskDef.addContainer('xraydaemon', {
-            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 2000,
-            protocol: ecs.Protocol.UDP
-        });
+        this.addXRayContainer(PetSearchTaskDef, logging);
 
         new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSearch-service", {
             cluster: ecsCluster,
@@ -350,7 +325,9 @@ export class Services extends cdk.Stack {
         trafficGeneratorTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         trafficGeneratorTaskDef.addContainer('trafficGenerator', {
-            image: ecs.ContainerImage.fromRegistry("awsimaya/pet-trafficgenerator:latest"),
+            image: ecs.ContainerImage.fromAsset("../../trafficgenerator/trafficgenerator", {
+                repositoryName: "pet-traffic-generator"
+            }),
             memoryLimitMiB: 512,
             cpu: 256,
             logging
@@ -371,13 +348,12 @@ export class Services extends cdk.Stack {
 
         var lambda_petstatusupdater = new lambda.Function(this, 'lambdafn', {
             runtime: lambda.Runtime.NODEJS_12_X,    // execution environment
-            code: lambda.Code.fromAsset('../resources/function.zip'),  // code loaded from "lambda" directory
+            code: lambda.Code.fromAsset('resources/function.zip'),  // code loaded from "lambda" directory
             handler: 'index.handler',
             tracing: lambda.Tracing.ACTIVE,
             role: iamrole_PetStatusUpdater,
             description: 'Update Pet availability status',
-            environment:
-            {
+            environment: {
                 "TABLE_NAME": "petadoptions"
             }
         });
@@ -399,6 +375,17 @@ export class Services extends cdk.Stack {
         new cdk.CfnOutput(this, 'QueueURL', { value: `${sqsQueue.queueUrl}` })
         new cdk.CfnOutput(this, 'SNSTopicARN', { value: `${topic_petadoption.topicArn}` })
         new cdk.CfnOutput(this, 'RDSServerName', { value: `${instance.dbInstanceEndpointAddress}` })
+    }
 
+    private addXRayContainer(taskDefinition: ecs.FargateTaskDefinition, logging: ecs.AwsLogDriver) {
+        taskDefinition.addContainer('xraydaemon', {
+            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
+            memoryLimitMiB: 256,
+            cpu: 256,
+            logging
+        }).addPortMappings({
+            containerPort: 2000,
+            protocol: ecs.Protocol.UDP
+        });
     }
 }
