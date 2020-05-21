@@ -3,7 +3,6 @@
   "context": {
     "vpc_cidr": "11.0.0.0/16",
     "snstopic_email": "someone@example.com",
-    "s3bucket_name": "observabilitypetadoptions3",
     "ddbtable_name": "petadoptions",
     "rdssecuritygroup": "petadoptionsrdsSG",
     "rdsusername":"",

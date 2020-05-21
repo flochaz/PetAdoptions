@@ -31,7 +31,6 @@ export class Services extends cdk.Stack {
 
         // Creates an S3 bucket to store pet images
         const s3_observabilitypetadoptions = new s3.Bucket(this, 's3bucket_petadoption', {
-            bucketName: this.node.tryGetContext('s3bucket_name'),
             publicReadAccess: false
         });
 
