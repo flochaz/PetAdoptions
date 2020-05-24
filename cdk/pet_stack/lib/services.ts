@@ -14,6 +14,7 @@ import * as ddbseeder from 'aws-cdk-dynamodb-seeder'
 import * as s3seeder from '@aws-cdk/aws-s3-deployment'
 import * as rds from '@aws-cdk/aws-rds';
 
+import { SqlSeeder } from './sql-seeder'
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
 export class Services extends cdk.Stack {
@@ -113,6 +114,13 @@ export class Services extends cdk.Stack {
                 "xray:PutTelemetryRecords"
             ]
         });
+        var sqlSeeder = new SqlSeeder(this, "sql-seeder", {
+            vpc: theVPC,
+            database: instance,
+            port: 1433,
+            username: rdsUsername,
+            password: rdsPassword
+        })
 
         const readSSMParamsPolicy = new iam.PolicyStatement({
             effect: iam.Effect.ALLOW,
