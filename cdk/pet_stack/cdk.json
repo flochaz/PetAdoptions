@@ -3,7 +3,6 @@
   "context": {
     "vpc_cidr": "11.0.0.0/16",
     "snstopic_email": "someone@example.com",
-    "ddbtable_name": "petadoptions",
     "rdssecuritygroup": "petadoptionsrdsSG",
     "rdsusername":"",
     "rdspassword":""
