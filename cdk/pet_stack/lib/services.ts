@@ -44,8 +44,7 @@ export class Services extends cdk.Stack {
             sortKey: {
                 name: 'petid',
                 type: ddb.AttributeType.STRING
-            },
-            removalPolicy: cdk.RemovalPolicy.DESTROY
+            }
         });
 
         // Seeds the petadoptions dynamodb table with all data required
