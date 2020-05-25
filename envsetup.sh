@@ -1,5 +1,5 @@
 #
-# Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this
 # software and associated documentation files (the "Software"), to deal in the Software
@@ -16,12 +16,12 @@
 #
 
 #title           envsetup.sh
-#description     This script will setup the Cloud9 IDE with the prerequisite packages and code for the workshop.
+#description     This script will setup the Cloud9 IDE with the prerequisite packages and code for the Observability workshop.
 #author          @ijaganna
 #contributors    @ijaganna
 #date            2020-05-24
 #version         0.1
-#usage           curl -sSL https://s3.amazonaws.com/aws-tracing-workshop-artifacts/install-tools.sh | bash -s stable
+#usage           curl -sSL https://raw.githubusercontent.com/awsimaya/PetAdoptions/master/envsetup.sh | bash -s stable
 #==============================================================================
 
 # Install jq
@@ -61,9 +61,12 @@ echo "export AWS_REGION=${AWS_DEFAULT_REGION}" >> ~/.bash_profile
 aws configure set default.region ${AWS_DEFAULT_REGION}
 aws configure get default.region
 
+# Upgrade CDK version
+npm i -g aws-cdk --force
+
 # Download lab Repository
 git clone https://github.com/awsimaya/PetAdoptions
-cd /PetAdoptions/cdk/pet_stack
+cd PetAdoptions/cdk/pet_stack
 
 # Install CDK dependencies
 npx npm-check-updates -u
