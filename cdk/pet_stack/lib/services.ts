@@ -13,6 +13,7 @@ import * as s3 from '@aws-cdk/aws-s3'
 import * as ddbseeder from 'aws-cdk-dynamodb-seeder'
 import * as s3seeder from '@aws-cdk/aws-s3-deployment'
 import * as rds from '@aws-cdk/aws-rds';
+import * as ssm from '@aws-cdk/aws-ssm';
 
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
@@ -43,8 +44,7 @@ export class Services extends cdk.Stack {
             sortKey: {
                 name: 'petid',
                 type: ddb.AttributeType.STRING
-            },
-            tableName: this.node.tryGetContext('ddbtable_name')
+            }
         });
 
         // Seeds the petadoptions dynamodb table with all data required
@@ -71,10 +71,9 @@ export class Services extends cdk.Stack {
 
         // Create RDS SQL Server DB instance
 
-        const rdssecuritygroup = new ec2.SecurityGroup(this, 'petadoptionsrdsSG',
-            {
-                vpc: theVPC, securityGroupName: this.node.tryGetContext('rdssecuritygroup')
-            });
+        const rdssecuritygroup = new ec2.SecurityGroup(this, 'petadoptionsrdsSG', {
+            vpc: theVPC
+        });
 
         rdssecuritygroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(1433), 'allow MSSQL access from the world');
 
@@ -116,9 +115,11 @@ export class Services extends cdk.Stack {
 
         const readSSMParamsPolicy = new iam.PolicyStatement({
             effect: iam.Effect.ALLOW,
-            actions: ['ssm:GetParametersByPath',
+            actions: [
+                'ssm:GetParametersByPath',
                 'ssm:GetParameters',
-                'ssm:GetParameter'],
+                'ssm:GetParameter'
+            ],
             resources: ['*']
         });
 
