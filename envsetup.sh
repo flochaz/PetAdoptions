@@ -64,3 +64,15 @@ aws configure get default.region
 # Create SSH key
 ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
 
+# Install AWS CDK
+npm install -g aws-cdk
+
+# Download lab Repository
+git clone https://github.com/awsimaya/PetAdoptions
+cd PetAdoptions/cdk/pet_stack
+
+# Install CDK dependencies
+npx npm-check-updates -u
+
+# Install node modules
+npm install
