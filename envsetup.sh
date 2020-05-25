@@ -61,15 +61,14 @@ echo "export AWS_REGION=${AWS_DEFAULT_REGION}" >> ~/.bash_profile
 aws configure set default.region ${AWS_DEFAULT_REGION}
 aws configure get default.region
 
+# Upgrade npm
+npm install -g npm
+
 # Upgrade CDK version
 npm i -g aws-cdk --force
 
 # Download lab Repository
 git clone https://github.com/awsimaya/PetAdoptions
-cd PetAdoptions/cdk/pet_stack
 
-# Install CDK dependencies
-npx npm-check-updates -u
 
-# Install node modules
-npm install
+
