@@ -30,6 +30,12 @@ sudo yum -y -q install jq
 # Update awscli
 pip install --user --upgrade awscli
 
+# Install awscli v2
+curl -O "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" 
+unzip awscli-exe-linux-x86_64.zip
+sudo ./aws/install
+
+
 # Install bash-completion
 sudo yum install bash-completion -y -q
 
