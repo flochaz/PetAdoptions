@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build:sql-seeder": "pwsh -NoProfile -ExecutionPolicy Unrestricted -command New-AWSPowerShellLambdaPackage -ProjectDirectory './lambda/sqlserver-seeder' -OutputPackage ./lambda/sqlserver-seeder.zip",
+    "build:status-updater": "(cd ../../petstatusupdater && npm i)",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
