@@ -36,6 +36,9 @@ $body = @{
 	LogicalResourceId  = $CFNEvent.LogicalResourceId
 }
 Write-Host "Processing RequestType [$($CFNEvent.RequestType)]"
+Write-Host "Resource Properties:"
+Write-Host ($CFNEvent.ResourceProperties | Format-List | Out-String)
+
 try {
 	# If you want to return data back to CloudFormation, add the Data property to the body with the value as a hashtable. The hashtable keys will be the retrievable attributes when using Fn::GetAtt against the custom resource in your CloudFormation template:
 	#    $body.Data = @{Secret = $null}
@@ -56,7 +59,9 @@ try {
 }
 catch {
 	Write-Error $_
-	$body.Status = "FAILED"
+	if (-not $CFNEvent.ResourceProperties.IgnoreSqlErrors) {
+	  $body.Status = "FAILED"
+	}
 }
 finally {
 	try {

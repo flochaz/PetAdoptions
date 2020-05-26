@@ -10,7 +10,8 @@ export interface SqlSeederProps {
   database: rds.DatabaseInstance,
   port: number,
   username: string,
-  password: string
+  password: string,
+  ignoreSqlErrors?: boolean
 }
 
 export class SqlSeeder extends cdk.Construct {
@@ -51,7 +52,12 @@ export class SqlSeeder extends cdk.Construct {
     const sqlSeederProvider = new cr.Provider(this, 'sqlserver-seeder-provider', {
       onEventHandler: sqlSeederLambda
     });
-    const sqlSeederResource = new cdk.CustomResource(this, 'SqlSeeder', { serviceToken: sqlSeederProvider.serviceToken });
+    const sqlSeederResource = new cdk.CustomResource(this, 'SqlSeeder', { 
+      serviceToken: sqlSeederProvider.serviceToken, 
+      properties: {
+        "IgnoreSqlErrors": !!props.ignoreSqlErrors
+      }
+     });
     sqlSeederResource.node.addDependency(props.database);
 
     // enable connection to RDS instance

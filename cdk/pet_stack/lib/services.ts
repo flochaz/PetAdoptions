@@ -2,9 +2,6 @@ import * as cdk from '@aws-cdk/core';
 import * as iam from '@aws-cdk/aws-iam';
 import * as ec2 from '@aws-cdk/aws-ec2';
 import * as ecs from '@aws-cdk/aws-ecs';
-import * as ecs_patterns from '@aws-cdk/aws-ecs-patterns';
-import * as lambda from '@aws-cdk/aws-lambda';
-import * as apigw from '@aws-cdk/aws-apigateway';
 import * as sns from '@aws-cdk/aws-sns'
 import * as sqs from '@aws-cdk/aws-sqs'
 import * as subs from '@aws-cdk/aws-sns-subscriptions'
@@ -16,6 +13,13 @@ import * as rds from '@aws-cdk/aws-rds';
 import * as ssm from '@aws-cdk/aws-ssm';
 
 import { SqlSeeder } from './sql-seeder'
+import { PayForAdoptionService } from './services/pay-for-adoption-service'
+import { ListAdoptionsService } from './services/list-adoptions-service'
+import { PetSiteService } from './services/pet-site-service'
+import { SearchService } from './services/search-service'
+import { TrafficGeneratorService } from './services/traffic-generator-service'
+import { StatusUpdaterService } from './services/status-updater-service'
+
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
 export class Services extends cdk.Stack {
@@ -93,26 +97,6 @@ export class Services extends cdk.Stack {
             securityGroups: [rdssecuritygroup]
         });
 
-
-
-        const logging = new ecs.AwsLogDriver({
-            streamPrefix: "ecs-logs"
-        });
-
-        const executionRolePolicy = new iam.PolicyStatement({
-            effect: iam.Effect.ALLOW,
-            resources: ['*'],
-            actions: [
-                "ecr:GetAuthorizationToken",
-                "ecr:BatchCheckLayerAvailability",
-                "ecr:GetDownloadUrlForLayer",
-                "ecr:BatchGetImage",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-                "xray:PutTraceSegments",
-                "xray:PutTelemetryRecords"
-            ]
-        });
         var sqlSeeder = new SqlSeeder(this, "sql-seeder", {
             vpc: theVPC,
             database: instance,
@@ -131,326 +115,98 @@ export class Services extends cdk.Stack {
             resources: ['*']
         });
 
-        // PayForAdoption service definitions-----------------------------------------------------------------------
-
-        const taskRole_PayForAdoption = new iam.Role(this, `ecs-TaskRole-PayForAdoption-${this.stackName}`, {
-            roleName: `ecs-taskRole-PayForAdoption-${this.stackName}`,
-            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
-        });
-
-        const payForAdoptionTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-payforadoption", {
-            taskRole: taskRole_PayForAdoption,
-            cpu: 1024,
-            memoryLimitMiB: 2048
-        });
-
-        payForAdoptionTaskDef.addToExecutionRolePolicy(executionRolePolicy);
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayForAdoption-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayForAdoption-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
-        payForAdoptionTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayForAdoption-AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess'));
-        payForAdoptionTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
-
-        payForAdoptionTaskDef.addContainer('payforadoption', {
-            image: ecs.ContainerImage.fromAsset("../../payforadoption/PayForAdoption", {
-                repositoryName: "pet-pay-for-adoption"
-            }),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 80,
-            protocol: ecs.Protocol.TCP
-        });
-
-        this.addXRayContainer(payForAdoptionTaskDef, logging);
-
         const ecsCluster = new ecs.Cluster(this, "PayForAdoption-cluster", {
             vpc: theVPC,
             containerInsights: true
         });
 
-        const payforadoptionservice = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PayForAdoption-service", {
-            cluster: ecsCluster,
-            taskDefinition: payForAdoptionTaskDef,
-            publicLoadBalancer: true,
-            desiredCount: 2,
-            listenerPort: 80
-        });
-        
-        payforadoptionservice.targetGroup.configureHealthCheck({
-            path: '/health/status'
-        });
+        const rdsAccessPolicy = iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess');
 
+        // PayForAdoption service definitions-----------------------------------------------------------------------
+        const payForAdoptionService = new PayForAdoptionService(this, 'pay-for-adoption-service', {
+            cluster: ecsCluster,
+            cpu: 1024,
+            memoryLimitMiB: 2048,
+            healthCheck: '/health/status'
+        });
+        payForAdoptionService.taskDefinition.taskRole?.addManagedPolicy(rdsAccessPolicy);
+        payForAdoptionService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         // PetListAdoptions service definitions-----------------------------------------------------------------------
-
-        const taskRole_PetListAdoptions = new iam.Role(this, `ecs-taskRole-PayListAdoptions-${this.stackName}`, {
-            roleName: `ecs-taskRole-PayListAdoptions-${this.stackName}`,
-            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
-        });
-
-        const petListAdoptionsTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-petlist", {
-            cpu: 1024,
-            taskRole: taskRole_PetListAdoptions,
-            memoryLimitMiB: 2048
-        });
-
-        petListAdoptionsTaskDef.addToExecutionRolePolicy(executionRolePolicy);
-
-        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayListAdoptions-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
-        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayListAdoptions-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
-        petListAdoptionsTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PayListAdoptions-AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess'));
-        petListAdoptionsTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
-
-        petListAdoptionsTaskDef.addContainer('petlistadoption', {
-            image: ecs.ContainerImage.fromAsset("../../petlistadoptions/petlistadoptions", {
-                repositoryName: "pet-list-adoption"
-            }),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 80,
-            protocol: ecs.Protocol.TCP
-        });
-
-        this.addXRayContainer(petListAdoptionsTaskDef, logging);
-
-        const listAdoptionService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetListAdoption-service", {
+        const listAdoptionsService = new ListAdoptionsService(this, 'list-adoptions-service', {
             cluster: ecsCluster,
-            taskDefinition: petListAdoptionsTaskDef,
-            publicLoadBalancer: true,
-            desiredCount: 2,
-            listenerPort: 80
-        })
-        
-        listAdoptionService.targetGroup.configureHealthCheck({
-            path: '/health/status'
+            cpu: 1024,
+            memoryLimitMiB: 2048,
+            healthCheck: '/health/status'
         });
-
+        listAdoptionsService.taskDefinition.taskRole?.addManagedPolicy(rdsAccessPolicy);
+        listAdoptionsService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         // PetSite service definitions-----------------------------------------------------------------------
-
-        const taskRole_PetSite = new iam.Role(this, `ecs-taskRole-PetSite-${this.stackName}`, {
-            roleName: `ecs-taskRole-PetSite-${this.stackName}`,
-            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
-        });
-
-        const PetSiteTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-petsite", {
-            taskRole: taskRole_PetSite,
-            cpu: 1024,
-            memoryLimitMiB: 2048
-        });
-
-        PetSiteTaskDef.addToExecutionRolePolicy(executionRolePolicy);
-
-        PetSiteTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSite-AmazonSQSFullAccess', 'arn:aws:iam::aws:policy/AmazonSQSFullAccess'));
-        PetSiteTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSite-AmazonSNSFullAccess', 'arn:aws:iam::aws:policy/AmazonSNSFullAccess'));
-        PetSiteTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSite-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
-        PetSiteTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSite-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
-        PetSiteTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
-
-        PetSiteTaskDef.addContainer('PetSite', {
-            image: ecs.ContainerImage.fromAsset("../../petsite/petsite", {
-                repositoryName: "pet-site"
-            }),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 80,
-            protocol: ecs.Protocol.TCP
-        });
-
-        this.addXRayContainer(PetSiteTaskDef, logging);
-
-        const siteService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSite-service", {
+        const petSiteService = new PetSiteService(this, 'pet-site-service', {
             cluster: ecsCluster,
-            taskDefinition: PetSiteTaskDef,
-            publicLoadBalancer: true,
-            desiredCount: 2,
-            listenerPort: 80
-        });
-        
-        siteService.targetGroup.configureHealthCheck({
-            path: '/health/status'
-        });
+            cpu: 1024,
+            memoryLimitMiB: 2048,
+            healthCheck: '/health/status'
+        })
+        petSiteService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         // PetSearch service definitions-----------------------------------------------------------------------
-
-        const taskRole_PetSearch = new iam.Role(this, `ecs-taskRole-PetSearch-${this.stackName}`, {
-            roleName: `ecs-taskRole-PetSearch-${this.stackName}`,
-            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
-        });
-
-        const PetSearchTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef-PetSearch", {
-            taskRole: taskRole_PetSearch,
-            cpu: 1024,
-            memoryLimitMiB: 2048
-        });
-
-        PetSearchTaskDef.addToExecutionRolePolicy(executionRolePolicy);
-
-        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
-        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AWSXrayWriteOnlyAccess', 'arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess'));
-        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonDynamoDBReadOnlyAccess', 'arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess'));
-        PetSearchTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'PetSearch-AmazonS3ReadOnlyAccess', 'arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess'));
-
-        PetSearchTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
-
-        PetSearchTaskDef.addContainer('PetSearch', {
-            image: ecs.ContainerImage.fromAsset("../../petsearch/petsearch", {
-                repositoryName: "pet-search"
-            }),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 80,
-            protocol: ecs.Protocol.TCP
-        });
-
-        this.addXRayContainer(PetSearchTaskDef, logging);
-
-        const searchService = new ecs_patterns.ApplicationLoadBalancedFargateService(this, "PetSearch-service", {
+        const searchService = new SearchService(this, 'search-service', {
             cluster: ecsCluster,
-            taskDefinition: PetSearchTaskDef,
-            publicLoadBalancer: true,
-            desiredCount: 2,
-            listenerPort: 80
-        });
-        
-        searchService.targetGroup.configureHealthCheck({
-            path: '/health/status'
-        });
+            cpu: 1024,
+            memoryLimitMiB: 2048,
+            healthCheck: '/health/status'
+        })
+        searchService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
-        // Traffic Generator task definition. Only creates a task definition. Doesn't deploy a service or start a task. That's left to the user.
-        const taskRole_trafficGenerator = new iam.Role(this, `ecs-taskRole_trafficGenerator-${this.stackName}`, {
-            roleName: `ecs-taskRole_trafficGenerator-${this.stackName}`,
-            assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
-        });
-
-        const trafficGeneratorTaskDef = new ecs.FargateTaskDefinition(this, "ecs-taskdef", {
-            taskRole: taskRole_trafficGenerator,
+        // Traffic Generator task definition.
+        const trafficGeneratorService = new TrafficGeneratorService(this, 'traffic-generator-service', {
+            cluster: ecsCluster,
             cpu: 256,
-            memoryLimitMiB: 512
-        });
-
-        trafficGeneratorTaskDef.addToExecutionRolePolicy(executionRolePolicy);
-
-        trafficGeneratorTaskDef.taskRole?.addManagedPolicy(iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonECSTaskExecutionRolePolicy', 'arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy'));
-        trafficGeneratorTaskDef.taskRole?.addToPolicy(readSSMParamsPolicy);
-
-        trafficGeneratorTaskDef.addContainer('trafficGenerator', {
-            image: ecs.ContainerImage.fromAsset("../../trafficgenerator/trafficgenerator", {
-                repositoryName: "pet-traffic-generator"
-            }),
             memoryLimitMiB: 512,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 80,
-            protocol: ecs.Protocol.TCP
-        });
+            disableXRay: true,
+            disableService: true // Only creates a task definition. Doesn't deploy a service or start a task. That's left to the user.     
+        })
+        trafficGeneratorService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         //PetStatusUpdater Lambda Function and APIGW--------------------------------------
-
-        var iamrole_PetStatusUpdater = new iam.Role(this, 'lambdaexecutionrole', {
-            assumedBy: new iam.ServicePrincipal('lambda.amazonaws.com'),
-            managedPolicies: [
-                iam.ManagedPolicy.fromManagedPolicyArn(this, 'first', 'arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess'),
-                iam.ManagedPolicy.fromManagedPolicyArn(this, 'second', 'arn:aws:iam::aws:policy/AWSLambdaFullAccess')],
-            roleName: 'PetStatusUpdaterRole'
+        const statusUpdaterService = new StatusUpdaterService(this, 'status-updater-service', {
+            tableName: dynamodb_petadoption.tableName
         });
 
-        var lambda_petstatusupdater = new lambda.Function(this, 'lambdafn', {
-            runtime: lambda.Runtime.NODEJS_12_X,    // execution environment
-            code: lambda.Code.fromAsset('resources/function.zip'),  // code loaded from "lambda" directory
-            handler: 'index.handler',
-            tracing: lambda.Tracing.ACTIVE,
-            role: iamrole_PetStatusUpdater,
-            description: 'Update Pet availability status',
-            environment: {
-                "TABLE_NAME": dynamodb_petadoption.tableName
-            }
-        });
+        this.createSsmParameters(new Map(Object.entries({
+            '/petstore/updateadoptionstatusurl': statusUpdaterService.api.url,
+            '/petstore/queueurl':                sqsQueue.queueUrl,
+            '/petstore/snsarn':                  topic_petadoption.topicArn,
+            '/petstore/dynamodbtablename':       dynamodb_petadoption.tableName,
+            '/petstore/s3bucketname':            s3_observabilitypetadoptions.bucketName,
+            '/petstore/petsiteurl':              `http://${petSiteService.service.loadBalancer.loadBalancerDnsName}`,
+            '/petstore/searchapiurl':            `http://${searchService.service.loadBalancer.loadBalancerDnsName}/api/search?`,
+            '/petstore/petlistadoptionsurl':     `http://${listAdoptionsService.service.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
+            '/petstore/paymentapiurl':           `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
+            '/petstore/cleanupadoptionsurl':     `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
+            '/petstore/rdsconnectionstring':     `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
+        })));
 
-        //defines an API Gateway REST API resource backed by our "petstatusupdater" function.
-        const apigateway = new apigw.LambdaRestApi(this, 'PetAdoptionStatusUpdater', {
-            handler: lambda_petstatusupdater,
-            proxy: true,
-            endpointConfiguration: {
-                types: [apigw.EndpointType.REGIONAL]
-            }, deployOptions: {
-                tracingEnabled: true,
-                loggingLevel:apigw.MethodLoggingLevel.INFO,
-                stageName: 'prod'
-            }, options: { defaultMethodOptions: { methodResponses: [] } }
-            //defaultIntegration: new apigw.Integration({ integrationHttpMethod: 'PUT', type: apigw.IntegrationType.AWS })
-        });
-
-        // SSM paramers
-
-        new ssm.StringParameter(this, 'SiteUrlParamter', {
-            parameterName: '/petstore/petsiteurl',
-            stringValue: `http://${siteService.loadBalancer.loadBalancerDnsName}`,
-        });
-        new ssm.StringParameter(this, 'UpdateAdoptionsUrlParamter', {
-            parameterName: '/petstore/updateadoptionstatusurl',
-            stringValue: apigateway.url,
-        });
-        new ssm.StringParameter(this, 'SearchUrlParamter', {
-            parameterName: '/petstore/searchapiurl',
-            stringValue: `http://${searchService.loadBalancer.loadBalancerDnsName}/api/search?`,
-        });
-        new ssm.StringParameter(this, 'ListAdaptionsUrlParamter', {
-            parameterName: '/petstore/petlistadoptionsurl',
-            stringValue: `http://${listAdoptionService.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
-        });
-        new ssm.StringParameter(this, 'PaymentUrlParamter', {
-            parameterName: '/petstore/paymentapiurl',
-            stringValue: `http://${payforadoptionservice.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
-        });
-        new ssm.StringParameter(this, 'CleanupAdoptionUrlParamter', {
-            parameterName: '/petstore/cleanupadoptionsurl',
-            stringValue: `http://${payforadoptionservice.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
-        });
-        new ssm.StringParameter(this, 'DynamoTableParameter', {
-            parameterName: '/petstore/dynamodbtablename',
-            stringValue: dynamodb_petadoption.tableName,
-        });
-        new ssm.StringParameter(this, 'S3BucketNameParameter', {
-            parameterName: '/petstore/s3bucketname',
-            stringValue: s3_observabilitypetadoptions.bucketName,
-        });
-        new ssm.StringParameter(this, 'SnsArnParameter', {
-            parameterName: '/petstore/snsarn',
-            stringValue: topic_petadoption.topicArn,
-        });
-        new ssm.StringParameter(this, 'QueueUrlParameter', {
-            parameterName: '/petstore/queueurl',
-            stringValue: sqsQueue.queueUrl,
-        });
-        new ssm.StringParameter(this, 'RDSConnectionString', {
-            parameterName: '/petstore/rdsconnectionstring',
-            stringValue: `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
-        });
-
-        new cdk.CfnOutput(this, 'UpdateAdoptionStatusurl', { value: `${apigateway.url}` })
-        new cdk.CfnOutput(this, 'QueueURL', { value: `${sqsQueue.queueUrl}` })
-        new cdk.CfnOutput(this, 'SNSTopicARN', { value: `${topic_petadoption.topicArn}` })
-        new cdk.CfnOutput(this, 'RDSServerName', { value: `${instance.dbInstanceEndpointAddress}` })
+        this.createOuputs(new Map(Object.entries({
+            'QueueURL': sqsQueue.queueUrl,
+            'UpdateAdoptionStatusurl': statusUpdaterService.api.url,
+            'SNSTopicARN': topic_petadoption.topicArn,
+            'RDSServerName': instance.dbInstanceEndpointAddress
+        })));
     }
 
-    private addXRayContainer(taskDefinition: ecs.FargateTaskDefinition, logging: ecs.AwsLogDriver) {
-        taskDefinition.addContainer('xraydaemon', {
-            image: ecs.ContainerImage.fromRegistry('amazon/aws-xray-daemon'),
-            memoryLimitMiB: 256,
-            cpu: 256,
-            logging
-        }).addPortMappings({
-            containerPort: 2000,
-            protocol: ecs.Protocol.UDP
+    private createSsmParameters(params: Map<string, string>) {
+        params.forEach((value, key) => {
+            //const id = key.replace('/', '_');
+            new ssm.StringParameter(this, key, { parameterName: key, stringValue: value });
+        });
+    }
+
+    private createOuputs(params: Map<string, string>) {
+        params.forEach((value, key) => {
+            new cdk.CfnOutput(this, key, { value: value })
         });
     }
 }
