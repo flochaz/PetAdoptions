@@ -1,4 +1,21 @@
 #!/bin/bash
+
+# ****************************************************************************************
+# WARNING: DO NOT USE. THIS SCRIPT IS INCOMPLETE AND EXPERIMENTAL. IT DOES NOT WORK
+# ****************************************************************************************
+
+ISSUER_URL=$(aws eks describe-cluster \
+                       --name irptest \
+                       --query cluster.identity.oidc.issuer \
+                       --output text)
+
+
+aws iam create-open-id-connect-provider \
+          --url $ISSUER_URL \
+          --thumbprint-list $ROOT_CA_FINGERPRINT \
+          --client-id-list sts.amazonaws.com
+
+
 # STEP 1: create IAM role and attach the target policy:
 ISSUER_HOSTPATH=$(echo $ISSUER_URL | cut -f 3- -d'/')
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
