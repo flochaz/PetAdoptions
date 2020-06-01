@@ -13,6 +13,7 @@ spec:
       labels:
         app: petsite
     spec:
+      serviceAccountName: my-sa-ssmfullaccess
       containers:
       - image: awsimaya/petsite:latest
         imagePullPolicy: Always

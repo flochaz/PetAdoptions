@@ -63,7 +63,7 @@ data:
   cwagentconfig.json: |
     {
       "agent": {
-        "region": "us-east-1"
+        "region": "us-west-2"
       },
       "logs": {
         "metrics_collected": {
@@ -99,7 +99,7 @@ spec:
     spec:
       containers:
         - name: cloudwatch-agent
-          image: amazon/cloudwatch-agent:1.231221.0
+          image: amazon/cloudwatch-agent:1.245315.0
           #ports:
           #  - containerPort: 8125
           #    hostPort: 8125
@@ -126,7 +126,7 @@ spec:
                 fieldRef:
                   fieldPath: metadata.namespace
             - name: CI_VERSION
-              value: "k8s/1.1.0"
+              value: "k8s/1.1.1"
           # Please don't change the mountPath
           volumeMounts:
             - name: cwagentconfig
@@ -171,11 +171,11 @@ spec:
 ---
 
 # create configmap for cluster name and aws region for CloudWatch Logs
-# need to replace the placeholders petsite and us-east-1
+# need to replace the placeholders petsite and us-west-2
 apiVersion: v1
 data:
   cluster.name: petsite
-  logs.region: us-east-1
+  logs.region: us-west-2
 kind: ConfigMap
 metadata:
   name: cluster-info
@@ -575,7 +575,7 @@ spec:
                   name: cluster-info
                   key: cluster.name
             - name: CI_VERSION
-              value: "k8s/1.1.0"
+              value: "k8s/1.1.1"
           resources:
             limits:
               memory: 400Mi
