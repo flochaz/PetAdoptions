@@ -4,26 +4,34 @@ import * as iam from '@aws-cdk/aws-iam';
 import * as eks from '@aws-cdk/aws-eks';
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
+import { DockerImageAsset } from '@aws-cdk/aws-ecr-assets';
+import path = require('path');
 
 export class PetSiteServiceEKS extends cdk.Stack {
 
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const clusterAdmin = new iam.Role(this, 'AdminRole', {
-      assumedBy: new iam.AccountRootPrincipal()
+    const asset = new DockerImageAsset(this, 'MyBuildImage', {
+      directory: path.join('../../petsite/', 'petsite')
     });
 
-    const cluster = new eks.Cluster(this, 'petsite', {
-      clusterName: `petsite`,
-      mastersRole: clusterAdmin,
-      version: '1.15',
-      defaultCapacity: 2,
-      kubectlEnabled: true
+    new cdk.CfnOutput(this, 'petsiteECRimageURL', {
+      value: asset.imageUri
     });
 
-   // this.readYamlFromDir('../../petsite/petsite/kubernetes/', cluster);
-   // this.readYamlFromDir('../../petsite/petsite/kubernetes/xray-daemon/', cluster);
+    // const cluster = new eks.Cluster(this, 'petsite', {
+    //   clusterName: `petsite`,
+    //   mastersRole: new iam.Role(this, 'AdminRole', {
+    //     assumedBy: new iam.AccountRootPrincipal()
+    //   }),
+    //   version: '1.15',
+    //   defaultCapacity: 2,
+    //   kubectlEnabled: true
+    // });
+
+    // this.readYamlFromDir('../../petsite/petsite/kubernetes/', cluster);
+    // this.readYamlFromDir('../../petsite/petsite/kubernetes/xray-daemon/', cluster);
   }
 
   private readYamlFromDir(dir: string, cluster: eks.Cluster) {

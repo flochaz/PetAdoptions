@@ -11,6 +11,8 @@ import * as ddbseeder from 'aws-cdk-dynamodb-seeder'
 import * as s3seeder from '@aws-cdk/aws-s3-deployment'
 import * as rds from '@aws-cdk/aws-rds';
 import * as ssm from '@aws-cdk/aws-ssm';
+import * as eks from '@aws-cdk/aws-eks';
+import { DockerImageAsset } from '@aws-cdk/aws-ecr-assets';
 
 import { SqlSeeder } from './sql-seeder'
 import { PayForAdoptionService } from './services/pay-for-adoption-service'
@@ -19,6 +21,7 @@ import { PetSiteService } from './services/pet-site-service'
 import { SearchService } from './services/search-service'
 import { TrafficGeneratorService } from './services/traffic-generator-service'
 import { StatusUpdaterService } from './services/status-updater-service'
+import path = require('path');
 
 // https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
 
@@ -142,14 +145,42 @@ export class Services extends cdk.Stack {
         listAdoptionsService.taskDefinition.taskRole?.addManagedPolicy(rdsAccessPolicy);
         listAdoptionsService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
-        // PetSite service definitions-----------------------------------------------------------------------
-        const petSiteService = new PetSiteService(this, 'pet-site-service', {
-            cluster: ecsCluster,
-            cpu: 1024,
-            memoryLimitMiB: 2048,
-            healthCheck: '/health/status'
-        })
-        petSiteService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
+        const isEKS = this.node.tryGetContext('petsite_on_eks');
+
+        // Check if PetSite needs to be deployed on an EKS cluster
+        if (isEKS == 'true') {
+            const asset = new DockerImageAsset(this, 'petsiteecrimage', {
+                directory: path.join('../../petsite/', 'petsite')
+            });
+
+            const cluster = new eks.Cluster(this, 'petsite', {
+                clusterName: `petsite`,
+                mastersRole: new iam.Role(this, 'AdminRole', {
+                    assumedBy: new iam.AccountRootPrincipal()
+                }),
+                version: '1.15',
+                defaultCapacity: 2,
+                kubectlEnabled: true
+            });
+
+            this.createOuputs(new Map(Object.entries({
+                'PetSiteECRImageURL': asset.imageUri
+            })));
+        }
+        else {
+            // PetSite service definitions-----------------------------------------------------------------------
+            const petSiteService = new PetSiteService(this, 'pet-site-service', {
+                cluster: ecsCluster,
+                cpu: 1024,
+                memoryLimitMiB: 2048,
+                healthCheck: '/health/status'
+            })
+            petSiteService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
+
+            this.createSsmParameters(new Map(Object.entries({
+                '/petstore/petsiteurl': `http://${petSiteService.service.loadBalancer.loadBalancerDnsName}`
+            })));
+        }
 
         // PetSearch service definitions-----------------------------------------------------------------------
         const searchService = new SearchService(this, 'search-service', {
@@ -177,16 +208,15 @@ export class Services extends cdk.Stack {
 
         this.createSsmParameters(new Map(Object.entries({
             '/petstore/updateadoptionstatusurl': statusUpdaterService.api.url,
-            '/petstore/queueurl':                sqsQueue.queueUrl,
-            '/petstore/snsarn':                  topic_petadoption.topicArn,
-            '/petstore/dynamodbtablename':       dynamodb_petadoption.tableName,
-            '/petstore/s3bucketname':            s3_observabilitypetadoptions.bucketName,
-            '/petstore/petsiteurl':              `http://${petSiteService.service.loadBalancer.loadBalancerDnsName}`,
-            '/petstore/searchapiurl':            `http://${searchService.service.loadBalancer.loadBalancerDnsName}/api/search?`,
-            '/petstore/petlistadoptionsurl':     `http://${listAdoptionsService.service.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
-            '/petstore/paymentapiurl':           `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
-            '/petstore/cleanupadoptionsurl':     `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
-            '/petstore/rdsconnectionstring':     `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
+            '/petstore/queueurl': sqsQueue.queueUrl,
+            '/petstore/snsarn': topic_petadoption.topicArn,
+            '/petstore/dynamodbtablename': dynamodb_petadoption.tableName,
+            '/petstore/s3bucketname': s3_observabilitypetadoptions.bucketName,
+            '/petstore/searchapiurl': `http://${searchService.service.loadBalancer.loadBalancerDnsName}/api/search?`,
+            '/petstore/petlistadoptionsurl': `http://${listAdoptionsService.service.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
+            '/petstore/paymentapiurl': `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
+            '/petstore/cleanupadoptionsurl': `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
+            '/petstore/rdsconnectionstring': `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
         })));
 
         this.createOuputs(new Map(Object.entries({

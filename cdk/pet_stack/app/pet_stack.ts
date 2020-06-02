@@ -9,5 +9,5 @@ import { PetSiteServiceEKS } from '../lib/eks-test';
 
 const app = new cdk.App();
 
-new Services(app,'Services');
-//new PetSiteServiceEKS(app,'PetSiteServiceEKS');
+//new Services(app,'Services');
+new PetSiteServiceEKS(app,'ecrPetSiteServiceEKS');

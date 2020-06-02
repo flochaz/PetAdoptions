@@ -5,6 +5,7 @@
     "snstopic_email": "someone@example.com",
     "rdssecuritygroup": "petadoptionsrdsSG",
     "rdsusername":"",
-    "rdspassword":""
+    "rdspassword":"",
+    "petsite_on_eks":"true"
   }
 }
