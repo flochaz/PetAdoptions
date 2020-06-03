@@ -36,7 +36,7 @@ pip install --user --upgrade awscli
 
 # Install awscli v2
 curl -O "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" 
-unzip awscli-exe-linux-x86_64.zip
+unzip -o awscli-exe-linux-x86_64.zip
 sudo ./aws/install
 
 
