@@ -6,6 +6,6 @@
     "rdssecuritygroup": "petadoptionsrdsSG",
     "rdsusername":"",
     "rdspassword":"",
-    "petsite_on_eks":"true"
+    "petsite_on_eks":"false"
   }
 }

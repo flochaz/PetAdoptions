@@ -24,6 +24,10 @@
 #usage           curl -sSL https://raw.githubusercontent.com/awsimaya/PetAdoptions/master/envsetup.sh | bash -s stable
 #==============================================================================
 
+# Create a directory
+mkdir workshopfiles
+cd workshopfiles
+
 # Install jq
 sudo yum -y -q install jq
 
