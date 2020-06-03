@@ -118,7 +118,7 @@ export class Services extends cdk.Stack {
             resources: ['*']
         });
 
-        const ecsCluster = new ecs.Cluster(this, "PayForAdoption-cluster", {
+        const ecsCluster = new ecs.Cluster(this, "PetAdoptions-Cluster", {
             vpc: theVPC,
             containerInsights: true
         });
