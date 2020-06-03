@@ -1,8 +1,8 @@
 
 {
     "comment" : "This file is used to help set default values when using the dotnet CLI extension Amazon.ElasticBeanstalk.Tools. For more information run \"dotnet eb --help\" from the project root.",
-    "profile" : "ee",
-    "region"  : "us-east-2",
+    "profile" : "default",
+    "region"  : "us-east-1",
     "application" : "PetSearch",
     "environment" : "PetSearch-live",
     "cname"       : "petsearch-live",

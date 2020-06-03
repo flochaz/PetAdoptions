@@ -43,7 +43,7 @@ namespace PetSearch.Controllers
 
             string _urlString;
 
-            string GetFolderName(string pettype)
+            string GetFolderName()
             {
                 switch (pettype)
                 {
@@ -63,7 +63,7 @@ namespace PetSearch.Controllers
                 _urlString = s3Client.GetPreSignedURL(new GetPreSignedUrlRequest
                 {
                     BucketName = _configuration["s3bucketname"],
-                    Key = $"{GetFolderName(pettype)}/{petid}.jpg",
+                    Key = $"{GetFolderName()}/{petid}.jpg",
                     Expires = DateTime.Now.AddMinutes(5)
                 });
             }

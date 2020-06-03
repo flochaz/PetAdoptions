@@ -44,6 +44,9 @@ namespace PetListAdoptions.Controllers
 
                 var sqlCommandText = $"SELECT TOP 25 * FROM [dbo].[transactions]";
 
+                Console.WriteLine(
+                    $"[{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}] - Fetching transaction data from RDS. {sqlCommandText}");
+
                 AWSXRayRecorder.Instance.AddMetadata("Query", sqlCommandText);
                 using (_sqlConnection)
                 {

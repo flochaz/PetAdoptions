@@ -34,6 +34,8 @@ namespace PetSite.Controllers
         {
             AWSXRayRecorder.Instance.BeginSubsegment("Calling PetListAdoptions");
             
+            Console.WriteLine($"[{AWSXRayRecorder.Instance.GetEntity().TraceId}][{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}] - Calling PetListAdoptions API");
+
             string result;
 
             List<Pet> Pets = new List<Pet>();

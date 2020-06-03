@@ -48,6 +48,11 @@ namespace PetSite.Controllers
         [HttpPost]
         public async Task<IActionResult> TakeMeHome([FromForm] SearchParams searchParams)
         {
+
+             Console.WriteLine(
+                $"[{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}][{AWSXRayRecorder.Instance.GetEntity().TraceId}] - Inside TakeMehome. Pet in context - PetId:{searchParams.petid}, PetType:{searchParams.pettype}, PetColor:{searchParams.petcolor}");
+              
+
             AWSXRayRecorder.Instance.AddMetadata("PetType", searchParams.pettype);
             AWSXRayRecorder.Instance.AddMetadata("PetId", searchParams.petid);
             AWSXRayRecorder.Instance.AddMetadata("PetColor", searchParams.petcolor);

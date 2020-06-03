@@ -14,7 +14,7 @@ spec:
         app: petsite
     spec:
       containers:
-      - image: {{ECR_IMAGE_URL}}
+      - image: awsimaya/petsite
         imagePullPolicy: Always
         name: petsite
         ports:

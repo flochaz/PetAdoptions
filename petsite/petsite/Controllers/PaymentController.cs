@@ -64,7 +64,8 @@ namespace PetSite.Controllers
                 AWSXRayRecorder.Instance.BeginSubsegment("Call Payment API");
 
                 Console.WriteLine(
-                    $"[{AWSXRayRecorder.Instance.GetEntity().TraceId}] - In CompleteAdoption Action method - PetId:{petId} - PetType:{pettype}");
+                    $"[{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}][{AWSXRayRecorder.Instance.GetEntity().TraceId}] - Inside MakePayment Action method - PetId:{petId} - PetType:{pettype}");
+                
                 AWSXRayRecorder.Instance.AddAnnotation("PetId", petId);
                 AWSXRayRecorder.Instance.AddAnnotation("PetType", pettype);
 

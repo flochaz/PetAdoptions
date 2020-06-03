@@ -102,6 +102,9 @@ namespace PetSite.Controllers
         [HttpGet("housekeeping")]
         public async Task<IActionResult> HouseKeeping()
         {
+             Console.WriteLine(
+                $"[{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}][{AWSXRayRecorder.Instance.GetEntity().TraceId}] - In Housekeeping, trying to reset the app.");
+                
             var result = await GetPetDetails(null, null, null);
             var Pets = JsonSerializer.Deserialize<List<Pet>>(result);
 
@@ -135,7 +138,9 @@ namespace PetSite.Controllers
             AWSXRayRecorder.Instance.AddMetadata("PetColor", selectedPetColor);
 
             Console.WriteLine(
-                $" TraceId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}] | SegmentId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.Id}]- Search string - PetType:{selectedPetType} PetColor:{selectedPetColor} PetId:{petid}");
+                $"[{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.TraceId}]- Search string - PetType:{selectedPetType} PetColor:{selectedPetColor} PetId:{petid}");
+            
+            // | SegmentId: [{AWSXRayRecorder.Instance.TraceContext.GetEntity().RootSegment.Id}
             string result;
 
             try
