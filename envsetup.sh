@@ -25,8 +25,8 @@
 #==============================================================================
 
 # Create a directory
-mkdir workshopfiles
-cd workshopfiles
+mkdir workshopfiles$(date +%s)
+cd workshopfiles*
 
 # Install jq
 sudo yum -y -q install jq
