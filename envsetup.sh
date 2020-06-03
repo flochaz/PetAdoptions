@@ -82,4 +82,4 @@ npm i -g aws-cdk --force
 git clone https://github.com/awsimaya/PetAdoptions
 
 
-
+cd $foldername
