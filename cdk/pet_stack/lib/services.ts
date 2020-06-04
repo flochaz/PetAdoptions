@@ -154,7 +154,8 @@ export class Services extends cdk.Stack {
             });
 
             const cluster = new eks.Cluster(this, 'petsite', {
-                kubectlEnabled: true
+                kubectlEnabled: true,
+                clusterName: 'PetSite'
             });
 
             this.createOuputs(new Map(Object.entries({
