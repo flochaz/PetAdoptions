@@ -148,18 +148,12 @@ export class Services extends cdk.Stack {
         const isEKS = this.node.tryGetContext('petsite_on_eks');
 
         // Check if PetSite needs to be deployed on an EKS cluster
-        if (isEKS == 'true') {
+        if (isEKS === 'true') {
             const asset = new DockerImageAsset(this, 'petsiteecrimage', {
                 directory: path.join('../../petsite/', 'petsite')
             });
 
             const cluster = new eks.Cluster(this, 'petsite', {
-                clusterName: `petsite`,
-                mastersRole: new iam.Role(this, 'AdminRole', {
-                    assumedBy: new iam.AccountRootPrincipal()
-                }),
-                version: '1.15',
-                defaultCapacity: 2,
                 kubectlEnabled: true
             });
 
