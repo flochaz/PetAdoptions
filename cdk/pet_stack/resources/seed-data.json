@@ -11,7 +11,7 @@
   {
     "pettype": "bunny",
     "petid": "024",
-    "availability": "no",
+    "availability": "yes",
     "cuteness_rate": "4",
     "image": "b3",
     "petcolor": "brown",
@@ -47,7 +47,7 @@
   {
     "pettype": "kitten",
     "petid": "017",
-    "availability": "no",
+    "availability": "yes",
     "cuteness_rate": "5",
     "image": "k3",
     "petcolor": "white",
@@ -56,7 +56,7 @@
   {
     "pettype": "kitten",
     "petid": "018",
-    "availability": "no",
+    "availability": "yes",
     "cuteness_rate": "4",
     "image": "k6",
     "petcolor": "black",
@@ -101,7 +101,7 @@
   {
     "pettype": "puppy",
     "petid": "001",
-    "availability": "no",
+    "availability": "yes",
     "cuteness_rate": "5",
     "image": "p9",
     "petcolor": "black",
@@ -119,7 +119,7 @@
   {
     "pettype": "puppy",
     "petid": "003",
-    "availability": "no",
+    "availability": "yes",
     "cuteness_rate": "5",
     "image": "p1",
     "petcolor": "brown",
