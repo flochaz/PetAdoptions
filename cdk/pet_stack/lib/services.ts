@@ -29,6 +29,7 @@ export class Services extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
+        const stackName = id;
         const randomNumber = Math.floor((Math.random() * 1000) + 1);
 
 
@@ -130,7 +131,7 @@ export class Services extends cdk.Stack {
 
         // PayForAdoption service definitions-----------------------------------------------------------------------
         const payForAdoptionService = new PayForAdoptionService(this, 'pay-for-adoption-service', {
-            cluster: new ecs.Cluster(this, "PayForAdoption"+randomNumber, {
+            cluster: new ecs.Cluster(this, "PayForAdoption-"+randomNumber, {
                 vpc: theVPC,
                 containerInsights: true}),
             cpu: 1024,
@@ -142,7 +143,7 @@ export class Services extends cdk.Stack {
 
         // PetListAdoptions service definitions-----------------------------------------------------------------------
         const listAdoptionsService = new ListAdoptionsService(this, 'list-adoptions-service', {
-            cluster: new ecs.Cluster(this, "PetListAdoptions"+randomNumber, {
+            cluster: new ecs.Cluster(this, "PetListAdoptions-"+randomNumber, {
                 vpc: theVPC,
                 containerInsights: true}),
             cpu: 1024,
@@ -172,7 +173,7 @@ export class Services extends cdk.Stack {
         else {
             // PetSite service definitions-----------------------------------------------------------------------
             const petSiteService = new PetSiteService(this, 'pet-site-service', {
-                cluster: new ecs.Cluster(this, "PetSite"+randomNumber, {
+                cluster: new ecs.Cluster(this, "PetSite-"+randomNumber, {
                     vpc: theVPC,
                     containerInsights: true}),
                 cpu: 1024,
@@ -188,7 +189,7 @@ export class Services extends cdk.Stack {
 
         // PetSearch service definitions-----------------------------------------------------------------------
         const searchService = new SearchService(this, 'search-service', {
-            cluster: new ecs.Cluster(this, "PetSearch"+randomNumber, {
+            cluster: new ecs.Cluster(this, "PetSearch-"+randomNumber, {
                 vpc: theVPC,
                 containerInsights: true}),
             cpu: 1024,
@@ -198,8 +199,10 @@ export class Services extends cdk.Stack {
         searchService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         // Traffic Generator task definition.
+        
+
         const trafficGeneratorService = new TrafficGeneratorService(this, 'traffic-generator-service', {
-            cluster: new ecs.Cluster(this, "TrafficGen"+randomNumber, {
+            cluster: new ecs.Cluster(this, "TrafficGen-"+randomNumber, {
                      vpc: theVPC,
                 }),
             cpu: 256,
@@ -224,7 +227,8 @@ export class Services extends cdk.Stack {
             '/petstore/petlistadoptionsurl': `http://${listAdoptionsService.service.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
             '/petstore/paymentapiurl': `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
             '/petstore/cleanupadoptionsurl': `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
-            '/petstore/rdsconnectionstring': `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
+            '/petstore/rdsconnectionstring': `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`,
+            '/petstore/stackname': stackName
         })));
 
         this.createOuputs(new Map(Object.entries({
