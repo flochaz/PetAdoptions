@@ -11,7 +11,7 @@ read AWS_REGION
 STACK_NAME=$(aws ssm get-parameter --name '/petstore/petsiteurl' --region $AWS_REGION | jq .Parameter.Value)
 
 # READ Stack name from SSM
-PETSITE_IMAGE_URL=$(aws cloudformation describe-stacks  --stack-name $STACK_NAME | jq '.Stacks[0].Outputs[] | select(.OutputKey == "petsiteECRimageURL").OutputValue')
+PETSITE_IMAGE_URL=$(aws cloudformation describe-stacks  --stack-name $STACK_NAME | jq '.Stacks[0].Outputs[] | select(.OutputKey == "PetSiteECRImageURL").OutputValue')
 
 sed -i '' "s~{{ECR_IMAGE_URL}}~$PETSITE_IMAGE_URL~" ../../../petsite/petsite/kubernetes/deployment.yaml
 
