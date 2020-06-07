@@ -12,25 +12,20 @@ export class PetSiteServiceEKS extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const asset = new DockerImageAsset(this, 'MyBuildImage', {
+    const asset = new DockerImageAsset(this, 'petsiteecrimage', {
       directory: path.join('../../petsite/', 'petsite')
     });
 
-    new cdk.CfnOutput(this, 'petsiteECRimageURL', {
+    new cdk.CfnOutput(this, 'PetSiteECRImageURL', {
       value: asset.imageUri
     });
 
-    // const cluster = new eks.Cluster(this, 'petsite', {
-    //   clusterName: `petsite`,
-    //   mastersRole: new iam.Role(this, 'AdminRole', {
-    //     assumedBy: new iam.AccountRootPrincipal()
-    //   }),
-    //   version: '1.15',
-    //   defaultCapacity: 2,
-    //   kubectlEnabled: true
-    // });
+    const cluster = new eks.Cluster(this, 'petsite', {
+      kubectlEnabled: true,
+      clusterName: 'PetSite-536'
+    });
 
-    // this.readYamlFromDir('../../petsite/petsite/kubernetes/', cluster);
+      // this.readYamlFromDir('../../petsite/petsite/kubernetes/', cluster);
     // this.readYamlFromDir('../../petsite/petsite/kubernetes/xray-daemon/', cluster);
   }
 
