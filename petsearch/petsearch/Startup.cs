@@ -24,7 +24,7 @@ namespace PetSearch
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.UseXRay("PetSearchAPI",Configuration);
+            app.UseXRay("PetSearch",Configuration);
 
             if (env.IsDevelopment())
             {

@@ -29,6 +29,10 @@ export class Services extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
 
+        const stackName = id;
+        const randomNumber = Math.floor((Math.random() * 1000) + 1);
+
+
         // Create SQS resource to send Pet adoption messages to
         const sqsQueue = new sqs.Queue(this, 'sqs_petadoption', {
             visibilityTimeout: cdk.Duration.seconds(300)
@@ -118,16 +122,14 @@ export class Services extends cdk.Stack {
             resources: ['*']
         });
 
-        const ecsCluster = new ecs.Cluster(this, "PetAdoptions-Cluster", {
-            vpc: theVPC,
-            containerInsights: true
-        });
-
         const rdsAccessPolicy = iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess');
 
         // PayForAdoption service definitions-----------------------------------------------------------------------
         const payForAdoptionService = new PayForAdoptionService(this, 'pay-for-adoption-service', {
-            cluster: ecsCluster,
+            cluster: new ecs.Cluster(this, "PayForAdoption-"+randomNumber, {
+                vpc: theVPC,
+                containerInsights: true
+            }),
             logGroupName: "/ecs/PayForAdoption",
             cpu: 1024,
             memoryLimitMiB: 2048,
@@ -138,7 +140,9 @@ export class Services extends cdk.Stack {
 
         // PetListAdoptions service definitions-----------------------------------------------------------------------
         const listAdoptionsService = new ListAdoptionsService(this, 'list-adoptions-service', {
-            cluster: ecsCluster,
+            cluster: new ecs.Cluster(this, "PetListAdoptions-"+randomNumber, {
+                vpc: theVPC,
+                containerInsights: true}),
             logGroupName: "/ecs/PetListAdoptions",
             cpu: 1024,
             memoryLimitMiB: 2048,
@@ -150,19 +154,14 @@ export class Services extends cdk.Stack {
         const isEKS = this.node.tryGetContext('petsite_on_eks');
 
         // Check if PetSite needs to be deployed on an EKS cluster
-        if (isEKS == 'true') {
+        if (isEKS === 'true') {
             const asset = new DockerImageAsset(this, 'petsiteecrimage', {
                 directory: path.join('../../petsite/', 'petsite')
             });
 
             const cluster = new eks.Cluster(this, 'petsite', {
-                clusterName: `petsite`,
-                mastersRole: new iam.Role(this, 'AdminRole', {
-                    assumedBy: new iam.AccountRootPrincipal()
-                }),
-                version: '1.15',
-                defaultCapacity: 2,
-                kubectlEnabled: true
+                kubectlEnabled: true,
+                clusterName: 'PetSite-'+randomNumber
             });
 
             this.createOuputs(new Map(Object.entries({
@@ -172,7 +171,9 @@ export class Services extends cdk.Stack {
         else {
             // PetSite service definitions-----------------------------------------------------------------------
             const petSiteService = new PetSiteService(this, 'pet-site-service', {
-                cluster: ecsCluster,
+                cluster: new ecs.Cluster(this, "PetSite-"+randomNumber, {
+                    vpc: theVPC,
+                    containerInsights: true}),
                 logGroupName: "/ecs/PetSite",
                 cpu: 1024,
                 memoryLimitMiB: 2048,
@@ -187,7 +188,9 @@ export class Services extends cdk.Stack {
 
         // PetSearch service definitions-----------------------------------------------------------------------
         const searchService = new SearchService(this, 'search-service', {
-            cluster: ecsCluster,
+            cluster: new ecs.Cluster(this, "PetSearch-"+randomNumber, {
+                vpc: theVPC,
+                containerInsights: true}),
             logGroupName: "/ecs/PetSearch",
             cpu: 1024,
             memoryLimitMiB: 2048,
@@ -197,7 +200,6 @@ export class Services extends cdk.Stack {
 
         // Traffic Generator task definition.
         const trafficGeneratorService = new TrafficGeneratorService(this, 'traffic-generator-service', {
-            cluster: ecsCluster,
             logGroupName: "/ecs/PetTrafficGenerator",
             cpu: 256,
             memoryLimitMiB: 512,
@@ -221,7 +223,8 @@ export class Services extends cdk.Stack {
             '/petstore/petlistadoptionsurl': `http://${listAdoptionsService.service.loadBalancer.loadBalancerDnsName}/api/adoptionlist/`,
             '/petstore/paymentapiurl': `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/completeadoption`,
             '/petstore/cleanupadoptionsurl': `http://${payForAdoptionService.service.loadBalancer.loadBalancerDnsName}/api/home/cleanupadoptions`,
-            '/petstore/rdsconnectionstring': `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`
+            '/petstore/rdsconnectionstring': `Server=${instance.dbInstanceEndpointAddress};Database=adoptions;User Id=${rdsUsername};Password=${rdsPassword}`,
+            '/petstore/stackname': stackName
         })));
 
         this.createOuputs(new Map(Object.entries({

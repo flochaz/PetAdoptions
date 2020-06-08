@@ -5,7 +5,7 @@ import * as logs from '@aws-cdk/aws-logs';
 import * as ecs_patterns from '@aws-cdk/aws-ecs-patterns';
 
 export interface EcsServiceProps {
-  cluster: ecs.Cluster,
+  cluster?: ecs.Cluster,
   
   cpu: number;
   memoryLimitMiB: number,
