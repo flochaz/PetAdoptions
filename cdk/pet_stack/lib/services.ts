@@ -122,18 +122,15 @@ export class Services extends cdk.Stack {
             resources: ['*']
         });
 
-        // const ecsCluster = new ecs.Cluster(this, "PetSite-PetListAdoptions-PayForAdoption-PetSearchAPI", {
-        //     vpc: theVPC,
-        //     containerInsights: true
-        // });
-
         const rdsAccessPolicy = iam.ManagedPolicy.fromManagedPolicyArn(this, 'AmazonRDSFullAccess', 'arn:aws:iam::aws:policy/AmazonRDSFullAccess');
 
         // PayForAdoption service definitions-----------------------------------------------------------------------
         const payForAdoptionService = new PayForAdoptionService(this, 'pay-for-adoption-service', {
             cluster: new ecs.Cluster(this, "PayForAdoption-"+randomNumber, {
                 vpc: theVPC,
-                containerInsights: true}),
+                containerInsights: true
+            }),
+            logGroupName: "/ecs/PayForAdoption",
             cpu: 1024,
             memoryLimitMiB: 2048,
             healthCheck: '/health/status'
@@ -146,6 +143,7 @@ export class Services extends cdk.Stack {
             cluster: new ecs.Cluster(this, "PetListAdoptions-"+randomNumber, {
                 vpc: theVPC,
                 containerInsights: true}),
+            logGroupName: "/ecs/PetListAdoptions",
             cpu: 1024,
             memoryLimitMiB: 2048,
             healthCheck: '/health/status'
@@ -176,6 +174,7 @@ export class Services extends cdk.Stack {
                 cluster: new ecs.Cluster(this, "PetSite-"+randomNumber, {
                     vpc: theVPC,
                     containerInsights: true}),
+                logGroupName: "/ecs/PetSite",
                 cpu: 1024,
                 memoryLimitMiB: 2048,
                 healthCheck: '/health/status'
@@ -192,6 +191,7 @@ export class Services extends cdk.Stack {
             cluster: new ecs.Cluster(this, "PetSearch-"+randomNumber, {
                 vpc: theVPC,
                 containerInsights: true}),
+            logGroupName: "/ecs/PetSearch",
             cpu: 1024,
             memoryLimitMiB: 2048,
             healthCheck: '/health/status'
@@ -199,12 +199,8 @@ export class Services extends cdk.Stack {
         searchService.taskDefinition.taskRole?.addToPolicy(readSSMParamsPolicy);
 
         // Traffic Generator task definition.
-        
-
         const trafficGeneratorService = new TrafficGeneratorService(this, 'traffic-generator-service', {
-            cluster: new ecs.Cluster(this, "TrafficGen-"+randomNumber, {
-                     vpc: theVPC,
-                }),
+            logGroupName: "/ecs/PetTrafficGenerator",
             cpu: 256,
             memoryLimitMiB: 512,
             disableXRay: true,
