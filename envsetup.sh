@@ -17,7 +17,7 @@
 
 #title           envsetup.sh
 #description     This script will setup the Cloud9 IDE with the prerequisite packages and code for the Observability workshop.
-#author          @ijaganna
+#author          Imaya Kumar Jagannathan (@ijaganna)
 #contributors    @ijaganna
 #date            2020-05-24
 #version         0.1
