@@ -43,7 +43,8 @@ export abstract class EcsService extends cdk.Construct {
     const logging = new ecs.AwsLogDriver({
       streamPrefix: "ecs-logs",
       logGroup: new logs.LogGroup(this, "ecs-log-group", {
-        logGroupName: props.logGroupName
+        logGroupName: props.logGroupName,
+        removalPolicy: cdk.RemovalPolicy.DESTROY
       })
     });
 
