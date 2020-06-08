@@ -128,6 +128,7 @@ export class Services extends cdk.Stack {
         // PayForAdoption service definitions-----------------------------------------------------------------------
         const payForAdoptionService = new PayForAdoptionService(this, 'pay-for-adoption-service', {
             cluster: ecsCluster,
+            logGroupName: "/ecs/PayForAdoption",
             cpu: 1024,
             memoryLimitMiB: 2048,
             healthCheck: '/health/status'
@@ -138,6 +139,7 @@ export class Services extends cdk.Stack {
         // PetListAdoptions service definitions-----------------------------------------------------------------------
         const listAdoptionsService = new ListAdoptionsService(this, 'list-adoptions-service', {
             cluster: ecsCluster,
+            logGroupName: "/ecs/PetListAdoptions",
             cpu: 1024,
             memoryLimitMiB: 2048,
             healthCheck: '/health/status'
@@ -171,6 +173,7 @@ export class Services extends cdk.Stack {
             // PetSite service definitions-----------------------------------------------------------------------
             const petSiteService = new PetSiteService(this, 'pet-site-service', {
                 cluster: ecsCluster,
+                logGroupName: "/ecs/PetSite",
                 cpu: 1024,
                 memoryLimitMiB: 2048,
                 healthCheck: '/health/status'
@@ -185,6 +188,7 @@ export class Services extends cdk.Stack {
         // PetSearch service definitions-----------------------------------------------------------------------
         const searchService = new SearchService(this, 'search-service', {
             cluster: ecsCluster,
+            logGroupName: "/ecs/PetSearch",
             cpu: 1024,
             memoryLimitMiB: 2048,
             healthCheck: '/health/status'
@@ -194,6 +198,7 @@ export class Services extends cdk.Stack {
         // Traffic Generator task definition.
         const trafficGeneratorService = new TrafficGeneratorService(this, 'traffic-generator-service', {
             cluster: ecsCluster,
+            logGroupName: "/ecs/PetTrafficGenerator",
             cpu: 256,
             memoryLimitMiB: 512,
             disableXRay: true,

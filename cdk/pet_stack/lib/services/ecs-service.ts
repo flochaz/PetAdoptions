@@ -1,6 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import * as iam from '@aws-cdk/aws-iam';
 import * as ecs from '@aws-cdk/aws-ecs';
+import * as logs from '@aws-cdk/aws-logs';
 import * as ecs_patterns from '@aws-cdk/aws-ecs-patterns';
 
 export interface EcsServiceProps {
@@ -8,6 +9,7 @@ export interface EcsServiceProps {
   
   cpu: number;
   memoryLimitMiB: number,
+  logGroupName: string,
   
   healthCheck?: string,
 
@@ -32,15 +34,18 @@ export abstract class EcsService extends cdk.Construct {
     ]
   });
 
-  private static Logging = new ecs.AwsLogDriver({
-    streamPrefix: "ecs-logs"
-  });
-
   public readonly taskDefinition: ecs.TaskDefinition;
   public readonly service: ecs_patterns.ApplicationLoadBalancedServiceBase;
 
   constructor(scope: cdk.Construct, id: string, props: EcsServiceProps  ) {
     super(scope, id);
+
+    const logging = new ecs.AwsLogDriver({
+      streamPrefix: "ecs-logs",
+      logGroup: new logs.LogGroup(this, "ecs-log-group", {
+        logGroupName: props.logGroupName
+      })
+    });
 
     const taskRole = new iam.Role(this, `taskRole`, {
         assumedBy: new iam.ServicePrincipal('ecs-tasks.amazonaws.com')
@@ -60,14 +65,14 @@ export abstract class EcsService extends cdk.Construct {
         image: this.createContainerImage(),
         memoryLimitMiB: 512,
         cpu: 256,
-        logging: EcsService.Logging
+        logging: logging
     }).addPortMappings({
         containerPort: 80,
         protocol: ecs.Protocol.TCP
     });
 
     if (!props.disableXRay) {
-      this.addXRayContainer(this.taskDefinition, EcsService.Logging);
+      this.addXRayContainer(this.taskDefinition, logging);
     }
     
     if (!props.disableService) {
