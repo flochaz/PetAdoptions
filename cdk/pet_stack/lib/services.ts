@@ -30,8 +30,6 @@ export class Services extends cdk.Stack {
         super(scope, id, props);
 
         const stackName = id;
-        const randomNumber = Math.floor((Math.random() * 1000) + 1);
-
 
         // Create SQS resource to send Pet adoption messages to
         const sqsQueue = new sqs.Queue(this, 'sqs_petadoption', {
@@ -126,7 +124,7 @@ export class Services extends cdk.Stack {
 
         // PayForAdoption service definitions-----------------------------------------------------------------------
         const payForAdoptionService = new PayForAdoptionService(this, 'pay-for-adoption-service', {
-            cluster: new ecs.Cluster(this, "PayForAdoption-"+randomNumber, {
+            cluster: new ecs.Cluster(this, "PayForAdoption", {
                 vpc: theVPC,
                 containerInsights: true
             }),
@@ -140,7 +138,7 @@ export class Services extends cdk.Stack {
 
         // PetListAdoptions service definitions-----------------------------------------------------------------------
         const listAdoptionsService = new ListAdoptionsService(this, 'list-adoptions-service', {
-            cluster: new ecs.Cluster(this, "PetListAdoptions-"+randomNumber, {
+            cluster: new ecs.Cluster(this, "PetListAdoptions", {
                 vpc: theVPC,
                 containerInsights: true}),
             logGroupName: "/ecs/PetListAdoptions",
@@ -161,7 +159,7 @@ export class Services extends cdk.Stack {
 
             const cluster = new eks.Cluster(this, 'petsite', {
                 kubectlEnabled: true,
-                clusterName: 'PetSite-'+randomNumber
+                clusterName: 'PetSite'
             });
 
             this.createOuputs(new Map(Object.entries({
@@ -171,7 +169,7 @@ export class Services extends cdk.Stack {
         else {
             // PetSite service definitions-----------------------------------------------------------------------
             const petSiteService = new PetSiteService(this, 'pet-site-service', {
-                cluster: new ecs.Cluster(this, "PetSite-"+randomNumber, {
+                cluster: new ecs.Cluster(this, "PetSite", {
                     vpc: theVPC,
                     containerInsights: true}),
                 logGroupName: "/ecs/PetSite",
@@ -188,7 +186,7 @@ export class Services extends cdk.Stack {
 
         // PetSearch service definitions-----------------------------------------------------------------------
         const searchService = new SearchService(this, 'search-service', {
-            cluster: new ecs.Cluster(this, "PetSearch-"+randomNumber, {
+            cluster: new ecs.Cluster(this, "PetSearch", {
                 vpc: theVPC,
                 containerInsights: true}),
             logGroupName: "/ecs/PetSearch",
