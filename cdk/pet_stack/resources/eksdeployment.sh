@@ -4,10 +4,6 @@ echo ---------------------------------------------------------------------------
 echo This script deploys petsite service, xray daemon and the CloudWatch agent to the EKS cluster
 echo ---------------------------------------------------------------------------------------------
 
-# Let the user enter the region
-echo "Enter the AWS Region the EKS cluster has been created (Example: us-east-1)"
-read AWS_REGION
-
 STACK_NAME=$(aws ssm get-parameter --name '/petstore/petsiteurl' --region $AWS_REGION | jq .Parameter.Value)
 
 # READ Stack name from SSM

@@ -54,18 +54,12 @@ curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/1.16
 chmod +x ./aws-iam-authenticator && sudo mv aws-iam-authenticator /usr/local/bin/
 
 # Configure AWS CLI
-availability_zone=$(curl http://169.254.169.254/latest/meta-data/placement/availability-zone)
-export AWS_DEFAULT_REGION=${availability_zone%?}
+# availability_zone=$(curl http://169.254.169.254/latest/meta-data/placement/availability-zone)
+# export AWS_DEFAULT_REGION=${availability_zone}
 
 # Install eksctl
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/latest_release/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
-
-# Persist lab variables
-echo "AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION" >> ~/.bash_profile
-echo "export AWS_REGION=${AWS_DEFAULT_REGION}" >> ~/.bash_profile
-aws configure set default.region ${AWS_DEFAULT_REGION}
-aws configure get default.region
 
 # Upgrade npm
 npm install -g npm
@@ -73,8 +67,5 @@ npm install -g npm
 # Upgrade CDK version
 npm i -g aws-cdk --force
 
-# Download lab Repository
+# Download lab repository
 git clone https://github.com/awsimaya/PetAdoptions
-
-
-cd $foldername
