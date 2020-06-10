@@ -23,8 +23,6 @@ import { TrafficGeneratorService } from './services/traffic-generator-service'
 import { StatusUpdaterService } from './services/status-updater-service'
 import path = require('path');
 
-// https://stackoverflow.com/questions/59710635/how-to-connect-aws-ecs-applicationloadbalancedfargateservice-private-ip-to-rds
-
 export class Services extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
         super(scope, id, props);
@@ -157,9 +155,14 @@ export class Services extends cdk.Stack {
                 directory: path.join('../../petsite/', 'petsite')
             });
 
+            const clusterAdmin = new iam.Role(this, 'AdminRole', {
+                assumedBy: new iam.AccountRootPrincipal()
+                });
+
             const cluster = new eks.Cluster(this, 'petsite', {
                 kubectlEnabled: true,
-                clusterName: 'PetSite'
+                clusterName: 'PetSite',
+                mastersRole: clusterAdmin
             });
 
             this.createOuputs(new Map(Object.entries({
