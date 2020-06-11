@@ -1,1 +1,1 @@
-Go to https://github.com/awsimaya/PetAdoptionsCDK for install instructions.
+Go to https://observability.workshop.aws/ for install instructions.
