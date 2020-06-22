@@ -94,6 +94,7 @@ export class Services extends cdk.Stack {
             instanceClass: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.SMALL),
             masterUsername: rdsUsername,
             masterUserPassword: rdsPasswordSecret,
+            removalPolicy: cdk.RemovalPolicy.DESTROY,
             deletionProtection: false,
             vpc: theVPC,
             licenseModel: rds.LicenseModel.LICENSE_INCLUDED,
