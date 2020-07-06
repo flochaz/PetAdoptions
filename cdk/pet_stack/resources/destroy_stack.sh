@@ -4,6 +4,10 @@ echo ---------------------------------------------------------------------------
 echo This script destroys the CDK stack
 echo ---------------------------------------------------------------------------------------------
 
+# Disable Contributor Insights
+DDB_CONTRIB=$(aws ssm get-parameter --name '/petstore/dynamodbtablename' | jq .Parameter.Value -r)
+aws dynamodb update-contributor-insights --table-name $DDB_CONTRIB --contributor-insights-action DISABLE  
+
 # Fetch the name of the S3 bucket created by CDKToolkit for bootstrap
 CDK_S3_BUCKET_NAME=$(aws cloudformation describe-stacks  --stack-name CDKToolkit | jq '.Stacks[0].Outputs[] | select(.OutputKey == "BucketName").OutputValue' -r)
 
