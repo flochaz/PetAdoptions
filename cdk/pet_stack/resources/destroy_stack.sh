@@ -18,7 +18,7 @@ aws s3 rm s3://$CDK_S3_BUCKET_NAME --recursive
 aws cloudformation delete-stack --stack-name CDKToolkit
 
 # Get the mail stack name
-STACK_NAME=$(aws ssm get-parameter --name '/petstore/petsiteurl' --region $AWS_REGION | jq .Parameter.Value -r)
+STACK_NAME=$(aws ssm get-parameter --name '/petstore/stackname' --region $AWS_REGION | jq .Parameter.Value -r)
 
 # Get rid of all resources
 cdk destory $STACK_NAME
