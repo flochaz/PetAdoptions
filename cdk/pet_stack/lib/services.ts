@@ -163,7 +163,8 @@ export class Services extends cdk.Stack {
             const cluster = new eks.Cluster(this, 'petsite', {
                 kubectlEnabled: true,
                 clusterName: 'PetSite',
-                mastersRole: clusterAdmin
+                mastersRole: clusterAdmin, 
+                vpc: theVPC
             });
 
             this.createOuputs(new Map(Object.entries({
