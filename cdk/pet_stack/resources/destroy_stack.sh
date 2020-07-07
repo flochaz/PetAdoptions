@@ -21,7 +21,7 @@ aws cloudformation delete-stack --stack-name CDKToolkit
 STACK_NAME=$(aws ssm get-parameter --name '/petstore/stackname' --region $AWS_REGION | jq .Parameter.Value -r)
 
 # Get rid of all resources
-cdk destory $STACK_NAME
+cdk destroy $STACK_NAME
 
 # Sometimes the Sqlseeder doesn't get deleted cleanly. This helps clean up the environment completely including Sqlseeder
 aws cloudformation delete-stack --stack-name $STACK_NAME
