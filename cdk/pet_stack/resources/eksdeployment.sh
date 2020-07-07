@@ -17,7 +17,9 @@ kubectl apply -f ../../petsite/petsite/kubernetes/service.yaml
 
 kubectl apply -f ../../petsite/petsite/kubernetes/xray-daemon/xray-daemon-config.yaml
 
-curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/PetSite/;s/{{region_name}}/$AWS_REGION/" | kubectl apply -f -
+# Setup Container Insights
+# Removing this because we want the user to know how CWCI is being setup
+# curl https://raw.githubusercontent.com/aws-samples/amazon-cloudwatch-container-insights/latest/k8s-deployment-manifest-templates/deployment-mode/daemonset/container-insights-monitoring/quickstart/cwagent-fluentd-quickstart.yaml | sed "s/{{cluster_name}}/PetSite/;s/{{region_name}}/$AWS_REGION/" | kubectl apply -f -
 
 # Wait a little bit for ELB to be created
 sleep 5 
