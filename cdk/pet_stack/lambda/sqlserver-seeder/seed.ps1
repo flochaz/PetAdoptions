@@ -10,21 +10,20 @@ function SeedInitialSchema {
         [int]$Delay = 30
     )
 
+    $script = "./SQL/v1.0.0.sql"
     $dbEndpoint = $env:DbEndpoint
     $usernameParameter = $env:UsernameParameter
     $passwordParameter = $env:PasswordParameter
 
-    $username = (Get-SSMParameter -Name $usernameParameter).Value
-    $password = (Get-SSMParameter -Name $passwordParameter).Value
-    $connectionString = "Server=${dbEndpoint};User Id=${username};Password=${password}"
-    $script = "./SQL/v1.0.0.sql"
-
     $retryAttempt = 0
-
     do {
         $retryAttempt++
         Write-Host "Starting attempt $retryAttempt"
         try {
+            $username = (Get-SSMParameter -Name $usernameParameter -ErrorAction Stop).Value
+            $password = (Get-SSMParameter -Name $passwordParameter -ErrorAction Stop).Value
+            $connectionString = "Server=${dbEndpoint};User Id=${username};Password=${password}"
+
             # execute the cript
             Invoke-Sqlcmd -ConnectionString $connectionString -InputFile $script -ErrorAction Stop
             return
