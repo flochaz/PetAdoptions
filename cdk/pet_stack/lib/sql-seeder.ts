@@ -37,7 +37,7 @@ export class SqlSeeder extends cdk.Construct {
         handler: 'seed::seed.Bootstrap::ExecuteFunction',
         timeout: cdk.Duration.seconds(300),
         runtime: lambda.Runtime.DOTNET_CORE_3_1,
-        memorySize: 512,
+        memorySize: 2048,
         vpc: props.vpc,
         vpcSubnets: {
             subnetType: ec2.SubnetType.PRIVATE
