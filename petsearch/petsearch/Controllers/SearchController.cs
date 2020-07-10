@@ -38,10 +38,11 @@ namespace PetSearch.Controllers
 
             AWSSDKHandler.RegisterXRayForAllServices();
             ddbClient = new AmazonDynamoDBClient();
-            //AWSConfigsS3.UseSignatureVersion4 = true;
+            AWSConfigsS3.UseSignatureVersion4 = true;
             s3Client = new AmazonS3Client();
         }
 
+        //UNUSED METHOD. WAS AN EXPERIMENT. IGNORE THIS.
         private static string GetSigV4URL(string pettype, string petid)
         {
 
@@ -197,7 +198,6 @@ namespace PetSearch.Controllers
                 pettype = item["pettype"].S,
                 price = item["price"].S,
                 peturl = GetPetURL(item["pettype"].S, item["image"].S)
-                //peturl = GetSigV4URL(item["pettype"].S, item["image"].S)
             }));
 
             AWSXRayRecorder.Instance.AddMetadata("Pets", System.Text.Json.JsonSerializer.Serialize(Pets));
