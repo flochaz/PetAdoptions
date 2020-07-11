@@ -10,32 +10,35 @@ function SeedInitialSchema {
         [int]$Delay = 30
     )
 
+    $script = "./SQL/v1.0.0.sql"
     $dbEndpoint = $env:DbEndpoint
     $usernameParameter = $env:UsernameParameter
     $passwordParameter = $env:PasswordParameter
 
-    $username = (Get-SSMParameter -Name $usernameParameter).Value
-    $password = (Get-SSMParameter -Name $passwordParameter).Value
-    $connectionString = "Server=${dbEndpoint};User Id=${username};Password=${password}"
-    $script = "./SQL/v1.0.0.sql"
-
     $retryAttempt = 0
-
     do {
         $retryAttempt++
+        Write-Host "Starting attempt $retryAttempt"
         try {
+            $username = (Get-SSMParameter -Name $usernameParameter -ErrorAction Stop).Value
+            $password = (Get-SSMParameter -Name $passwordParameter -ErrorAction Stop).Value
+            $connectionString = "Server=${dbEndpoint};User Id=${username};Password=${password}"
+
             # execute the cript
-            Invoke-Sqlcmd -ConnectionString $connectionString -InputFile $script
+            Invoke-Sqlcmd -ConnectionString $connectionString -InputFile $script -ErrorAction Stop
             return
         } catch {
-            Write-Error $_ -ErrorAction Continue
-            Start-Sleep -Seconds $Delay
+            Write-Error "Retry attempt $retryAttempt failed. $_" -ErrorAction Continue
+            if ($retryAttempt -lt $MaxRetries) {
+                Write-Host "Wait $Delay seconds before next attempt."
+                Start-Sleep -Seconds $Delay
+            } else {
+                # Throw an error after $MaxRetries unsuccessful invocations.
+                Write-Host "Maximum number of retry attempt ($MaxRetries) reached."
+                throw $_
+            }
         }
     } while ($retryAttempt -lt $MaxRetries)
-
-    # Throw an error after $Maximum unsuccessful invocations. Doesn't need
-    # a condition, since the function returns upon successful invocation.
-    throw 'SQL Seeder failed.'
 }
 
 # The following is a standard template for custom resource implementation.
@@ -80,8 +83,9 @@ try {
     }
 }
 catch {
-    Write-Error $_
+    Write-Error "Unhandled error during deployment.  $_" -ErrorAction Continue
     if (-not $CFNEvent.ResourceProperties.IgnoreSqlErrors) {
+      $body.Reason = "$($body.Reason). $_"
       $body.Status = "FAILED"
     }
 }
