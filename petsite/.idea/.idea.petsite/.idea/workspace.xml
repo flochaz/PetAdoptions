@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../payforadoption/PayForAdoption/obj/Debug/netcoreapp3.0/PayForAdoption.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.idea/.idea.petsearch/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/.vs/petsearch/v16/.suo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/Controllers/SearchController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../petsearch/petsearch/PetSearch.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../petsearch/petsearch/PetSearch.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/css/catalog/catalog.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/wwwroot/css/catalog/catalog.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/css/catalog/catalog.component.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/wwwroot/css/catalog/catalog.component.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/css/site.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/wwwroot/css/site.min.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,26 +28,25 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5EF107BA-B2AB-487C-8F3C-7A0306612873/B/Controller.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/SearchParams.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/PutParams.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Startup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Controllers/AdoptionController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Controllers/HealthController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/ViewModels/Pets.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Views/Payment/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/ViewModels/Pets.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Controllers/PaymentController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Controllers/HealthController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Controllers/AdoptionController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/petsite/Views/Payment/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/PutParams.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/SearchParams.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -41,12 +54,10 @@
         <option value="$PROJECT_DIR$/petsite/Controllers/Health.cs" />
         <option value="$PROJECT_DIR$/petsite/Controllers/HealthController.cs" />
         <option value="$PROJECT_DIR$/petsite/PutParams.cs" />
-        <option value="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Controllers/AdoptionController.cs" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" />
         <option value="$PROJECT_DIR$/petsite/ViewModels/Pets.cs" />
         <option value="$PROJECT_DIR$/petsite/Properties/launchSettings.json" />
-        <option value="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" />
         <option value="$PROJECT_DIR$/petsite/Controllers/PetListAdoptionsController.cs" />
@@ -61,6 +72,8 @@
         <option value="$PROJECT_DIR$/petsite/Program.cs" />
         <option value="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" />
         <option value="$PROJECT_DIR$/petsite/appsettings.Development.json" />
+        <option value="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" />
+        <option value="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" />
       </list>
     </option>
   </component>
@@ -70,7 +83,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -95,7 +107,7 @@
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
     <configuration name="PetSite: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -110,21 +122,9 @@
       <option name="SEND_DEBUG_REQUEST" value="1" />
       <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
       <method v="2">
-        <option name="Build" enabled="true" />
+        <option name="Build" />
       </method>
     </configuration>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -161,69 +161,69 @@
       <workItem from="1588637189180" duration="683000" />
       <workItem from="1588697193340" duration="3298000" />
       <workItem from="1589375713465" duration="334000" />
+      <workItem from="1594347049562" duration="1560000" />
+      <workItem from="1594390479191" duration="1121000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="963" y="304" key="#petsite/Dockerfile" timestamp="1588006927103">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
     <state x="963" y="304" key="#petsite/Dockerfile/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588006927103" />
-    <state x="448" y="105" key="#xdebugger.evaluate" timestamp="1585503156670">
-      <screen x="43" y="23" width="1397" height="877" />
-    </state>
-    <state x="448" y="105" key="#xdebugger.evaluate/43.23.1397.877@43.23.1397.877" timestamp="1585503156670" />
     <state width="548" height="582" key="DebuggerActiveHint" timestamp="1588704735668">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
     <state width="548" height="582" key="DebuggerActiveHint/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588704735668" />
-    <state x="143" y="123" width="1197" height="677" key="DiffContextDialog" timestamp="1584306854306">
-      <screen x="43" y="23" width="1397" height="877" />
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom" timestamp="1594383186025">
+      <screen x="0" y="23" width="3440" height="1372" />
     </state>
-    <state x="143" y="123" width="1197" height="677" key="DiffContextDialog/43.23.1397.877@43.23.1397.877" timestamp="1584306854306" />
-    <state width="1760" height="470" key="GridCell.Tab.0.bottom" timestamp="1590507416832">
-      <screen x="0" y="0" width="3440" height="1396" />
-    </state>
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom/0.23.1440.832@0.23.1440.832" timestamp="1594347795663" />
+    <state width="1398" height="216" key="GridCell.Tab.0.bottom/0.23.3440.1372@0.23.3440.1372" timestamp="1594383186025" />
     <state width="1760" height="470" key="GridCell.Tab.0.bottom/3440.0.1440.900/0.0.3440.1396@0.0.3440.1396" timestamp="1590507416832" />
     <state width="2141" height="564" key="GridCell.Tab.0.bottom/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588769275595" />
-    <state width="1341" height="215" key="GridCell.Tab.0.bottom/42.23.1398.877@42.23.1398.877" timestamp="1585511287760" />
     <state width="1357" height="229" key="GridCell.Tab.0.bottom/43.23.1397.877@43.23.1397.877" timestamp="1585794285799" />
-    <state width="1760" height="470" key="GridCell.Tab.0.center" timestamp="1590507416831">
-      <screen x="0" y="0" width="3440" height="1396" />
+    <state width="1398" height="216" key="GridCell.Tab.0.center" timestamp="1594383186024">
+      <screen x="0" y="23" width="3440" height="1372" />
     </state>
+    <state width="1398" height="216" key="GridCell.Tab.0.center/0.23.1440.832@0.23.1440.832" timestamp="1594347795662" />
+    <state width="1398" height="216" key="GridCell.Tab.0.center/0.23.3440.1372@0.23.3440.1372" timestamp="1594383186024" />
     <state width="1760" height="470" key="GridCell.Tab.0.center/3440.0.1440.900/0.0.3440.1396@0.0.3440.1396" timestamp="1590507416831" />
     <state width="2141" height="564" key="GridCell.Tab.0.center/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588769275594" />
-    <state width="1341" height="215" key="GridCell.Tab.0.center/42.23.1398.877@42.23.1398.877" timestamp="1585511287759" />
     <state width="1357" height="229" key="GridCell.Tab.0.center/43.23.1397.877@43.23.1397.877" timestamp="1585794285798" />
-    <state width="1760" height="470" key="GridCell.Tab.0.left" timestamp="1590507416830">
-      <screen x="0" y="0" width="3440" height="1396" />
+    <state width="1398" height="216" key="GridCell.Tab.0.left" timestamp="1594383186024">
+      <screen x="0" y="23" width="3440" height="1372" />
     </state>
+    <state width="1398" height="216" key="GridCell.Tab.0.left/0.23.1440.832@0.23.1440.832" timestamp="1594347795661" />
+    <state width="1398" height="216" key="GridCell.Tab.0.left/0.23.3440.1372@0.23.3440.1372" timestamp="1594383186024" />
     <state width="1760" height="470" key="GridCell.Tab.0.left/3440.0.1440.900/0.0.3440.1396@0.0.3440.1396" timestamp="1590507416830" />
     <state width="2141" height="564" key="GridCell.Tab.0.left/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588769275593" />
-    <state width="1341" height="215" key="GridCell.Tab.0.left/42.23.1398.877@42.23.1398.877" timestamp="1585511287758" />
     <state width="1357" height="229" key="GridCell.Tab.0.left/43.23.1397.877@43.23.1397.877" timestamp="1585794285798" />
-    <state width="1760" height="470" key="GridCell.Tab.0.right" timestamp="1590507416831">
-      <screen x="0" y="0" width="3440" height="1396" />
+    <state width="1398" height="216" key="GridCell.Tab.0.right" timestamp="1594383186024">
+      <screen x="0" y="23" width="3440" height="1372" />
     </state>
+    <state width="1398" height="216" key="GridCell.Tab.0.right/0.23.1440.832@0.23.1440.832" timestamp="1594347795663" />
+    <state width="1398" height="216" key="GridCell.Tab.0.right/0.23.3440.1372@0.23.3440.1372" timestamp="1594383186024" />
     <state width="1760" height="470" key="GridCell.Tab.0.right/3440.0.1440.900/0.0.3440.1396@0.0.3440.1396" timestamp="1590507416831" />
     <state width="2141" height="564" key="GridCell.Tab.0.right/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588769275594" />
-    <state width="1341" height="215" key="GridCell.Tab.0.right/42.23.1398.877@42.23.1398.877" timestamp="1585511287759" />
     <state width="1357" height="229" key="GridCell.Tab.0.right/43.23.1397.877@43.23.1397.877" timestamp="1585794285798" />
     <state width="2141" height="564" key="GridCell.Tab.1.bottom" timestamp="1588769275596">
       <screen x="43" y="23" width="3397" height="1417" />
@@ -314,49 +314,15 @@
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
     <state x="1071" y="213" key="SettingsEditor/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1586606019073" />
-    <state x="69" y="23" key="SettingsEditor/42.23.1398.877@42.23.1398.877" timestamp="1585513258885" />
-    <state x="70" y="23" width="1139" height="877" key="SettingsEditor/43.23.1397.877@43.23.1397.877" timestamp="1585503243858" />
     <state width="895" height="708" key="XDebugger.FullValuePopup" timestamp="1585759200206">
       <screen x="43" y="23" width="3397" height="1417" />
     </state>
     <state width="895" height="708" key="XDebugger.FullValuePopup/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1585759200206" />
-    <state x="1801" y="257" width="1532" height="876" key="find.popup" timestamp="1588256372287">
-      <screen x="43" y="23" width="3397" height="1417" />
+    <state x="745" y="160" width="650" height="548" key="find.popup" timestamp="1594347787226">
+      <screen x="0" y="23" width="1440" height="832" />
     </state>
+    <state x="745" y="160" width="650" height="548" key="find.popup/0.23.1440.832@0.23.1440.832" timestamp="1594347787226" />
     <state x="1801" y="257" width="1532" height="876" key="find.popup/3440.23.1440.877/43.23.3397.1417@43.23.3397.1417" timestamp="1588256372287" />
     <state x="506" y="193" width="631" height="543" key="find.popup/42.23.1398.877@42.23.1398.877" timestamp="1586633411949" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/petsite/Views/Home/Index.cshtml</url>
-          <line>32</line>
-          <properties documentPath="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" initialLine="32" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/petsite/Controllers/HomeController.cs</url>
-          <line>142</line>
-          <properties documentPath="$PROJECT_DIR$/petsite/Controllers/HomeController.cs" initialLine="142">
-            <startOffsets>
-              <option value="6077" />
-            </startOffsets>
-            <endOffsets>
-              <option value="6148" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
