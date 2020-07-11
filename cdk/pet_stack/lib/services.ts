@@ -139,7 +139,8 @@ export class Services extends cdk.Stack {
         const listAdoptionsService = new ListAdoptionsService(this, 'list-adoptions-service', {
             cluster: new ecs.Cluster(this, "PetListAdoptions", {
                 vpc: theVPC,
-                containerInsights: true}),
+                containerInsights: true
+            }),
             logGroupName: "/ecs/PetListAdoptions",
             cpu: 1024,
             memoryLimitMiB: 2048,
@@ -158,13 +159,12 @@ export class Services extends cdk.Stack {
 
             const clusterAdmin = new iam.Role(this, 'AdminRole', {
                 assumedBy: new iam.AccountRootPrincipal()
-                });
+            });
 
             const cluster = new eks.Cluster(this, 'petsite', {
                 kubectlEnabled: true,
                 clusterName: 'PetSite',
-                mastersRole: clusterAdmin, 
-                vpc: theVPC
+                mastersRole: clusterAdmin
             });
 
             this.createOuputs(new Map(Object.entries({
@@ -176,7 +176,8 @@ export class Services extends cdk.Stack {
             const petSiteService = new PetSiteService(this, 'pet-site-service', {
                 cluster: new ecs.Cluster(this, "PetSite", {
                     vpc: theVPC,
-                    containerInsights: true}),
+                    containerInsights: true
+                }),
                 logGroupName: "/ecs/PetSite",
                 cpu: 1024,
                 memoryLimitMiB: 2048,
@@ -193,7 +194,8 @@ export class Services extends cdk.Stack {
         const searchService = new SearchService(this, 'search-service', {
             cluster: new ecs.Cluster(this, "PetSearch", {
                 vpc: theVPC,
-                containerInsights: true}),
+                containerInsights: true
+            }),
             logGroupName: "/ecs/PetSearch",
             cpu: 1024,
             memoryLimitMiB: 2048,
