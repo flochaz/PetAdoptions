@@ -44,4 +44,17 @@
     <Compile Remove="PutParams.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Bold.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Bold.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Bold.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Bold.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Bold.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Regular.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Regular.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Regular.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Regular.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\fonts\Montserrat-Regular.woff2" />
+  </ItemGroup>
+
 </Project>
