@@ -28,8 +28,12 @@ function SeedInitialSchema {
             Invoke-Sqlcmd -ConnectionString $connectionString -InputFile $script -ErrorAction Stop
             return
         } catch {
+            Write-Host ($Error | Format-List -Force | Out-String)
             Write-Error "Retry attempt $retryAttempt failed. $_" -ErrorAction Continue
             if ($retryAttempt -lt $MaxRetries) {
+                # Clear error status before next attempt
+                $Error.Clear()
+                # Wait and repeat
                 Write-Host "Wait $Delay seconds before next attempt."
                 Start-Sleep -Seconds $Delay
             } else {
