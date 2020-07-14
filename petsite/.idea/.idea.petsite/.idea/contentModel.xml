@@ -22,12 +22,9 @@
         </e>
         <e p="Dockerfile" t="Include" />
         <e p="kubernetes" t="Include">
-          <e p="alb-ingress-controller.yaml" t="Include" />
-          <e p="cwagent-fluentd-quickstart.yaml" t="Include" />
           <e p="deployment.yaml" t="Include" />
-          <e p="ekscluster.yaml" t="Include" />
-          <e p="ingress.yaml" t="Include" />
-          <e p="rbac-role.yaml" t="Include" />
+          <e p="irp-trust-policy.json" t="Include" />
+          <e p="irsa.sh" t="Include" />
           <e p="service.yaml" t="Include" />
           <e p="xray-daemon" t="Include">
             <e p="Dockerfile" t="Include" />
@@ -82,72 +79,9 @@
         </e>
         <e p="wwwroot" t="Include">
           <e p="css" t="Include">
-            <e p="_variables.css" t="Include" />
-            <e p="_variables.min.css" t="Include" />
-            <e p="_variables.scss" t="Include" />
-            <e p="app.component.css" t="Include" />
-            <e p="app.component.min.css" t="Include" />
-            <e p="app.component.scss" t="Include" />
-            <e p="app.css" t="Include" />
-            <e p="app.min.css" t="Include" />
-            <e p="basket" t="Include">
-              <e p="basket-status" t="Include">
-                <e p="basket-status.component.css" t="Include" />
-                <e p="basket-status.component.min.css" t="Include" />
-                <e p="basket-status.component.scss" t="Include" />
-              </e>
-              <e p="basket.component.css" t="Include" />
-              <e p="basket.component.min.css" t="Include" />
-              <e p="basket.component.scss" t="Include" />
-            </e>
-            <e p="catalog" t="Include">
-              <e p="catalog.component.css" t="Include" />
-              <e p="catalog.component.min.css" t="Include" />
-              <e p="catalog.component.scss" t="Include" />
-              <e p="pager.css" t="Include" />
-            </e>
-            <e p="orders" t="Include">
-              <e p="orders.component.css" t="Include" />
-              <e p="orders.component.min.css" t="Include" />
-              <e p="orders.component.scss" t="Include" />
-            </e>
-            <e p="Shared" t="Include">
-              <e p="components" t="Include">
-                <e p="header" t="Include">
-                  <e p="header.css" t="Include" />
-                  <e p="header.min.css" t="Include" />
-                  <e p="header.scss" t="Include" />
-                </e>
-                <e p="identity" t="Include">
-                  <e p="identity.css" t="Include" />
-                  <e p="identity.min.css" t="Include" />
-                  <e p="identity.scss" t="Include" />
-                </e>
-                <e p="pager" t="Include">
-                  <e p="pager.css" t="Include" />
-                  <e p="pager.min.css" t="Include" />
-                  <e p="pager.scss" t="Include" />
-                </e>
-              </e>
-            </e>
-            <e p="site.min.css" t="Include" />
-          </e>
-          <e p="css_old" t="Include">
             <e p="site.css" t="Include" />
           </e>
           <e p="favicon.ico" t="Include" />
-          <e p="fonts" t="Include">
-            <e p="Montserrat-Bold.eot" t="Include" />
-            <e p="Montserrat-Bold.svg" t="Include" />
-            <e p="Montserrat-Bold.ttf" t="Include" />
-            <e p="Montserrat-Bold.woff" t="Include" />
-            <e p="Montserrat-Bold.woff2" t="Include" />
-            <e p="Montserrat-Regular.eot" t="Include" />
-            <e p="Montserrat-Regular.svg" t="Include" />
-            <e p="Montserrat-Regular.ttf" t="Include" />
-            <e p="Montserrat-Regular.woff" t="Include" />
-            <e p="Montserrat-Regular.woff2" t="Include" />
-          </e>
           <e p="images" t="Include">
             <e p="arrow-down.png" t="Include" />
             <e p="arrow-right.svg" t="Include" />
@@ -238,7 +172,7 @@
       </e>
       <e p="petsite.sln" t="IncludeFlat" />
     </e>
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
-    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_petsite.-1695006737.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/JetBrains/Rider2020.1/resharper-host/local/Transient/ReSharperHost/v201/SolutionCaches/_petsite.1033656977.00" t="ExcludeRecursive" />
   </component>
 </project>
