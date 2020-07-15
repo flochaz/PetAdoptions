@@ -54,7 +54,8 @@
 }
 
 .pet-header {
-    margin: 15px;
+    margin: 0px;
+    background-color: #000000;
 }
 
 .pet-wrapper {
