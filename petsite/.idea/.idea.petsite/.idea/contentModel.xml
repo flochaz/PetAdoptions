@@ -87,15 +87,8 @@
             <e p="arrow-down.png" t="Include" />
             <e p="arrow-right.svg" t="Include" />
             <e p="brand.png" t="Include" />
-            <e p="brand_old.png" t="Include" />
-            <e p="cart.png" t="Include" />
-            <e p="logout.png" t="Include" />
-            <e p="main_banner-old.png" t="Include" />
             <e p="main_banner.png" t="Include" />
             <e p="main_banner_text.png" t="Include" />
-            <e p="main_banner_text.svg" t="Include" />
-            <e p="main_banner_text_old.png" t="Include" />
-            <e p="my_orders.png" t="Include" />
             <e p="products" t="Include">
               <e p="1.png" t="Include" />
               <e p="10.png" t="Include" />
@@ -110,7 +103,6 @@
               <e p="8.png" t="Include" />
               <e p="9.png" t="Include" />
             </e>
-            <e p="refresh.svg" t="Include" />
           </e>
           <e p="js" t="Include">
             <e p="site.js" t="Include" />

@@ -20,18 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1d4a0b8f-811d-42eb-a335-a804e2a415b5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/petsite/wwwroot/css/petstyles.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.petsite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/PetSite.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/PetSite.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Adoption/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Payment/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Payment/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/PetListAdoptions/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Shared/_AdoptionItem.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/petsite/Views/Shared/_PetItem.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/brand_old.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/cart.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/logout.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/main_banner-old.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/main_banner_text_old.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/my_orders.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/petsite/wwwroot/images/refresh.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +46,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/petsite/Views/Home/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/petsite/Views/Home/Privacy.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/Home/HouseKeeping.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/Error.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/petsite/Views/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" />
