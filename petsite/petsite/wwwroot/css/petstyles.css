@@ -72,6 +72,7 @@
 }
 
 .pet-filter {
+    border-radius: .5rem;
     -webkit-appearance: none;
     background-color: transparent;
     border-color: #033c40;
@@ -132,6 +133,7 @@
     width: 100%; }
 
 .pet-button {
+    border-radius: .5rem;
     background-color: #f59526;
     border: 0;
     color: #FFFFFF;
