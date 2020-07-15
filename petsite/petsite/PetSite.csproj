@@ -8,6 +8,10 @@
 
   <ItemGroup>
     <Content Remove="compilerconfig.json" />
+    <Content Update="wwwroot\css\petstyles.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

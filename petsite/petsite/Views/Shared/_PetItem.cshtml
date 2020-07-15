@@ -2,20 +2,20 @@
 @model Pet;
 
     <form asp-controller="adoption" asp-action="takemehome" method="post">
-        <img class="esh-catalog-thumbnail" src="@Model.peturl" />
+        <img class="pet-thumbnail" src="@Model.peturl" />
         @if (Model.availability == "yes")
         {
-            <input class="esh-catalog-button" type="submit" value="Take me home"/>
+            <input class="pet-button" type="submit" value="Take me home"/>
         }
         else
         {
             <span class="alert-danger">Not available</span>
         }
         
-        <div class="esh-catalog-name">
+        <div class="pet-name">
             <span>@Model.pettype-@Model.petcolor</span>
         </div>
-        <div class="esh-catalog-price">
+        <div class="pet-price">
             <span>@Model.price</span>
         </div>
 
