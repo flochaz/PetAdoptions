@@ -8,23 +8,23 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<section class="esh-catalog-hero">
+<section class="pet-hero">
     <div class="container">
-        <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
+        <img class="pet-hero-title" src="~/images/main_banner_text.png" />
     </div>
 </section>
 <br />
 
 <div class="container align-items-center">
-    <div class="esh-catalog-items d-table-row">
-        <img class="esh-catalog-thumbnail" src="@Model.peturl" />
-        <div class="esh-catalog-name">
+    <div class="pet-items d-table-row">
+        <img class="pet-thumbnail" src="@Model.peturl" />
+        <div class="pet-name">
             <span>@Model.pettype-@Model.petcolor</span>
         </div>
-        <div class="esh-catalog-price">
+        <div class="pet-price">
             <span>@Model.price</span>
         </div>
-        <div class="esh-catalog-name">
+        <div class="pet-name">
             @for (int i = 0; i < Int32.Parse(Model.cuteness_rate); i++)
             {
                 <span>❤</span>
@@ -41,7 +41,7 @@
 </div>
 <hr />
 <div class="container align-items-center">
-    <div class="esh-catalog-items d-table-row">
+    <div class="pet-items d-table-row">
         <span class="alert-danger">Information entered on this page is neither stored nor processed.</span>
     </div>
 </div>

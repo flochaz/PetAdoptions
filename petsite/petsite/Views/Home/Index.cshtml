@@ -5,22 +5,23 @@
     @model PetDetails;
 }
 
-<section class="esh-catalog-hero">
+<section class="pet-hero">
     <div class="container">
-        <img class="esh-catalog-title" src="~/images/main_banner_text.png" />
+        <img class="pet-hero-title" src="~/images/main_banner_text.png" />
     </div>
 </section>
 
-<section class="esh-catalog-filters">
+<section class="pet-filters">
     <div class="container">
         <form method="get">
-            <label class="esh-catalog-label" data-title="Type">
-                <select name="selectedPetType" asp-for="@Model.Varieties.SelectedPetType" asp-items="@Model.Varieties.PetTypes" class="esh-catalog-filter"></select>
+            <label class="pet-label" data-title="Type">
+                <select name="selectedPetType" asp-for="@Model.Varieties.SelectedPetType" asp-items="@Model.Varieties.PetTypes" class="pet-filter"></select>
             </label>
-            <label class="esh-catalog-label" data-title="Color">
-                <select name="selectedPetColor" asp-for="@Model.Varieties.SelectedPetColor" asp-items="@Model.Varieties.PetColors" class="esh-catalog-filter"></select>
+            <label class="pet-label" data-title="Color">
+                <select name="selectedPetColor" asp-for="@Model.Varieties.SelectedPetColor" asp-items="@Model.Varieties.PetColors" class="pet-filter"></select>
             </label>
-            <input id="searchpets" class="esh-catalog-send" type="image" src="images/arrow-right.svg" />
+            <input id="searchpets" class="pet-send" type="submit" value="Search" />
+
         </form>
     </div>
 </section>
@@ -29,10 +30,10 @@
 <div class="container">
     @if (Model.Pets.Any())
     {
-        <div class="esh-catalog-items row">
+        <div class="pet-items row">
             @foreach (var pet in Model.Pets)
             {
-                <div class="esh-catalog-item col-md-4">
+                <div class="pet-item col-md-4">
                     <partial name="_PetItem" for="@pet" />
                 </div>
             }
@@ -40,7 +41,7 @@
     }
     else
     {
-        <div class="esh-catalog-items row">
+        <div class="pet-items row">
             NO PETS AVAILABLE WITH THAT SEARCH CONDITION
         </div>
     }
