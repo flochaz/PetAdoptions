@@ -22,6 +22,8 @@ import { SearchService } from './services/search-service'
 import { TrafficGeneratorService } from './services/traffic-generator-service'
 import { StatusUpdaterService } from './services/status-updater-service'
 import path = require('path');
+import { Version } from '@aws-cdk/aws-lambda';
+import { KubernetesVersion } from '@aws-cdk/aws-eks';
 
 export class Services extends cdk.Stack {
     constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
@@ -91,7 +93,7 @@ export class Services extends cdk.Stack {
 
         const instance = new rds.DatabaseInstance(this, 'Instance', {
             engine: rds.DatabaseInstanceEngine.SQL_SERVER_WEB,
-            instanceClass: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.SMALL),
+            instanceType: ec2.InstanceType.of(ec2.InstanceClass.BURSTABLE2, ec2.InstanceSize.SMALL),
             masterUsername: rdsUsername,
             masterUserPassword: rdsPasswordSecret,
             removalPolicy: cdk.RemovalPolicy.DESTROY,
@@ -162,10 +164,11 @@ export class Services extends cdk.Stack {
             });
 
             const cluster = new eks.Cluster(this, 'petsite', {
-                kubectlEnabled: true,
                 clusterName: 'PetSite',
+                kubectlEnabled: true,
                 mastersRole: clusterAdmin,
-                vpc:theVPC
+                vpc: theVPC,
+                version: KubernetesVersion.V1_16
             });
 
             sqlSeeder.node.addDependency(cluster);
